@@ -1,0 +1,85 @@
+mixin portfolio()
+  -
+    const portfolioLinks = [
+      {
+        title: "Сибур",
+        description: "3D, Анимация, Production, Web-design",
+        image: "sibur",
+        link: "#",
+      },
+      {
+        title: "MR group",
+        description: "3D, Анимация, Production, Web-design",
+        image: "mr-group",
+        link: "#",
+      },
+      {
+        title: "Северсталь",
+        description: "3D, Анимация, Production, Web-design",
+        image: "severstal",
+        link: "#",
+      },
+      {
+        title: "WHOOSH",
+        description: "3D, Анимация, Production, Web-design",
+        image: "whoosh",
+        link: "#",
+      },
+      {
+        title: "Сайт R&D-центра НЛМК",
+        description: "3D, Анимация, Production, Web-design",
+        image: "nlmk-rd",
+        link: "#",
+      },
+      {
+        title: "Новые академики",
+        description: "3D, Анимация, Production, Web-design",
+        image: "new-academics",
+        link: "#",
+      },
+      {
+        title: "Аш-Тау",
+        description: "3D, Анимация, Production, Web-design",
+        image: "ash-tau",
+        link: "#",
+      },
+      {
+        title: "Уралхим",
+        description: "3D, Анимация, Production, Web-design",
+        image: "uralchem",
+        link: "#",
+      },
+      {
+        title: "Плати частями",
+        description: "3D, Анимация, Production, Web-design",
+        image: "pay-parts",
+        link: "#",
+      },
+    ]
+  section.portfolio
+    .container
+      .portfolio__title-container
+        p.portfolio-section-description Проекты
+        .portfolio__title-wrapper
+          h2.portfolio__title.title Аналитика, брендинг и&nbsp;разработка для B2B
+          p.portfolio__description Обеспечиваем компании лучшими техническими и&nbsp;дизайн-решениями, создавая digital-проекты.
+    ul.portfolio__list
+      each card in portfolioLinks
+        li.portfolio__list-item
+          a.portfolio__link(href=card.link , aria-label=card.title, title=card.title)
+            +adaptivePicture({
+              imageBaseName: 'project-sibur',
+              path: 'portfolio',
+              width: 607,
+              height: 607,
+              alt: card.title,
+              desktop1440Width: 448,
+              desktop1440Height: 451,
+              desktop1280Width: 400,
+              desktop1280Height: 400,
+              tabletWidth: 358,
+              tabletHeight: 350,
+              mobileWidth: 315,
+              mobileHeight: 315
+            })
+    button.btn(type="button") все проекты

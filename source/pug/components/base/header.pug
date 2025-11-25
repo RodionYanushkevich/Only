@@ -32,7 +32,7 @@ mixin header(headerMods, currentUrl)
         a.header__logo(href="index.html", aria-label="Переход на главную")
           +icon("logo", 82, 27)
 
-      nav.main-nav
+      nav.header__nav.main-nav
         .main-nav__wrapper
           ul.main-nav__list
             each link in headerLinks
