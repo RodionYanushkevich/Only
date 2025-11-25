@@ -2,21 +2,37 @@ mixin header(headerMods, currentUrl)
   -
     const headerLinks = [
       {
-        href: "index.html",
-        text: "Главная"
+        href: "#",
+        text: "Проекты"
+      },
+      {
+        href: "#",
+        text: "Компания"
+      },
+      {
+        href: "#",
+        text: "Направления"
+      },
+      {
+        href: "#",
+        text: "Блог"
+      },
+      {
+        href: "#",
+        text: "Карьера"
       },
     ]
 
   header.header(class=headerMods)
     .container
       if(currentUrl === "index.html")
-        //- lighthouse снимает 10 баллов SEO за <a> без href
-        span.header__logo Логотип
+        span.header__logo
+          +icon("logo", 82, 27)
       else
-        a.header__logo(href="index.html", aria-label="Переход на главную") Логотип
+        a.header__logo(href="index.html", aria-label="Переход на главную")
+          +icon("logo", 82, 27)
+
       nav.main-nav
-        button.main-nav__toggle.btn-reset(type="button", aria-label="Переключатель отображения меню", aria-pressed="false")
-          +icon("icon-burger", 20, 20)
         .main-nav__wrapper
           ul.main-nav__list
             each link in headerLinks
@@ -26,3 +42,11 @@ mixin header(headerMods, currentUrl)
                   span.main-nav__link.is-active= link.text
                 else
                   a.main-nav__link(href=link.href)= link.text
+        button.main-nav__toggle(type="button", aria-label="Переключатель отображения меню", aria-pressed="false")
+          +icon("icon-burger", 20, 20)
+      div.header__star-container
+        span.header__star-count 40
+        span.header__star
+          +icon("star", 21, 21)
+
+
