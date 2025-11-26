@@ -1,18 +1,54 @@
-// @font-face {
-//   font-style: normal;
-//   font-weight: 400;
-//   font-family: "Rouble";
-
-//   font-display: swap;
-//   src:
-//     url("../fonts/rouble.woff2") format("woff2");
-// }
-
+/* tt runs trial demibold */
 @font-face {
+  font-family: "TT Runs Trial";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../fonts/tt-runs-trial/tt-runs-trial-demibold.woff2") format("woff2");
+}
+
+/* tt runs trial medium */
+@font-face {
+  font-family: "TT Runs Trial";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../fonts/tt-runs-trial/tt-runs-trial-medium.woff2") format("woff2");
+}
+
+/* tt runs trial bold */
+@font-face {
+  font-family: "TT Runs Trial";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/tt-runs-trial/tt-runs-trial-bold.woff2") format("woff2");
+}
+
+/* tt runs trial extrabold */
+@font-face {
+  font-family: "TT Runs Trial";
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("../fonts/tt-runs-trial/tt-runs-trial-extrabold.woff2") format("woff2");
+}
+
+/* tt commons pro trial medium */
+@font-face {
+  font-family: "TT Commons Pro Trial";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../fonts/tt-commons-pro/tt-commons-pro-trial-medium.woff2") format("woff2");
+}
+
+/* tt commons pro trial normal */
+@font-face {
+  font-family: "TT Commons Pro Trial";
   font-style: normal;
   font-weight: 400;
-  font-family: "";
-
   font-display: swap;
-  src: url("../fonts/.woff2") format("woff2");
+  src: url("../fonts/tt-commons-pro/tt-commons-pro-trial-normal.woff2") format("woff2");
 }
+
