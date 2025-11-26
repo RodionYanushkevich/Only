@@ -3,23 +3,33 @@ mixin hero()
     const heroAwards = [
       {
         count: "25",
-        img: "award-icon-1"
+        img: "award-icon-1",
+        width: "28",
+        height: "28"
       },
       {
         count: "1",
-        img: "award-icon-2"
+        img: "award-icon-2",
+        width: "41",
+        height: "12"
       },
       {
         count: "26",
-        img: "award-icon-3"
+        img: "award-icon-3",
+        width: "25",
+        height: "25"
       },
       {
         count: "22",
-        img: "award-icon-4"
+        img: "award-icon-4",
+        width: "27",
+        height: "27"
       },
       {
         count: "40",
-        img: "award-icon-5"
+        img: "award-icon-5",
+        width: "27",
+        height: "27"
       },
     ]
   section.hero
@@ -32,7 +42,7 @@ mixin hero()
               a.awards__link(href="#")
                 span.awards__count!=award.count
                 .awards__icon-container
-                  +icon(award.img, 30, 30)
+                  +icon(award.img, award.width, award.height)
       .hero__info-container
         .hero__years
           p.hero__years-count 10

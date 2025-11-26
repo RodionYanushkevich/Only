@@ -27,10 +27,10 @@ mixin header(headerMods, currentUrl)
     .container
       if(currentUrl === "index.html")
         span.header__logo
-          +icon("logo", 82, 27)
+          img(src="img/svg/logo.svg", width="82", height="27", alt="Логотип Only-digital", )
       else
         a.header__logo(href="index.html", aria-label="Переход на главную")
-          +icon("logo", 82, 27)
+          img(src="img/svg/logo.svg", width="82", height="27", alt="Логотип Only-digital", )
 
       nav.header__nav.main-nav
         .main-nav__wrapper

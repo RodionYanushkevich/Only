@@ -63,23 +63,23 @@ mixin portfolio()
         .portfolio__title-wrapper
           h2.portfolio__title.title Аналитика, брендинг и&nbsp;разработка для B2B
           p.portfolio__description Обеспечиваем компании лучшими техническими и&nbsp;дизайн-решениями, создавая digital-проекты.
-    ul.portfolio__list
-      each card in portfolioLinks
-        li.portfolio__list-item
-          a.portfolio__link(href=card.link , aria-label=card.title, title=card.title)
-            +adaptivePicture({
-              imageBaseName: 'project-sibur',
-              path: 'portfolio',
-              width: 607,
-              height: 607,
-              alt: card.title,
-              desktop1440Width: 448,
-              desktop1440Height: 451,
-              desktop1280Width: 400,
-              desktop1280Height: 400,
-              tabletWidth: 358,
-              tabletHeight: 350,
-              mobileWidth: 315,
-              mobileHeight: 315
-            })
-    button.btn(type="button") все проекты
+      ul.portfolio__list
+        each card in portfolioLinks
+          li.portfolio__list-item
+            a.portfolio__link(href=card.link , aria-label=card.title, title=card.title)
+              +adaptivePicture({
+                imageBaseName: card.image,
+                path: `portfolio/${card.image}`,
+                width: 607,
+                height: 607,
+                alt: card.title,
+                desktop1440Width: 448,
+                desktop1440Height: 451,
+                desktop1280Width: 400,
+                desktop1280Height: 400,
+                tabletWidth: 358,
+                tabletHeight: 350,
+                mobileWidth: 315,
+                mobileHeight: 315
+              })
+      button.btn(type="button") все проекты
