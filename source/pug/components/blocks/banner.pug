@@ -1,77 +1,88 @@
 mixin banner()
   -
-    const slides = [
+    const bannerCardsImages = [
       {
-        dataId: "slide-1",
-        subtitle: "Промышленность",
-        title: "Северсталь",
-        description: "Адаптация нового брендинга для digital",
-        images: ["img-1", "img-2", "img-3", "img-4"]
+        id: "1",
+        alt: "изображения проекта",
+        width1920:"376",
+        height1920:"261",
+        width1440:"280",
+        height1440:"194",
+        width1280:"234",
+        height1280:"162",
+        tabletWidth:"148",
+        tabletHeigth:"103"
       },
       {
-        dataId: "slide-2",
-        subtitle: "Промышленность",
-        title: "Сибур",
-        description: "Адаптация нового брендинга для digital",
-        images: ["img-1", "img-2", "img-3", "img-4"]
+        id: "2",
+        alt: "изображения проекта",
+        width1920:"242",
+        height1920:"524",
+        width1440:"180",
+        height1440:"390",
+        width1280:"150",
+        height1280:"326",
+        tabletWidth:"99",
+        tabletHeigth:"215"
       },
       {
-        dataId: "slide-3",
-        subtitle: "Недвижимость",
-        title: "MR Group",
-        description: "Адаптация нового брендинга для digital",
-        images: ["img-1", "img-2", "img-3", "img-4"]
+        id: "3",
+        alt: "изображения проекта",
+        width1920:"373",
+        height1920:"373",
+        width1440:"277",
+        height1440:"277",
+        width1280:"233",
+        height1280:"233",
+        tabletWidth:"155",
+        tabletHeigth:"155"
       },
       {
-        dataId: "slide-4",
-        subtitle: "Недвижимость",
-        title: "Главстрой",
-        description: "Адаптация нового брендинга для digital",
-        images:["img-1", "img-2", "img-3","img-4"]
+        id: "4",
+        alt: "изображения проекта",
+        width1920:"377",
+        height1920:"379",
+        width1440:"282",
+        height1440:"258",
+        width1280:"235",
+        height1280:"219",
+        tabletWidth:"151",
+        tabletHeigth:"144"
       },
-      {
-        dataId: "slide-5",
-        subtitle: "Медицина",
-        title: "Фармстандарт",
-        description: "Адаптация нового брендинга для digital",
-        images: ["img-1", "img-2", "img-3","img-4"]
-      },
-      {
-        dataId: "slide-6",
-        subtitle: "Промышленность",
-        title: "Тэк-Торг",
-        description: "Адаптация нового брендинга для digital",
-        images: ["img-1", "img-2", "img-3","img-4"]
-      }
     ]
   section.banner
     .container
       .banner__title-container
-        p.banner-section-description крупные проекты
+        p.banner-section-description недвижимость
         .banner__title-wrapper
-          h2.banner__title.title Поддерживаем и&nbsp;развиваем долгосрочное сотрудничество
-      ul.banner__slides.banner-slides
-        each slide in slides
-          li.banner-slides__item
-            a.banner-slides__slide.banner-slide(href="#")
-              p.banner-slide__subtitle!= slide.subtitle
-              h3.banner-slide__title!= slide.title
-              p.banner-slide__description!= slide.description
-              ul.banner-slide__image-list
-                each imageName in slide.images
-                  li.banner-slide__image-list-item(aria-hidden="true")
-                    +adaptivePicture({
-                      imageBaseName: imageName,
-                      path: `${slide.dataId}/${imageName}`,
-                      width: 85,
-                      height: 85,
-                      alt: `Иконка проекта ${slide.title}`,
-                      desktop1440Width: 64,
-                      desktop1440Height: 64,
-                      desktop1280Width: 60,
-                      desktop1280Height: 60,
-                      tabletWidth: 75,
-                      tabletHeight: 75,
-                      mobileWidth: 65,
-                      mobileHeight: 65
-                    })
+          h2.banner__title.banner-title
+            span Формируем
+            +icon("banner-title-arow-icon", 40, 40)(aria-hidden="true")
+            +icon("banner-title-heart-icon", 40, 40)(aria-hidden="true")
+            span ценность бренда
+            +icon("banner-title-planet-icon", 29, 29)(aria-hidden="true")
+            span.banner-title__container
+              +icon("banner-title-sity-icon", 40, 40)(aria-hidden="true")
+            span.banner-title__container в digital - среде
+          p.banner__description
+        ul.banner__images.banner-images(style="background-image: url('image/path-to-image.jpg')")
+          each image in bannerCardsImages
+            li.banner-images__item
+              +adaptivePicture({
+                imageBaseName: `image-${image.id}`,
+                path: `banner/image-${image.id}`,
+                width: image.width1920,
+                height: image.height1920,
+                alt: image.alt,
+                desktop1440Width: image.width1440,
+                desktop1440Height: image.height1440,
+                desktop1280Width: image.width1280,
+                desktop1280Height: image.height1280,
+                tabletWidth: image.tabletWidth,
+                tabletHeight: image.tabletHeight,
+                disableMobile: true,
+            })
+        ul.banner__pagination-buttons.pagination-buttons
+          each button, i in bannerCardsImages
+            li.pagination-buttons__item
+              button.pagination-buttons__button.btn(type="button", aria-label=`Перейти к слайду ${i + 1}`)

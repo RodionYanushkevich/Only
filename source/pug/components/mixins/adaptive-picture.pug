@@ -4,9 +4,10 @@ mixin adaptivePicture(options = {})
   - const width = options.width;
   - const height = options.height;
   - const alt = options.alt || '';
+  - const disableMobile = options.disableMobile || false;
 
   picture
-    //-  1440px
+    //- 1440px
     source(
       srcset=`img/${path}/${imageBaseName}-desktop-1440.webp 1x, img/${path}/${imageBaseName}-desktop-1440@2x.webp 2x`,
       media="(min-width: 1440px) and (max-width: 1919px)",
@@ -15,7 +16,7 @@ mixin adaptivePicture(options = {})
       height=options.desktop1440Height || height
     )
 
-    //-  1280px
+    //- 1280px
     source(
       srcset=`img/${path}/${imageBaseName}-desktop-1280.webp 1x, img/${path}/${imageBaseName}-desktop-1280@2x.webp 2x`,
       media="(min-width: 1280px) and (max-width: 1439px)",
@@ -24,7 +25,7 @@ mixin adaptivePicture(options = {})
       height=options.desktop1280Height || height
     )
 
-    //-  768px
+    //- 768px
     source(
       srcset=`img/${path}/${imageBaseName}-tablet.webp 1x, img/${path}/${imageBaseName}-tablet@2x.webp 2x`,
       media="(min-width: 768px) and (max-width: 1279px)",
@@ -33,14 +34,15 @@ mixin adaptivePicture(options = {})
       height=options.tabletHeight || height
     )
 
-    //-  375px
-    source(
-      srcset=`img/${path}/${imageBaseName}-mobile.webp 1x, img/${path}/${imageBaseName}-mobile@2x.webp 2x`,
-      media="(max-width: 767px)",
-      type="image/webp",
-      width=options.mobileWidth || width,
-      height=options.mobileHeight || height
-    )
+    //- 375px
+    if !disableMobile
+      source(
+        srcset=`img/${path}/${imageBaseName}-mobile.webp 1x, img/${path}/${imageBaseName}-mobile@2x.webp 2x`,
+        media="(max-width: 767px)",
+        type="image/webp",
+        width=options.mobileWidth || width,
+        height=options.mobileHeight || height
+      )
 
     img(
       src=`img/${path}/${imageBaseName}-desktop-1920.webp`,
