@@ -115,5 +115,5 @@ mixin clients()
       each card in clientsLinks
         li.clients__list-item
           a.clients__link(href=card.link , aria-label=card.title, title=card.title)
-            svg(width=card.width, height.card.height , aria-hidden=true)
+            svg(width=card.width, height=card.height , aria-hidden="true")
               use(href=`img/svg/${card.image}`)

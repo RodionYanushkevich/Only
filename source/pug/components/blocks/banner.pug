@@ -1,0 +1,77 @@
+mixin banner()
+  -
+    const slides = [
+      {
+        dataId: "slide-1",
+        subtitle: "Промышленность",
+        title: "Северсталь",
+        description: "Адаптация нового брендинга для digital",
+        images: ["img-1", "img-2", "img-3", "img-4"]
+      },
+      {
+        dataId: "slide-2",
+        subtitle: "Промышленность",
+        title: "Сибур",
+        description: "Адаптация нового брендинга для digital",
+        images: ["img-1", "img-2", "img-3", "img-4"]
+      },
+      {
+        dataId: "slide-3",
+        subtitle: "Недвижимость",
+        title: "MR Group",
+        description: "Адаптация нового брендинга для digital",
+        images: ["img-1", "img-2", "img-3", "img-4"]
+      },
+      {
+        dataId: "slide-4",
+        subtitle: "Недвижимость",
+        title: "Главстрой",
+        description: "Адаптация нового брендинга для digital",
+        images:["img-1", "img-2", "img-3","img-4"]
+      },
+      {
+        dataId: "slide-5",
+        subtitle: "Медицина",
+        title: "Фармстандарт",
+        description: "Адаптация нового брендинга для digital",
+        images: ["img-1", "img-2", "img-3","img-4"]
+      },
+      {
+        dataId: "slide-6",
+        subtitle: "Промышленность",
+        title: "Тэк-Торг",
+        description: "Адаптация нового брендинга для digital",
+        images: ["img-1", "img-2", "img-3","img-4"]
+      }
+    ]
+  section.banner
+    .container
+      .banner__title-container
+        p.banner-section-description крупные проекты
+        .banner__title-wrapper
+          h2.banner__title.title Поддерживаем и&nbsp;развиваем долгосрочное сотрудничество
+      ul.banner__slides.banner-slides
+        each slide in slides
+          li.banner-slides__item
+            a.banner-slides__slide.banner-slide(href="#")
+              p.banner-slide__subtitle!= slide.subtitle
+              h3.banner-slide__title!= slide.title
+              p.banner-slide__description!= slide.description
+              ul.banner-slide__image-list
+                each imageName in slide.images
+                  li.banner-slide__image-list-item(aria-hidden="true")
+                    +adaptivePicture({
+                      imageBaseName: imageName,
+                      path: `${slide.dataId}/${imageName}`,
+                      width: 85,
+                      height: 85,
+                      alt: `Иконка проекта ${slide.title}`,
+                      desktop1440Width: 64,
+                      desktop1440Height: 64,
+                      desktop1280Width: 60,
+                      desktop1280Height: 60,
+                      tabletWidth: 75,
+                      tabletHeight: 75,
+                      mobileWidth: 65,
+                      mobileHeight: 65
+                    })
