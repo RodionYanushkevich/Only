@@ -1,0 +1,17 @@
+mixin presentation(className)
+  .presentation(class=className)
+    ul.presentation__list
+      li.presentation__item
+        a.presentation__link(
+          href="files/#",
+          download="only-digital-presentation.pdf",
+          aria-label="Скачать презентацию компании"
+        ) pdf
+      li.presentation__item
+        a.presentation__link(
+          href="#",
+          target="_blank",
+          rel="noopener noreferrer",
+          aria-label="Смотреть презентацию о компании"
+        ) pitch
+    p.presentation__description Презентация компании

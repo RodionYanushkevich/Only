@@ -39,45 +39,11 @@ mixin hero()
           .hero__years-wrapper
             p.hero__years-text лет
             p.hero__years-description Лучший креативный разработчик для b2b
-        .hero__contacts
-
-          a.hero__contacts-link(
-            href="mailto:hello@only.digital",
-            aria-label="Написать нам"
-          ) hello@only.digital
-
-          a.hero__contacts-link(
-            href="tel:+74957409979",
-            aria-label="Позвонить нам"
-          ) +7 (495) 740-99-79
-
-          p.hero__contacts-link-description Telegram для связи
-
-          a.hero__contacts-link(
-            href="https://t.me/onlydigitalagency",
-            target="_blank",
-            rel="noopener noreferrer",
-            aria-label="Наш Telegram канал"
-          ) @onlydigitalagency
+            +contacts("hero__contacts")
         .hero__presentation
           .hero__presentation-container
             h2.hero__presentation-title Only.digital&nbsp;&mdash; агентство с&nbsp;фокусом на&nbsp;сильную аналитику, дизайн и&nbsp;разработку. В&nbsp;основе наших проектов лежат идеи, создаваемые на&nbsp;стыке стратегии, креатива и&nbsp;технологий.
-            .hero__presentation-wrapper
 
-              a.hero__presentation-link(
-                href="files/#",
-                download="only-digital-presentation.pdf",
-                aria-label="Скачать презентацию компании"
-              ) pdf
-
-              a.hero__presentation-link(
-                href="#",
-                target="_blank",
-                rel="noopener noreferrer",
-                aria-label="Смотреть презентацию о компании"
-              ) pitch
-
-              p.hero__presentation-description Презентация компании
 
           a.hero__presentation-start-link(href="#") Начать проект
     .hero__video-container

@@ -1,3 +1,27 @@
 mixin footer(footerMods)
+  - const socials = ["be","dp","tg","vk"]
+
   footer.footer(class=footerMods)
     .container
+      .footer__container
+        a.footer__link.main-link(href="#") Начать проект
+        ul.footer__social-list
+          each social in socials
+            li.footer__social-list-item
+              a.footer__social-link(
+                href="#",
+                target="_blank",
+                  rel="noopener noreferrer",
+                  )!=social
+        span.footer__copyright © 2014 - 2024
+      .footer__contacts-container
+        p.footer__contacts-description Создаем качественный digital-продукт на&nbsp;базе стратегии, креатива и&nbsp;технологий
+        +contacts("footer__contacts")
+        +presentation("footer__presentation")
+      a.footer__logo(href="#")
+        span.footer__logo-text Only
+        +icon("logo-icon", 24, 24)
+        span.footer__logo-text digital
+      .footer__title-container
+        h2.footer__title Creative digital production
+        a.footer__privacy-link(href="#") Политика конфиденциальности

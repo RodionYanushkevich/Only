@@ -93,7 +93,7 @@ mixin awards()
       ul.awards__cards-list
         each award in awards
           li.awards__cards-list-item
-            .awards-card
+            .awards__card.awards-card
               p.awards-card__place!= award.awardPlace
               p.awards-card__description!= award.awardDescription
               p.awards-card__tournament!= award.tournamentName
