@@ -1,0 +1,47 @@
+mixin adaptivePicture(options = {})
+  - const imageBaseName = options.imageBaseName || '';
+  - const path = options.path || '';
+  - const width = options.width;
+  - const height = options.height;
+  - const alt = options.alt || '';
+
+  picture
+    //- Mobile
+    if options.mobileWidth && options.mobileHeight
+      source(
+        srcset=`img/${path}/${imageBaseName}-mobile.webp 1x, img/${path}/${imageBaseName}-mobile@2x.webp 2x`,
+        media="(max-width: 767px)",
+        type="image/webp",
+        width=options.mobileWidth,
+        height=options.mobileHeight
+      )
+
+    //- Tablet
+    if options.tabletWidth && options.tabletHeight
+      source(
+        srcset=`img/${path}/${imageBaseName}-tablet.webp 1x, img/${path}/${imageBaseName}-tablet@2x.webp 2x`,
+        media="(max-width: 1279px)",
+        type="image/webp",
+        width=options.tabletWidth,
+        height=options.tabletHeight
+      )
+
+    //- Desktop 1440
+    if options.desktop1440Width && options.desktop1440Height
+      source(
+        srcset=`img/${path}/${imageBaseName}-desktop-1440.webp 1x, img/${path}/${imageBaseName}-desktop-1440@2x.webp 2x`,
+        media="(max-width: 1919px)",
+        type="image/webp",
+        width=options.desktop1440Width,
+        height=options.desktop1440Height
+      )
+
+    //- Desktop 1920
+    img(
+      src=`img/${path}/${imageBaseName}-desktop-1920.webp`,
+      srcset=`img/${path}/${imageBaseName}-desktop-1920.webp 1x, img/${path}/${imageBaseName}-desktop-1920@2x.webp 2x`,
+      alt=alt,
+      loading="lazy",
+      width=width,
+      height=height,
+    )

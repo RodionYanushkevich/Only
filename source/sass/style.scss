@@ -1,12 +1,8 @@
-// Vendor
-// ---------------------------------
-
-@import "vendor/normalize";
-// Swiper 8.4.7
-// @import "vendor/swiper";
+// @import "vendor/normalize";
 
 // Global
 // ---------------------------------
+
 
 @import "variables";
 @import "mixins";
@@ -17,14 +13,10 @@
 @import "global/container";
 
 // Blocks
+
 // ---------------------------------
 
 @import "blocks/header";
 @import "blocks/main-nav";
 @import "blocks/footer";
-@import "blocks/modal";
 @import "blocks/btn";
-@import "blocks/custom-input";
-@import "blocks/custom-toggle";
-@import "blocks/custom-select";
-@import "blocks/input-upload";

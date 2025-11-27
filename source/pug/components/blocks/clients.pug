@@ -1,0 +1,119 @@
+mixin clients()
+  -
+    const clientsLinks = [
+      {
+        title: "Северсталь",
+        width: "187",
+        height:"60",
+        image: "severstal",
+        link: "#",
+      },
+      {
+        title: "Сибгур",
+        width: "144",
+        height:"28",
+        image: "sibgur",
+        link: "#",
+      },
+      {
+        title: "ТЭК-Торг",
+        width: "174",
+        height:"40",
+        image: "tek-torg",
+        link: "#",
+      },
+      {
+        title: "РосАтом",
+        width: "143",
+        height:"64",
+        image: "rosatom",
+        link: "#",
+      },
+      {
+        title: "НЛМК",
+        width: "124",
+        height:"69",
+        image: "nlmk",
+        link: "#",
+      },
+      {
+        title: "Ростех",
+        width: "166",
+        height:"51",
+        image: "rostec",
+        link: "#",
+      },
+      {
+        title: "УралХим",
+        width: "207",
+        height:"27",
+        image: "uralchem",
+        link: "#",
+      },
+      {
+        title: "Schkumberger",
+        width: "171",
+        height:"39",
+        image: "schlumberger",
+        link: "#",
+      },
+      {
+        title: "MR group",
+        width: "159",
+        height:"35",
+        image: "mr-group",
+        link: "#",
+      },
+      {
+        title: "Coldy",
+        width: "145",
+        height:"24",
+        image: "coldy",
+        link: "#",
+      },
+      {
+        title: "Главстрой",
+        width: "226",
+        height:"28",
+        image: "glavstroy",
+        link: "#",
+      },
+      {
+        title: "Вконтакте",
+        width: "70",
+        height:"70",
+        image: "vkontakte",
+        link: "#",
+      },
+      {
+        title: "Открытие",
+        width: "205",
+        height:"40",
+        image: "otkrytie",
+        link: "#",
+      },
+      {
+        title: "Сбер",
+        width: "150",
+        height:"41",
+        image: "sber",
+        link: "#",
+      },
+      {
+        title: "Фармстандарт",
+        width: "178",
+        height:"41",
+        image: "pharmstandard",
+        link: "#",
+      },
+    ]
+  section.clients
+    .container
+      .clients__title-container
+        h2.clients__title.title 20&nbsp;клиентов&nbsp;&mdash; крупнейшие компании из&nbsp;списка Forbes. Более 100 реализованных проектов
+      ul.clients__list
+        each card in clientsLinks
+          li.clients__list-item
+            a.clients__link(href=card.link , aria-label=card.title, title=card.title)
+              svg(width=card.width, height=card.height , aria-hidden="true")
+                use(href=`img/svg/clients/${card.image}.svg`)

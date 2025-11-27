@@ -1,0 +1,112 @@
+mixin awards()
+  -
+    const awards = [
+      {
+        id: "1",
+        awardPlace: "2",
+        awardDescription: "в рейтинге креативности для крупного B2B-бизнеса",
+        tournamentName: "Рейтинг Рунета 2024",
+      },
+      {
+        id: "2",
+        awardPlace: "2",
+        awardDescription: "в дизайне цифровых продуктов для промышленности",
+        tournamentName: "Рейтинг Рунета 2024",
+      },
+      {
+        id: "3",
+        awardPlace: "5",
+        awardDescription: "в разработке сайтов для промышленности",
+        tournamentName: "Рейтинг Рунета 2024",
+      },
+      {
+        id: "4",
+        awardPlace: "13",
+        awardDescription: "в рейтинге веб-дизайна",
+        tournamentName: "Tagline 2024",
+      },
+      {
+        id: "5",
+        awardPlace: "8",
+        awardDescription: "в рейтинге Digital Design & Creative",
+        tournamentName: "Ruward 2022",
+      },
+    ]
+
+    const tournaments = [
+      {
+        id: "1",
+        words: ["AWWWARDS"],
+        prizeCount: "25",
+        icon: "awwwards-icon"
+      },
+      {
+        id: "2",
+        words: ["CSSDA"],
+        prizeCount: "28",
+        icon: "cssda-icon"
+      },
+      {
+        id: "3",
+        words: ["Mixxrussia"],
+        prizeCount: "5",
+        icon: "mixxrussia-icon"
+      },
+      {
+        id: "4",
+        words: ["G8", "Awards"],
+        prizeCount: "6",
+        icon: "g8-awards-icon"
+      },
+      {
+        id: "5",
+        words: ["Среда"],
+        prizeCount: "5",
+        icon: "sreda-icon"
+      },
+      {
+        id: "6",
+        words: ["Рейтинг", "Рунета"],
+        prizeCount: "22",
+        icon: "runet-rating-icon"
+      },
+      {
+        id: "7",
+        words: ["Золотой", "Сайт"],
+        prizeCount: "40",
+        icon: "golden-site-icon"
+      },
+      {
+        id: "8",
+        words: ["WOW", "Awards"],
+        prizeCount: "2",
+        icon: "wow-awards-icon"
+      }
+    ]
+  section.awards
+    .container
+      .awards__title-container
+        p.awards-section-description награды
+        .awards__title-wrapper
+          h2.awards__title.title За&nbsp;10&nbsp;лет активной работы мы&nbsp;завоевали более 150 призовых мест
+          p.awards__description Каждый год подтверждаем высокие позиции в&nbsp;Рейтинге Рунета в&nbsp;сегменте крупного B2B-бизнеса. Побеждаем на&nbsp;международных и&nbsp;российских конкурсах в&nbsp;номинациях digital-дизайна и&nbsp;разработки сайтов.
+      ul.awards__cards-list
+        each award in awards
+          li.awards__cards-list-item
+            .awards__card.awards-card
+              p.awards-card__place!= award.awardPlace
+              p.awards-card__description!= award.awardDescription
+              p.awards-card__tournament!= award.tournamentName
+      ul.awards__tournaments-list
+        each tournament, i in tournaments
+          li.awards__tournaments-list-item
+            button.awards__tournaments-button.btn(
+              type="button"
+              aria-pressed= i === 3 ? 'true' : 'false'
+              class=i === 3 ? 'is-active' : ''
+            )
+              each word in tournament.words
+                svg(width=90 ,height=90)
+                  use(href=`img/svg/awards/${tournament.icon}.svg`)
+                span.awards__tournaments-button-word!=word
+            span.awards__tournaments-prize-count!=tournament.prizeCount
