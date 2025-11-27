@@ -106,5 +106,7 @@ mixin awards()
               class=i === 3 ? 'is-active' : ''
             )
               each word in tournament.words
+                svg(width=90 ,height=90)
+                  use(href=`img/svg/awards/${tournament.icon}.svg`)
                 span.awards__tournaments-button-word!=word
             span.awards__tournaments-prize-count!=tournament.prizeCount

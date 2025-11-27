@@ -11,17 +11,15 @@ mixin footer(footerMods)
               a.footer__social-link(
                 href="#",
                 target="_blank",
-                  rel="noopener noreferrer",
-                  )!=social
+                  rel="noopener noreferrer")
+                  +icon(`${social}-icon`, 25, 19)
         span.footer__copyright © 2014 - 2024
       .footer__contacts-container
         p.footer__contacts-description Создаем качественный digital-продукт на&nbsp;базе стратегии, креатива и&nbsp;технологий
         +contacts("footer__contacts")
         +presentation("footer__presentation")
-      a.footer__logo(href="#")
-        span.footer__logo-text Only
-        +icon("logo-icon", 24, 24)
-        span.footer__logo-text digital
+      a.footer__logo(href="#", title="на главную")
+        img(src="img/svg/footer-logo.svg", alt="Логотип Only-digital")
       .footer__title-container
         h2.footer__title Creative digital production
         a.footer__privacy-link(href="#") Политика конфиденциальности
