@@ -2,46 +2,46 @@ mixin projects()
   -
     const slides = [
       {
-        dataId: "slide-1",
+        name: "severstal",
         subtitle: "Промышленность",
         title: "Северсталь",
         description: "Адаптация нового брендинга для digital",
-        images: ["img-1", "img-2", "img-3", "img-4"]
+        images: 4,
       },
       {
-        dataId: "slide-2",
+        name: "sibgur",
         subtitle: "Промышленность",
         title: "Сибур",
         description: "Адаптация нового брендинга для digital",
-        images: ["img-1", "img-2", "img-3", "img-4"]
+        images: 4,
       },
       {
-        dataId: "slide-3",
+        name: "mr-group",
         subtitle: "Недвижимость",
         title: "MR Group",
         description: "Адаптация нового брендинга для digital",
-        images: ["img-1", "img-2", "img-3", "img-4"]
+        images: 4,
       },
       {
-        dataId: "slide-4",
+        name: "glavstroy",
         subtitle: "Недвижимость",
         title: "Главстрой",
         description: "Адаптация нового брендинга для digital",
-        images:["img-1", "img-2", "img-3","img-4"]
+        images: 4,
       },
       {
-        dataId: "slide-5",
+        name: "pharmstandard",
         subtitle: "Медицина",
         title: "Фармстандарт",
         description: "Адаптация нового брендинга для digital",
-        images: ["img-1", "img-2", "img-3","img-4"]
+        images: 4,
       },
       {
-        dataId: "slide-6",
+        name: "tek-torg",
         subtitle: "Промышленность",
         title: "Тэк-Торг",
         description: "Адаптация нового брендинга для digital",
-        images: ["img-1", "img-2", "img-3","img-4"]
+        images: 4,
       }
     ]
   section.projects
@@ -49,7 +49,7 @@ mixin projects()
       .projects__title-container
         p.projects-section-description крупные проекты
         .projects__title-wrapper
-          h2.projects__title.title Поддерживаем и&nbsp;развиваем долгосрочное сотрудничество
+          h2.projects__title.title Поддерживаем и&nbsp;разрабатываем долгосрочное сотрудничество
       ul.projects__slides.projects-slides
         each slide in slides
           li.projects-slides__item
@@ -58,18 +58,16 @@ mixin projects()
               h3.projects-slide__title!= slide.title
               p.projects-slide__description!= slide.description
               ul.projects-slide__image-list
-                each imageName in slide.images
+                - for (let i = 1; i <= slide.images; i++)
                   li.projects-slide__image-list-item(aria-hidden="true")
                     +adaptivePicture({
-                      imageBaseName: imageName,
-                      path: `${slide.dataId}/${imageName}`,
+                      imageBaseName: `${slide.name}-mini-card-${i}`,
+                      path: `content/projects/${slide.name}`,
                       width: 85,
                       height: 85,
                       alt: `Иконка проекта ${slide.title}`,
                       desktop1440Width: 64,
                       desktop1440Height: 64,
-                      desktop1280Width: 60,
-                      desktop1280Height: 60,
                       tabletWidth: 75,
                       tabletHeight: 75,
                       mobileWidth: 65,

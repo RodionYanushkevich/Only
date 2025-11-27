@@ -1,87 +1,123 @@
 mixin banner()
   -
-    const bannerCardsImages = [
+    const bannerCards = [
       {
         id: "1",
-        alt: "изображения проекта",
-        width1920:"376",
-        height1920:"261",
-        width1440:"280",
-        height1440:"194",
-        width1280:"234",
-        height1280:"162",
-        tabletWidth:"148",
-        tabletHeigth:"103"
+        title: "Формируем ценность бренда в digital - среде",
+        description: "Создаем digital-пространство для девелоперов и&nbsp;проектов&nbsp;ЖК, находя баланс идентичности бренда и&nbsp;сервисности.",
+        images: [
+          {
+            alt: "изображения проекта",
+            width1920:"376",
+            height1920:"261",
+            width1440:"280",
+            height1440:"194",
+            tabletWidth:"148",
+            tabletHeight:"103"
+          },
+          {
+            alt: "изображения проекта",
+            width1920:"242",
+            height1920:"524",
+            width1440:"180",
+            height1440:"390",
+            tabletWidth:"99",
+            tabletHeight:"215"
+          },
+          {
+            alt: "изображения проекта",
+            width1920:"373",
+            height1920:"373",
+            width1440:"277",
+            height1440:"277",
+            tabletWidth:"155",
+            tabletHeight:"155"
+          },
+          {
+            alt: "изображения проекта",
+            width1920:"377",
+            height1920:"379",
+            width1440:"282",
+            height1440:"258",
+            tabletWidth:"151",
+            tabletHeight:"144"
+          }
+        ]
       },
       {
         id: "2",
-        alt: "изображения проекта",
-        width1920:"242",
-        height1920:"524",
-        width1440:"180",
-        height1440:"390",
-        width1280:"150",
-        height1280:"326",
-        tabletWidth:"99",
-        tabletHeigth:"215"
-      },
-      {
-        id: "3",
-        alt: "изображения проекта",
-        width1920:"373",
-        height1920:"373",
-        width1440:"277",
-        height1440:"277",
-        width1280:"233",
-        height1280:"233",
-        tabletWidth:"155",
-        tabletHeigth:"155"
-      },
-      {
-        id: "4",
-        alt: "изображения проекта",
-        width1920:"377",
-        height1920:"379",
-        width1440:"282",
-        height1440:"258",
-        width1280:"235",
-        height1280:"219",
-        tabletWidth:"151",
-        tabletHeigth:"144"
-      },
+        title: "Проектируем мобильные приложения",
+        description: "Разрабатываем приложения для мобильных устройств, решая реальные запросы пользователей.",
+        images: [
+          {
+            alt: "изображения проекта",
+            width1920:"315",
+            height1920:"167",
+            width1440:"235",
+            height1440:"124",
+          },
+          {
+            alt: "изображения проекта",
+            width1920:"309",
+            height1920:"645",
+            width1440:"227",
+            height1440:"479",
+            tabletWidth:"112",
+            tabletHeight:"302"
+          },
+          {
+            alt: "изображения проекта",
+            width1920:"309",
+            height1920:"645",
+            width1440:"227",
+            height1440:"479",
+            tabletWidth:"112",
+            tabletHeight:"302"
+          },
+          {
+            alt: "изображения проекта",
+            width1920:"315",
+            height1920:"100",
+            width1440:"235",
+            height1440:"75",
+          },
+        ]
+      }
     ]
+
   section.banner
     .container
       .banner__title-container
         p.banner-section-description недвижимость
-        .banner__title-wrapper
-          h2.banner__title.banner-title
-            span Формируем
-            +icon("banner-title-arow-icon", 40, 40)(aria-hidden="true")
-            +icon("banner-title-heart-icon", 40, 40)(aria-hidden="true")
-            span ценность бренда
-            +icon("banner-title-planet-icon", 29, 29)(aria-hidden="true")
-            span.banner-title__container
-              +icon("banner-title-sity-icon", 40, 40)(aria-hidden="true")
-            span.banner-title__container в digital - среде
-          p.banner__description Создаем digital-пространство для девелоперов и&nbsp;проектов&nbsp;ЖК, находя баланс идентичности бренда и&nbsp;сервисности.
-          a.banner__title-link.main-link(href="#") Подробнее
-        ul.banner__images.banner-images(style="background-image: url('image/path-to-image.jpg')")
-          each image in bannerCardsImages
-            li.banner-images__item
-              +adaptivePicture({
-                imageBaseName: `image-${image.id}`,
-                path: `banner/image-${image.id}`,
-                width: image.width1920,
-                height: image.height1920,
-                alt: image.alt,
-                desktop1440Width: image.width1440,
-                desktop1440Height: image.height1440,
-                tabletWidth: image.tabletWidth,
-                tabletHeight: image.tabletHeight,
-                disableMobile: true,
-            })
-        ul.banner__pagination-buttons.pagination-buttons
-          each button, i in bannerCardsImages
-            li.pagination-buttons__item
-              button.pagination-buttons__button.btn(type="button", aria-label=`Перейти к слайду ${i + 1}`)
+        each card in bannerCards
+          .banner__card
+            h2.banner__title.banner-title
+              span Формируем
+              +icon("banner-title-arow-icon", 40, 40)(aria-hidden="true")
+              +icon("banner-title-heart-icon", 40, 40)(aria-hidden="true")
+              span ценность бренда
+              +icon("banner-title-planet-icon", 29, 29)(aria-hidden="true")
+              span.banner-title__container
+                +icon("banner-title-sity-icon", 40, 40)(aria-hidden="true")
+              span.banner-title__container в digital - среде
+            p.banner__description Создаем digital-пространство для девелоперов и&nbsp;проектов&nbsp;ЖК, находя баланс идентичности бренда и&nbsp;сервисности.
+            a.banner__title-link.main-link(href="#") Подробнее
+
+            ul.banner__images.banner-images
+              each image, index in card.images
+                li.banner-images__item
+                  +adaptivePicture({
+                    imageBaseName: `card-image-${card.id}-${index + 1}`,
+                    path: `banner/card-${card.id}/image-${index + 1}`,
+                    width: image.width1920,
+                    height: image.height1920,
+                    alt: image.alt,
+                    desktop1440Width: image.width1440,
+                    desktop1440Height: image.height1440,
+                    tabletWidth: image.tabletWidth,
+                    tabletHeight: image.tabletHeight,
+                  })
+            ul.banner__pagination-buttons.pagination-buttons
+              each button, i in card.images
+                li.pagination-buttons__item
+                  button.pagination-buttons__button.btn(type="button", aria-label=`Перейти к слайду ${i + 1}`)
