@@ -111,9 +111,9 @@ mixin clients()
     .container
       .clients__title-container
         h2.clients__title.title 20&nbsp;клиентов&nbsp;&mdash; крупнейшие компании из&nbsp;списка Forbes. Более 100 реализованных проектов
-    ul.clients__list
-      each card in clientsLinks
-        li.clients__list-item
-          a.clients__link(href=card.link , aria-label=card.title, title=card.title)
-            svg(width=card.width, height=card.height , aria-hidden="true")
-              use(href=`img/svg/clients/${card.image}.svg`)
+      ul.clients__list
+        each card in clientsLinks
+          li.clients__list-item
+            a.clients__link(href=card.link , aria-label=card.title, title=card.title)
+              svg(width=card.width, height=card.height , aria-hidden="true")
+                use(href=`img/svg/clients/${card.image}.svg`)
