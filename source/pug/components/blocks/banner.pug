@@ -107,8 +107,8 @@ mixin banner()
               each image, index in card.images
                 li.banner-images__item
                   +adaptivePicture({
-                    imageBaseName: `card-image-${card.id}-${index + 1}`,
-                    path: `banner/card-${card.id}/image-${index + 1}`,
+                    imageBaseName: `card-image-${index + 1}`,
+                    path: `content/banner/card-${card.id}`,
                     width: image.width1920,
                     height: image.height1920,
                     alt: image.alt,
@@ -117,7 +117,7 @@ mixin banner()
                     tabletWidth: image.tabletWidth,
                     tabletHeight: image.tabletHeight,
                   })
-            ul.banner__pagination-buttons.pagination-buttons
-              each button, i in card.images
-                li.pagination-buttons__item
-                  button.pagination-buttons__button.btn(type="button", aria-label=`Перейти к слайду ${i + 1}`)
+          ul.banner__pagination-buttons.pagination-buttons
+            each button, i in card.images
+              li.pagination-buttons__item
+                button.pagination-buttons__button.btn(type="button", aria-label=`Перейти к слайду ${i + 1}`)
