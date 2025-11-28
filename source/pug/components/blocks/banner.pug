@@ -88,36 +88,39 @@ mixin banner()
   section.banner
     .container
       .banner__title-container
-        p.banner-section-description недвижимость
+      ul.banner__cards-list
         each card in bannerCards
-          .banner__card
-            h2.banner__title.banner-title
-              span Формируем
-              +icon("banner-title-arow-icon", 40, 40)(aria-hidden="true")
-              +icon("banner-title-heart-icon", 40, 40)(aria-hidden="true")
-              span ценность бренда
-              +icon("banner-title-planet-icon", 29, 29)(aria-hidden="true")
-              span.banner-title__container
-                +icon("banner-title-sity-icon", 40, 40)(aria-hidden="true")
-              span.banner-title__container в digital - среде
-            p.banner__description Создаем digital-пространство для девелоперов и&nbsp;проектов&nbsp;ЖК, находя баланс идентичности бренда и&nbsp;сервисности.
-            a.banner__title-link.main-link(href="#") Подробнее
+          li.banner__cards-list-item
+            .banner__card.banner-card
+              p.banner-card__subtitle недвижимость
 
-            ul.banner__images.banner-images
-              each image, index in card.images
-                li.banner-images__item
-                  +adaptivePicture({
-                    imageBaseName: `card-image-${index + 1}`,
-                    path: `content/banner/card-${card.id}`,
-                    width: image.width1920,
-                    height: image.height1920,
-                    alt: image.alt,
-                    desktop1440Width: image.width1440,
-                    desktop1440Height: image.height1440,
-                    tabletWidth: image.tabletWidth,
-                    tabletHeight: image.tabletHeight,
-                  })
-          ul.banner__pagination-buttons.pagination-buttons
-            each button, i in card.images
-              li.pagination-buttons__item
-                button.pagination-buttons__button.btn(type="button", aria-label=`Перейти к слайду ${i + 1}`)
+              h2.banner-card__title
+                span Формируем
+                +icon("banner-title-arow-icon", 40, 40)(aria-hidden="true")
+                +icon("banner-title-heart-icon", 40, 40)(aria-hidden="true")
+                span ценность бренда
+                +icon("banner-title-planet-icon", 29, 29)(aria-hidden="true")
+                span.banner-card__title-container
+                  +icon("banner-title-sity-icon", 40, 40)(aria-hidden="true")
+                span.banner-card__title-container в digital - среде
+              p.banner-card__description Создаем digital-пространство для девелоперов и&nbsp;проектов&nbsp;ЖК, находя баланс идентичности бренда и&nbsp;сервисности.
+              a.banner-card__title-link.main-link(href="#") Подробнее
+
+              ul.banner-card__images-list
+                each image, index in card.images
+                  li.banner-card__images-list-item
+                    +adaptivePicture({
+                      imageBaseName: `card-image-${index + 1}`,
+                      path: `content/banner/card-${card.id}`,
+                      width: image.width1920,
+                      height: image.height1920,
+                      alt: image.alt,
+                      desktop1440Width: image.width1440,
+                      desktop1440Height: image.height1440,
+                      tabletWidth: image.tabletWidth,
+                      tabletHeight: image.tabletHeight,
+                    })
+            ul.banner__pagination-buttons.pagination-buttons
+              each button, i in card.images
+                li.pagination-buttons__item
+                  button.pagination-buttons__button.btn(type="button", aria-label=`Перейти к слайду ${i + 1}`)

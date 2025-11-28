@@ -11,16 +11,15 @@ $color-transparent:                 rgba(255, 255, 255, 0);
 // Project palette
 $color-black: #0e0e0e;
 $color-light-gray: #f1f1f1;
-
-
+$color-dark-green: #04251a;
 // Gradient
 // Typography
 // ---------------------------------
 // переменная используемая в html для подключения скейлинга
 $fz-default:                        16px;
 
-$ff-tt-runs: "TT Runs Trial", "Arial", sans-serif;
-$ff-tt-commons: "TT Commons Pro Trial", "Arial", sans-serif;
+$ff-primary: "TT Runs Trial", "Arial", sans-serif;
+$ff-secondary: "TT Commons Pro Trial", "Arial", sans-serif;
 
 // Animation
 // ---------------------------------
