@@ -36,12 +36,12 @@ mixin hero()
     .container
       .hero__title-awards-wrapper
         h1.hero__title Creative digital production
-        ul.hero__awards-list.awards
+        ul.hero__awards-list
           each award in heroAwards
-            li.awards__item
-              a.awards__link(href="#")
-                span.awards__count!=award.count
-                .awards__icon-container
+            li.hero__awards-list-item
+              a.hero__awards-link(href="#")
+                span.hero__awards-count!=award.count
+                .hero__awards__icon-container
                   +icon(award.img, award.width, award.height)
       .hero__info-container
         .hero__years
@@ -53,7 +53,7 @@ mixin hero()
         .hero__presentation
           .hero__presentation-container
             h2.hero__presentation-title Only.digital&nbsp;&mdash; агентство с&nbsp;фокусом на&nbsp;сильную аналитику, дизайн и&nbsp;разработку. В&nbsp;основе наших проектов лежат идеи, создаваемые на&nbsp;стыке стратегии, креатива и&nbsp;технологий.
-
+            +presentation("hero__presentation")
 
           a.hero__presentation-start-link(href="#") Начать проект
     .hero__video-container

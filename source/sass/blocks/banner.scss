@@ -1,0 +1,27 @@
+
+.banner__cards-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  @include vp-1023 {
+    // font-size: 12px;
+  }
+
+  .banner__cards-list-item {
+    &:not(:first-child) {
+      display: none;
+    }
+  }
+}
+
+.banner__pagination-buttons {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  @include vp-1023 {
+    // font-size: 12px;
+  }
+}
+

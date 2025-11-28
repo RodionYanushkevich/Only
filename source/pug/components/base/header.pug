@@ -33,15 +33,14 @@ mixin header(headerMods, currentUrl)
           img(src="img/svg/logo.svg", width="82", height="27", alt="Логотип Only-digital", )
 
       nav.header__nav.main-nav
-        .main-nav__wrapper
-          ul.main-nav__list
-            each link in headerLinks
-              - const activeState = currentUrl === link.href
-              li.main-nav__item
-                if(activeState)
-                  span.main-nav__link.is-active= link.text
-                else
-                  a.main-nav__link(href=link.href)= link.text
+        ul.main-nav__list
+          each link in headerLinks
+            - const activeState = currentUrl === link.href
+            li.main-nav__item
+              if(activeState)
+                span.main-nav__link.is-active= link.text
+              else
+                a.main-nav__link(href=link.href)= link.text
         button.main-nav__toggle(type="button", aria-label="Переключатель отображения меню", aria-pressed="false")
           +icon("icon-burger", 20, 20)
       div.header__star-container

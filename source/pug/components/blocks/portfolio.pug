@@ -59,14 +59,18 @@ mixin portfolio()
   section.portfolio
     .container
       .portfolio__title-container
-        p.portfolio-section-description Проекты
+        p.portfolio-section-description.section-description Проекты
         .portfolio__title-wrapper
           h2.portfolio__title.title Аналитика, брендинг и&nbsp;разработка для B2B
+          p.portfolio__description Only&nbsp;&mdash; digital&mdash;агентство с&nbsp;фокусом на&nbsp;сильную аналитику, дизайн и&nbsp;разработку. В&nbsp;основе наших проектов лежат идеи, создаваемые на&nbsp;стыке стратегии, креатива и&nbsp;технологий.
+
           p.portfolio__description Обеспечиваем компании лучшими техническими и&nbsp;дизайн-решениями, создавая digital-проекты.
       ul.portfolio__list
         each card in portfolioLinks
           li.portfolio__list-item
             a.portfolio__link(href=card.link , aria-label=card.title, title=card.title)
+              h3.portfolio__card-title!=card.title
+              p.portfolio__card-description!=card.description
               +adaptivePicture({
                 imageBaseName: card.image,
                 path: `content/portfolio/${card.image}`,
@@ -80,4 +84,4 @@ mixin portfolio()
                 mobileWidth: 315,
                 mobileHeight: 315
               })
-      button.btn(type="button") все проекты
+      button.portfolio__button.btn(type="button") все проекты
