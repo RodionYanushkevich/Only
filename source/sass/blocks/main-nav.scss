@@ -1,3 +1,43 @@
 .main-nav {
   display: flex;
 }
+
+.main-nav__list {
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 110%;
+  letter-spacing: -0.04em;
+  text-transform: lowercase;
+
+  color: $color-black;
+  list-style: none;
+
+  @include vp-1919 {
+    font-size: 13px;
+    line-height: 110%;
+    letter-spacing: -0.03em;
+  }
+
+  @include vp-767 {
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 115%;
+  }
+
+  @include vp-374 {
+    font-size: 24px;
+  }
+}
+
+.main-nav__link {
+  color: inherit;
+}
+
+.main-nav__toggle {
+  display: none;
+}

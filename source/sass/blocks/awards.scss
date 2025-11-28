@@ -1,0 +1,18 @@
+.awards {
+  list-style: none;
+
+  @include vp-767 {
+    display: none;
+  }
+}
+
+.awards__count {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 110%;
+  letter-spacing: -0.04em;
+
+  @include vp-1919 {
+    opacity: 0.8;
+  }
+}

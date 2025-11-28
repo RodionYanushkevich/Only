@@ -25,14 +25,14 @@ html(lang="ru")
     link(rel="stylesheet", href="css/style.min.css")
 
   body
-    .wrapper(class=wrapperMods)
-      if (hasHeader)
-        +header(headerMods, currentUrl)
+    //- .wrapper(class=wrapperMods)
+    if (hasHeader)
+      +header(headerMods, currentUrl)
 
-      block main
+    block main
 
-      if (hasFooter)
-        +footer(footerMods)
+    if (hasFooter)
+      +footer(footerMods)
 
     block modals
 
