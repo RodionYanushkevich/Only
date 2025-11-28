@@ -8,7 +8,7 @@
   letter-spacing: -0.03em;
   text-transform: lowercase;
 
-  @include vp-1023 {
+  @include vp-1279 {
     font-size: 13px;
   }
 }
@@ -23,7 +23,7 @@
   letter-spacing: -0.03em;
   color: $color-dark-green;
 
-  @include vp-1023 {
+  @include vp-1279 {
     font-size: 13px;
   }
 }

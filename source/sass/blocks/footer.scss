@@ -12,7 +12,7 @@
   line-height: 125%;
   letter-spacing: -0.03em;
 
-  @include vp-1023 {
+  @include vp-1279 {
     font-size: 15px;
   }
 
@@ -31,9 +31,8 @@
   line-height: 120%;
   letter-spacing: -0.01em;
   text-transform: lowercase;
-  color: var(--black-1000);
 
-  @include vp-1023 {
+  @include vp-1279 {
     font-size: 46px;
   }
 
@@ -54,7 +53,7 @@
 
   opacity: 0.4;
 
-  @include vp-1023 {
+  @include vp-1279 {
     font-size: 15px;
   }
 

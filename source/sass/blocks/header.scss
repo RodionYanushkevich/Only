@@ -1,4 +1,72 @@
-.header .container {
+.header {
+  width: 100%;
+
+  .container {
+    position: relative;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 16px;
+
+    @include vp-1279 {
+      min-height: 52px;
+    }
+  }
+}
+
+.header__logo {
+  margin-right: auto;
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+
+  svg {
+    width: 73px;
+    height: 24px;
+    display: block;
+  }
+
+  @include vp-1279 {
+    svg {
+      width: 55px;
+      height: 18px;
+    }
+  }
+}
+
+.header__star-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 10px;
+
+  @include vp-1279 {
+    display: none;
+  }
+}
+
+.header__star-count {
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 110%;
+  letter-spacing: -0.04em;
+  text-align: center;
+}
+
+.header__star {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+
+  color: $color-default-white;
+  border-radius: 12px;
+  background: $color-black;
+}
+
+.header__star svg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

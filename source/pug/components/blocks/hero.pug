@@ -49,17 +49,16 @@ mixin hero()
           .hero__years-wrapper
             p.hero__years-text лет
             p.hero__years-description Лучший креативный разработчик для b2b
-            +contacts("hero__contacts")
-        .hero__presentation
-          .hero__presentation-container
-            h2.hero__presentation-title Only.digital&nbsp;&mdash; агентство с&nbsp;фокусом на&nbsp;сильную аналитику, дизайн и&nbsp;разработку. В&nbsp;основе наших проектов лежат идеи, создаваемые на&nbsp;стыке стратегии, креатива и&nbsp;технологий.
-            +presentation("hero__presentation")
+        +contacts("hero__contacts")
+        h2.hero__presentation-title Only.digital&nbsp;&mdash; агентство с&nbsp;фокусом на&nbsp;сильную аналитику, дизайн и&nbsp;разработку. В&nbsp;основе наших проектов лежат идеи, создаваемые на&nbsp;стыке стратегии, креатива и&nbsp;технологий.
+        +presentation("hero__presentation")
+        a.hero__start-link.btn-fill(href="#") Начать проект
 
-          a.hero__presentation-start-link(href="#") Начать проект
-    .hero__video-container
-      video.hero__video(
-        src="assets/video/hero-bg.mp4",
-        autoplay,
-        muted,
-        playsinline
-        )
+
+      .hero__video-container
+        video.hero__video(
+          src="assets/video/hero-bg.mp4",
+          autoplay,
+          muted,
+          playsinline
+          )
