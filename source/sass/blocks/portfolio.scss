@@ -1,3 +1,42 @@
+.portfolio .container {
+  padding: 130px 30px;
+  display: flex;
+  flex-direction: column;
+
+  @include vp-1279 {
+    padding: 79px 20px;
+  }
+}
+
+.portfolio__title-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.portfolio__title-wrapper {
+  padding: 40px 120px 0 40px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 24px;
+  min-width: 690px;
+  width: min-content;
+
+  @include vp-1279 {
+    padding: 22px 20px 0 20px;
+    row-gap: 19px;
+    min-width: 364px;
+    font-size: 15px;
+  }
+}
+
+.portfolio__section-description {
+  flex-grow: 1;
+  padding-top: 41px;
+
+  @include vp-1279 {
+    padding-top: 22px;
+  }
+}
 
 .portfolio__description {
   margin: 0;
@@ -29,14 +68,32 @@
 }
 
 .portfolio__list {
-  margin: 0;
+  margin: 80px 0 0;
   padding: 0;
 
   list-style: none;
+
+  display: grid;
+  grid-template-columns: repeat(3, 447px);
+  grid-template-rows: auto-fill;
+  justify-content: space-between;
+  row-gap: 79px;
+
+  @include vp-1279 {
+    margin: 60px 0 0;
+    row-gap: 57px;
+    grid-template-columns: repeat(2, 357px);
+  }
+}
+
+.portfolio__link {
+  display: flex;
+  flex-direction: column-reverse;
+  row-gap: 10px;
 }
 
 .portfolio__card-title {
-  margin: 0;
+  margin: 13px 20px 0;
   padding: 0;
 
   font-weight: 600;
@@ -44,8 +101,9 @@
   line-height: 125%;
   letter-spacing: -0.03em;
 
-  @include vp-1023 {
+  @include vp-1279 {
     font-size: 15px;
+    margin: 10px 16px 0;
   }
 
   @include vp-767 {
@@ -54,7 +112,7 @@
 }
 
 .portfolio__card-description {
-  margin: 0;
+  margin: 0 20px 0;
   padding: 0;
 
 
@@ -66,11 +124,38 @@
 
   opacity: 0.6;
 
-  @include vp-1023 {
+  @include vp-1279 {
     font-size: 15px;
+
+    margin: 0 15px;
   }
 
   @include vp-767 {
     // font-size: 15px;
   }
 }
+
+.portfolio__card-image-wrapper {
+  display: block;
+  border-radius: 30px;
+  overflow: hidden;
+
+  @include vp-1023 {
+    border-radius: 20px;
+  }
+}
+
+.portfolio__button {
+  margin-top: 81px;
+  align-self: center;
+  min-width: 234px;
+  min-height: 61px;
+
+
+  @include vp-1023 {
+    margin-top: 47px;
+    min-width: 203px;
+    min-height: 48px;
+  }
+}
+

@@ -59,7 +59,7 @@ mixin portfolio()
   section.portfolio
     .container
       .portfolio__title-container
-        p.portfolio-section-description.section-description Проекты
+        p.portfolio__section-description.section-description Проекты
         .portfolio__title-wrapper
           h2.portfolio__title.title Аналитика, брендинг и&nbsp;разработка для B2B
           p.portfolio__description Only&nbsp;&mdash; digital&mdash;агентство с&nbsp;фокусом на&nbsp;сильную аналитику, дизайн и&nbsp;разработку. В&nbsp;основе наших проектов лежат идеи, создаваемые на&nbsp;стыке стратегии, креатива и&nbsp;технологий.
@@ -69,19 +69,20 @@ mixin portfolio()
         each card in portfolioLinks
           li.portfolio__list-item
             a.portfolio__link(href=card.link , aria-label=card.title, title=card.title)
-              h3.portfolio__card-title!=card.title
               p.portfolio__card-description!=card.description
-              +adaptivePicture({
-                imageBaseName: card.image,
-                path: `content/portfolio/${card.image}`,
-                width: 607,
-                height: 607,
-                alt: card.title,
-                desktop1440Width: 448,
-                desktop1440Height: 451,
-                tabletWidth: 358,
-                tabletHeight: 350,
-                mobileWidth: 315,
-                mobileHeight: 315
-              })
-      button.portfolio__button.btn(type="button") все проекты
+              h3.portfolio__card-title!=card.title
+              .portfolio__card-image-wrapper
+                +adaptivePicture({
+                  imageBaseName: card.image,
+                  path: `content/portfolio/${card.image}`,
+                  width: 607,
+                  height: 607,
+                  alt: card.title,
+                  desktop1440Width: 448,
+                  desktop1440Height: 451,
+                  tabletWidth: 358,
+                  tabletHeight: 350,
+                  mobileWidth: 315,
+                  mobileHeight: 315
+                })
+      button.portfolio__button.btn.btn-fill(type="button") все проекты
