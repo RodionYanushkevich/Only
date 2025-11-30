@@ -49,7 +49,12 @@ mixin projects()
       .projects__title-container
         p.projects__section-description.section-description крупные проекты
         .projects__title-wrapper
-          h2.projects__title.title Поддерживаем и&nbsp;разрабатываем долгосрочное сотрудничество
+          h2.projects__title.title Поддерживаем и&nbsp;развиваем долгосрочное сотрудничество
+          .projects__pagination-buttons-container
+            button.projects__pagination-button.btn(type="button", aria-label="предидущий слайд")
+              +icon("arrow", 20, 20)
+            button.projects__pagination-button.btn(type="button", aria-label="следующий слайд")
+              +icon("arrow", 20, 20)
       ul.projects__slides.projects-slides
         each slide in slides
           li.projects-slides__item
