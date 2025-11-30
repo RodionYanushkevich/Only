@@ -7,6 +7,7 @@ mixin projects()
         title: "Северсталь",
         description: "Адаптация нового брендинга для digital",
         images: 4,
+        allImagesCount: 6,
       },
       {
         name: "sibgur",
@@ -14,6 +15,8 @@ mixin projects()
         title: "Сибур",
         description: "Адаптация нового брендинга для digital",
         images: 4,
+        allImagesCount :6,
+
       },
       {
         name: "mr-group",
@@ -21,6 +24,7 @@ mixin projects()
         title: "MR Group",
         description: "Адаптация нового брендинга для digital",
         images: 4,
+        allImagesCount: 2,
       },
       {
         name: "glavstroy",
@@ -28,6 +32,7 @@ mixin projects()
         title: "Главстрой",
         description: "Адаптация нового брендинга для digital",
         images: 4,
+        allImagesCount: 1,
       },
       {
         name: "pharmstandard",
@@ -35,6 +40,7 @@ mixin projects()
         title: "Фармстандарт",
         description: "Адаптация нового брендинга для digital",
         images: 4,
+        allImagesCount: 1,
       },
       {
         name: "tek-torg",
@@ -42,6 +48,7 @@ mixin projects()
         title: "Тэк-Торг",
         description: "Адаптация нового брендинга для digital",
         images: 4,
+        allImagesCount: 4,
       }
     ]
   section.projects
@@ -64,17 +71,19 @@ mixin projects()
               p.projects-slide__description!= slide.description
               ul.projects-slide__image-list
                 - for (let i = 1; i <= slide.images; i++)
-                  li.projects-slide__image-list-item(aria-hidden="true")
-                    +adaptivePicture({
-                      imageBaseName: `${slide.name}-mini-card-${i}`,
-                      path: `content/projects/${slide.name}`,
-                      width: 85,
-                      height: 85,
-                      alt: `Иконка проекта ${slide.title}`,
-                      desktop1440Width: 64,
-                      desktop1440Height: 64,
-                      tabletWidth: 75,
-                      tabletHeight: 75,
-                      mobileWidth: 65,
-                      mobileHeight: 65
-                    })
+                  li.projects-slide__image-list-item(
+                    aria-hidden="true" ,
+                    data-images-count= i === slide.images ? slide.allImagesCount : false)
+                      +adaptivePicture({
+                        imageBaseName: `${slide.name}-mini-card-${i}`,
+                        path: `content/projects/${slide.name}`,
+                        width: 85,
+                        height: 85,
+                        alt: `Иконка проекта ${slide.title}`,
+                        desktop1440Width: 64,
+                        desktop1440Height: 64,
+                        tabletWidth: 75,
+                        tabletHeight: 75,
+                        mobileWidth: 65,
+                        mobileHeight: 65
+                      })

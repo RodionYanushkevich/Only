@@ -279,7 +279,7 @@
 
 .hero__start-link {
   grid-column: 4/5;
-  align-self: end;
+  align-self: flex-end;
 
   margin-left: 60px;
   width: 250px;
@@ -324,7 +324,7 @@
 .hero__awards-link {
   display: flex;
   align-items: center;
-  justify-content: end;
+  justify-content: flex-end;
   column-gap: 10px;
 }
 

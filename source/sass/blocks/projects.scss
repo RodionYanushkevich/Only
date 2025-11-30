@@ -1,11 +1,11 @@
 .projects .container {
-  padding: 173px 30px;
+  padding: 173px 30px 0;
 
   overflow: hidden;
 
   @include vp-1279 {
 
-    padding: 107px 20px 81px;
+    padding: 107px 20px 0;
   }
 
   @include vp-767 {

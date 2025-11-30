@@ -2,7 +2,7 @@ mixin banner()
   -
     const bannerCards = [
       {
-        id: "1",
+        id: "card-1",
         title: "Формируем ценность бренда в digital - среде",
         description: "Создаем digital-пространство для девелоперов и&nbsp;проектов&nbsp;ЖК, находя баланс идентичности бренда и&nbsp;сервисности.",
         images: [
@@ -30,8 +30,8 @@ mixin banner()
             height1920:"373",
             width1440:"277",
             height1440:"277",
-            tabletWidth:"155",
-            tabletHeight:"155"
+            tabletWidth:"144",
+            tabletHeight:"144"
           },
           {
             alt: "изображения проекта",
@@ -45,7 +45,7 @@ mixin banner()
         ]
       },
       {
-        id: "2",
+        id: "card-2",
         title: "Проектируем мобильные приложения",
         description: "Разрабатываем приложения для мобильных устройств, решая реальные запросы пользователей.",
         images: [
@@ -87,31 +87,36 @@ mixin banner()
 
   section.banner
     .container
+      //- h2.vissually-hidden *******
       .banner__title-container
       ul.banner__cards-list
         each card in bannerCards
           li.banner__cards-list-item
-            .banner__card.banner-card
-              p.banner-card__subtitle недвижимость
+            article.banner__card.banner-card(class=`banner-card--${card.id}`)
 
-              h2.banner-card__title
-                span Формируем
-                +icon("banner-title-arow-icon", 40, 40)(aria-hidden="true")
-                +icon("banner-title-heart-icon", 40, 40)(aria-hidden="true")
-                span ценность бренда
-                +icon("banner-title-planet-icon", 29, 29)(aria-hidden="true")
-                span.banner-card__title-container
-                  +icon("banner-title-sity-icon", 40, 40)(aria-hidden="true")
-                span.banner-card__title-container в digital - среде
-              p.banner-card__description Создаем digital-пространство для девелоперов и&nbsp;проектов&nbsp;ЖК, находя баланс идентичности бренда и&nbsp;сервисности.
-              a.banner-card__title-link.main-link(href="#") Подробнее
+              .banner-card__title-container
+                p.banner-card__subtitle недвижимость
+                h3.banner-card__title
+                  span Формируем
+                    +icon("banner-icon", 40, 31)(aria-hidden="true")
+                  span.banner-card__title-images(
+                    style="--image-before: url('/img/content/banner/card-1/heart.webp');--image-before-2x: url('/img/content/banner/card-1/heart@2x.webp'); --image-after: url('/img/content/banner/card-1/city.webp'); --image-after-2x: url('/img/content/banner/card-1/city@2x.webp');"
+                  ) ценность бренда
+                  span ЖК
+                  span.banner-card__title-wrapper
+                    span.banner-card__title-icon-wrapper
+                      +icon("planet-icon", 29, 29)(aria-hidden="true")
+                    span.banner-card__title-green-bg в digital - среде
+
+                p.banner-card__description Создаем digital-пространство для девелоперов и&nbsp;проектов&nbsp;ЖК, находя баланс идентичности бренда и&nbsp;сервисности.
+                a.banner-card__title-link.btn-fill(href="#") Подробнее
 
               ul.banner-card__images-list
                 each image, index in card.images
-                  li.banner-card__images-list-item
+                  li.banner-card__images-list-item(class=`banner-card__images-list-item--image-${index + 1}`)
                     +adaptivePicture({
                       imageBaseName: `card-image-${index + 1}`,
-                      path: `content/banner/card-${card.id}`,
+                      path: `content/banner/${card.id}`,
                       width: image.width1920,
                       height: image.height1920,
                       alt: image.alt,
