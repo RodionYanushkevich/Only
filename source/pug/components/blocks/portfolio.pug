@@ -1,61 +1,68 @@
 mixin portfolio()
   -
-    const portfolioLinks = [
-      {
-        title: "Сибур",
-        description: "3D, Анимация, Production, Web-design",
-        image: "sibur",
-        link: "#",
-      },
-      {
-        title: "MR group",
-        description: "3D, Анимация, Production, Web-design",
-        image: "mr-group",
-        link: "#",
-      },
-      {
-        title: "Северсталь",
-        description: "3D, Анимация, Production, Web-design",
-        image: "severstal",
-        link: "#",
-      },
-      {
-        title: "WHOOSH",
-        description: "3D, Анимация, Production, Web-design",
-        image: "whoosh",
-        link: "#",
-      },
-      {
-        title: "Сайт R&D-центра НЛМК",
-        description: "3D, Анимация, Production, Web-design",
-        image: "nlmk-rd",
-        link: "#",
-      },
-      {
-        title: "Новые академики",
-        description: "3D, Анимация, Production, Web-design",
-        image: "new-academics",
-        link: "#",
-      },
-      {
-        title: "Аш-Тау",
-        description: "3D, Анимация, Production, Web-design",
-        image: "ash-tau",
-        link: "#",
-      },
-      {
-        title: "Уралхим",
-        description: "3D, Анимация, Production, Web-design",
-        image: "uralchem",
-        link: "#",
-      },
-      {
-        title: "Плати частями",
-        description: "3D, Анимация, Production, Web-design",
-        image: "pay-parts",
-        link: "#",
-      },
-    ]
+    const portfolioLinks = {
+      swiper1: [
+        {
+          title: "Сибур",
+          description: "3D, Анимация, Production, Web-design",
+          image: "sibur",
+          link: "#",
+        },
+        {
+          title: "MR group",
+          description: "3D, Анимация, Production, Web-design",
+          image: "mr-group",
+          link: "#",
+        },
+        {
+          title: "Северсталь",
+          description: "3D, Анимация, Production, Web-design",
+          image: "severstal",
+          link: "#",
+        }
+      ],
+      swiper2: [
+        {
+          title: "WHOOSH",
+          description: "3D, Анимация, Production, Web-design",
+          image: "whoosh",
+          link: "#",
+        },
+        {
+          title: "Сайт R&D-центра НЛМК",
+          description: "3D, Анимация, Production, Web-design",
+          image: "nlmk-rd",
+          link: "#",
+        },
+        {
+          title: "Новые академики",
+          description: "3D, Анимация, Production, Web-design",
+          image: "new-academics",
+          link: "#",
+        }
+      ],
+      swiper3: [
+        {
+          title: "Аш-Тау",
+          description: "3D, Анимация, Production, Web-design",
+          image: "ash-tau",
+          link: "#",
+        },
+        {
+          title: "Уралхим",
+          description: "3D, Анимация, Production, Web-design",
+          image: "uralchem",
+          link: "#",
+        },
+        {
+          title: "Плати частями",
+          description: "3D, Анимация, Production, Web-design",
+          image: "pay-parts",
+          link: "#",
+        }
+      ]
+    }
+
   section.portfolio
     .container
       .portfolio__title-container
@@ -63,26 +70,76 @@ mixin portfolio()
         .portfolio__title-wrapper
           h2.portfolio__title.title Аналитика, брендинг и&nbsp;разработка для B2B
           p.portfolio__description Only&nbsp;&mdash; digital&mdash;агентство с&nbsp;фокусом на&nbsp;сильную аналитику, дизайн и&nbsp;разработку. В&nbsp;основе наших проектов лежат идеи, создаваемые на&nbsp;стыке стратегии, креатива и&nbsp;технологий.
-
           p.portfolio__description Обеспечиваем компании лучшими техническими и&nbsp;дизайн-решениями, создавая digital-проекты.
-      ul.portfolio__list
-        each card in portfolioLinks
-          li.portfolio__list-item
-            a.portfolio__link(href=card.link , aria-label=card.title, title=card.title)
-              p.portfolio__card-description!=card.description
-              h3.portfolio__card-title!=card.title
-              .portfolio__card-image-wrapper
-                +adaptivePicture({
-                  imageBaseName: card.image,
-                  path: `content/portfolio/${card.image}`,
-                  width: 607,
-                  height: 607,
-                  alt: card.title,
-                  desktop1440Width: 448,
-                  desktop1440Height: 451,
-                  tabletWidth: 358,
-                  tabletHeight: 350,
-                  mobileWidth: 315,
-                  mobileHeight: 315
-                })
+
+      ul.portfolio__swiper-list(data-list="portfolio-swiper-list")
+        li.portfolio__swiper-item
+          h3.portfolio__swiper-title Крупнейшие компании
+          ul.portfolio__list.swiper
+            each card in portfolioLinks.swiper1
+              li.portfolio__list-item
+                a.portfolio__link(href=card.link , aria-label=card.title, title=card.title)
+                  p.portfolio__card-description!=card.description
+                  h4.portfolio__card-title!=card.title
+                  .portfolio__card-image-wrapper
+                    +adaptivePicture({
+                      imageBaseName: card.image,
+                      path: `content/portfolio/${card.image}`,
+                      width: 607,
+                      height: 607,
+                      alt: card.title,
+                      desktop1440Width: 448,
+                      desktop1440Height: 451,
+                      tabletWidth: 358,
+                      tabletHeight: 350,
+                      mobileWidth: 315,
+                      mobileHeight: 315
+                    })
+
+        li.portfolio__swiper-item
+          h3.portfolio__swiper-title Девелоперы
+          ul.portfolio__list.swiper
+            each card in portfolioLinks.swiper2
+              li.portfolio__list-item
+                a.portfolio__link(href=card.link , aria-label=card.title, title=card.title)
+                  p.portfolio__card-description!=card.description
+                  h4.portfolio__card-title!=card.title
+                  .portfolio__card-image-wrapper
+                    +adaptivePicture({
+                      imageBaseName: card.image,
+                      path: `content/portfolio/${card.image}`,
+                      width: 607,
+                      height: 607,
+                      alt: card.title,
+                      desktop1440Width: 448,
+                      desktop1440Height: 451,
+                      tabletWidth: 358,
+                      tabletHeight: 350,
+                      mobileWidth: 315,
+                      mobileHeight: 315
+                    })
+
+        li.portfolio__swiper-item
+          h3.portfolio__swiper-title B2C
+          ul.portfolio__list.swiper
+            each card in portfolioLinks.swiper3
+              li.portfolio__list-item
+                a.portfolio__link(href=card.link , aria-label=card.title, title=card.title)
+                  p.portfolio__card-description!=card.description
+                  h4.portfolio__card-title!=card.title
+                  .portfolio__card-image-wrapper
+                    +adaptivePicture({
+                      imageBaseName: card.image,
+                      path: `content/portfolio/${card.image}`,
+                      width: 607,
+                      height: 607,
+                      alt: card.title,
+                      desktop1440Width: 448,
+                      desktop1440Height: 451,
+                      tabletWidth: 358,
+                      tabletHeight: 350,
+                      mobileWidth: 315,
+                      mobileHeight: 315
+                    })
+
       button.portfolio__button.btn.btn-fill(type="button") все проекты

@@ -267,6 +267,10 @@
   @include vp-1279 {
     margin-left: 10px;
   }
+
+  @include vp-767 {
+    margin-left: 7px;
+  }
 }
 
 .awards__tournaments-prize-count {
