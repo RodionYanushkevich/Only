@@ -11,6 +11,7 @@
 @import "global/reboot";
 @import "global/utils";
 @import "global/container";
+@import "swiper/swiper";
 
 // Blocks
 
@@ -28,7 +29,7 @@
 @import "blocks/portfolio";
 @import "blocks/clients";
 @import "blocks/projects";
-@import "blocks/projects-slides";
+// @import "blocks/projects-slides";
 @import "blocks/projects-slide";
 @import "blocks/banner";
 @import "blocks/banner-card";

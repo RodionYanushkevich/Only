@@ -23,7 +23,8 @@
   }
 
   @include vp-767 {
-    min-width: 315px;
+    min-width: unset;
+    max-width: 315px;
     min-height: 240px;
     padding: 21px 20px;
     border-radius: 15px;

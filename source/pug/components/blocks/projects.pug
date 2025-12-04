@@ -62,28 +62,29 @@ mixin projects()
               +icon("arrow", 20, 20)
             button.projects__pagination-button.btn(type="button", aria-label="следующий слайд")
               +icon("arrow", 20, 20)
-      ul.projects__slides.projects-slides
-        each slide in slides
-          li.projects-slides__item
-            a.projects-slides__slide.projects-slide(href="#")
-              p.projects-slide__subtitle!= slide.subtitle
-              h3.projects-slide__title!= slide.title
-              p.projects-slide__description!= slide.description
-              ul.projects-slide__image-list
-                - for (let i = 1; i <= slide.images; i++)
-                  li.projects-slide__image-list-item(
-                    aria-hidden="true" ,
-                    data-images-count= i === slide.images ? slide.allImagesCount : false)
-                      +adaptivePicture({
-                        imageBaseName: `${slide.name}-mini-card-${i}`,
-                        path: `content/projects/${slide.name}`,
-                        width: 85,
-                        height: 85,
-                        alt: `Иконка проекта ${slide.title}`,
-                        desktop1440Width: 64,
-                        desktop1440Height: 64,
-                        tabletWidth: 75,
-                        tabletHeight: 75,
-                        mobileWidth: 65,
-                        mobileHeight: 65
-                      })
+      .projects__slider-wrapper
+        ul.projects__slides
+          each slide in slides
+            li.projects-slides__item
+              a.projects-slides__slide.projects-slide(href="#")
+                p.projects-slide__subtitle!= slide.subtitle
+                h3.projects-slide__title!= slide.title
+                p.projects-slide__description!= slide.description
+                ul.projects-slide__image-list
+                  - for (let i = 1; i <= slide.images; i++)
+                    li.projects-slide__image-list-item(
+                      aria-hidden="true" ,
+                      data-images-count= i === slide.images ? slide.allImagesCount : false)
+                        +adaptivePicture({
+                          imageBaseName: `${slide.name}-mini-card-${i}`,
+                          path: `content/projects/${slide.name}`,
+                          width: 85,
+                          height: 85,
+                          alt: `Иконка проекта ${slide.title}`,
+                          desktop1440Width: 64,
+                          desktop1440Height: 64,
+                          tabletWidth: 75,
+                          tabletHeight: 75,
+                          mobileWidth: 65,
+                          mobileHeight: 65
+                        })

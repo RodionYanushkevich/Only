@@ -1,0 +1,15 @@
+.swiper-wrapper {
+  display: flex;
+  transition: transform $trans-default;
+  will-change: transform;
+}
+
+.swiper-slide {
+  flex: 0 0 100%;
+  width: 100%;
+}
+
+.swiper-container {
+  overflow: hidden;
+  position: relative;
+}
