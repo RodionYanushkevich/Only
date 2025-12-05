@@ -1,22 +1,57 @@
+.awards-card {
+  position: relative;
+  border-radius: 30px;
+  padding: 30px 30px 28px;
+  width: 330px;
+  min-height: 300px;
 
+  background-color: $color-default-white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @include vp-1279 {
+    // font-size: 20px;
+    border-radius: 20px;
+    padding: 20px;
+    min-width: 170px;
+    min-height: 170px;
+
+    width: 100%;
+  }
+
+  @include vp-767 {
+    // font-size: 20px;
+    border-radius: 15px;
+    padding: 20px;
+    max-width: 190px;
+    min-height: 190px;
+
+    width: 100%;
+  }
+}
 
 .awards-card__place {
+  margin: 0;
   font-weight: 600;
   font-size: 26px;
   line-height: 120%;
   letter-spacing: -0.03em;
 
-
-  @include vp-1023 {
+  @include vp-1279 {
     font-size: 20px;
   }
 
-  @include vp-767 {
-    font-size: 15px;
-  }
+  // @include vp-767 {
+  //   font-size: 15px;
+  // }
 }
 
 .awards-card__tournament {
+  position: absolute;
+  top: 72px;
+  margin: 0;
+
   font-family: $ff-secondary;
   font-weight: 500;
   font-size: 15px;
@@ -25,24 +60,32 @@
 
   opacity: 0.6;
 
-  @include vp-1023 {
-    // font-size: 15px;
+  @include vp-1279 {
+    top: 52px;
+    font-size: 15px;
+    padding-right: 20px;
   }
 
   @include vp-767 {
-    // font-size: 15px;
+    top: 49px;
   }
 }
 
 .awards-card__description {
+  margin: 0;
+
   font-weight: 600;
   font-size: 14px;
   line-height: 120%;
   letter-spacing: -0.03em;
   text-transform: lowercase;
 
-  @include vp-1023 {
+  @include vp-1279 {
     font-size: 12px;
+
+    br {
+      display: none;
+    }
   }
 
   @include vp-767 {

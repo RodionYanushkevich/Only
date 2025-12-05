@@ -1,26 +1,224 @@
+.footer .container {
+  position: relative;
+  padding: 80px 30px 30px;
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 20px;
+
+
+  @include vp-1279 {
+    gap: 15px 20px;
+    padding: 60px 20px 20px;
+  }
+
+  @include vp-767 {
+    flex-direction: column;
+    margin-top: 40px;
+    padding: 24px 15px 0;
+    row-gap: 39px;
+  }
+}
+
+.footer__container {
+  display: flex;
+  flex-direction: column;
+  padding: 51px 0 0;
+
+  row-gap: 90px;
+
+  width: 730px;
+
+
+  @include vp-1279 {
+    width: 363px;
+    flex-grow: 1;
+    padding: 95px 0 0;
+    row-gap: 32px;
+  }
+
+  @include vp-767 {
+    padding: 23px 0 0;
+    display: contents;
+  }
+}
+
+.footer__link {
+  width: 250px;
+  min-height: 61px;
+
+  @include vp-1279 {
+    width: 207px;
+    min-height: 48px;
+  }
+
+  @include vp-767 {
+    width: 100%;
+    min-height: 48px;
+    order: -1;
+  }
+}
+
 .footer__social-list {
   margin: 0;
   padding: 0;
 
   list-style: none;
+
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 48px;
+  gap: 5px;
 }
 
+.footer__social-link {
+  display: flex;
+  border-radius: 12px;
+  // padding: 16px 14px;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background-color: $color-default-white;
+
+  @include vp-1279 {
+    padding: 16px 14px;
+  }
+}
+
+.footer__contacts-container {
+  display: flex;
+  flex-direction: column;
+  padding: 51px 0 0;
+  row-gap: 30px;
+  flex-grow: 1;
+
+  @include vp-1279 {
+    row-gap: 22px;
+    padding: 32px 0 0;
+    // align-items: flex-end;
+    // flex-grow: 1;
+  }
+
+  @include vp-767 {
+    display: contents;
+  }
+}
+
+.footer__contacts {
+  .contacts__link {
+    font-size: 22px;
+
+    @include vp-1279 {
+      font-size: 16px;
+    }
+  }
+
+
+  .contacts__item--telegram {
+    margin-top: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    .contacts__description {
+      font-size: 13px;
+    }
+
+    .contacts__link {
+      font-size: 24px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+
+    @include vp-1279 {
+      gap: 4px;
+    }
+
+    @include vp-767 {
+      margin-top: 10px;
+    }
+  }
+
+
+  .contacts__list {
+    @include vp-1279 {
+      row-gap: 0;
+    }
+
+    @include vp-767 {
+      row-gap: 10px;
+    }
+  }
+
+  .contacts__icon-wrapper {
+    @include vp-767 {
+      padding: 0;
+      order: -1;
+    }
+  }
+
+  @include vp-767 {
+    order: -1;
+  }
+}
+
+.footer__contacts-description {
+  display: flex;
+  width: 373px;
+
+  margin: 0;
+  padding: 0;
+
+  font-family: $ff-secondary;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+  letter-spacing: -0.02em;
+
+  flex-grow: 0;
+
+  @include vp-1279 {
+    font-size: 15px;
+    width: 344px;
+  }
+
+  @include vp-767 {
+    display: none;
+  }
+}
 
 .footer__copyright {
+  margin-top: 22px;
+
   font-weight: 600;
   font-size: 18px;
   line-height: 125%;
   letter-spacing: -0.03em;
 
-  @include vp-1023 {
+  @include vp-1279 {
+    margin-top: 39px;
     font-size: 15px;
   }
 
   @include vp-767 {
+    margin-top: 30px;
     font-size: 13px;
   }
 }
 
+.footer__title-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex-grow: 1;
+
+  @include vp-767 {
+    margin-top: -38px;
+    gap: 10px;
+  }
+}
 
 .footer__title {
   margin: 0;
@@ -31,14 +229,31 @@
   line-height: 120%;
   letter-spacing: -0.01em;
   text-transform: lowercase;
-  color: var(--black-1000);
 
-  @include vp-1023 {
+  @include vp-1279 {
     font-size: 46px;
   }
 
   @include vp-767 {
-    // font-size: 32px;
+    font-size: 47px;
+    letter-spacing: 0.03em;
+    line-height: 130%;
+  }
+}
+
+.footer__presentation.presentation {
+  margin-top: 48px;
+
+  @include vp-1279 {
+    margin-top: 34px;
+
+    .presentation__link {
+      min-height: 45px;
+    }
+  }
+
+  @include vp-767 {
+    display: none;
   }
 }
 
@@ -54,11 +269,30 @@
 
   opacity: 0.4;
 
-  @include vp-1023 {
+  @include vp-1279 {
     font-size: 15px;
   }
 
   @include vp-767 {
     // font-size: 32px;
+  }
+}
+
+
+.footer__logo {
+  position: absolute;
+  right: 30px;
+  top: 131px;
+
+  @include vp-1279 {
+    width: 154px;
+    height: 24px;
+    right: unset;
+    left: 20px;
+    top: 90px;
+  }
+
+  @include vp-767 {
+    display: none;
   }
 }

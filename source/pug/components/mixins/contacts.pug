@@ -11,9 +11,9 @@ mixin contacts(className)
         a.contacts__link(
           href="tel:+74957409979",
           aria-label="Позвонить нам"
-        ) +7 (495) 740-99-79
+        ) +7 (495) 740 99 79
 
-      li.contacts__item
+      li.contacts__item.contacts__item--telegram
         p.contacts__description Telegram для связи
         a.contacts__link(
           href="https://t.me/onlydigitalagency",
@@ -21,3 +21,5 @@ mixin contacts(className)
           rel="noopener noreferrer",
           aria-label="Наш Telegram канал"
         ) @onlydigitalagency
+          span.contacts__icon-wrapper
+            +icon("telegram-icon",14, 14)

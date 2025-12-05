@@ -1,11 +1,38 @@
-.projects-slide__image-list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+.projects-slide {
+  position: relative;
+
+  min-width: 330px;
+  min-height: 320px;
+  padding: 29px 30px;
+
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-end;
+  row-gap: 5px;
+
+  background-color: $color-default-white;
+  border-radius: 30px;
+
+
+  @include vp-1279 {
+    min-width: 357px;
+    min-height: 280px;
+    padding: 20px;
+    border-radius: 20px;
+  }
+
+  @include vp-767 {
+    min-width: unset;
+    max-width: 315px;
+    min-height: 240px;
+    padding: 21px 20px;
+    border-radius: 15px;
+  }
 }
 
 .projects-slide__subtitle {
-  margin: 0;
+  margin: 0 0 5px;
   padding: 0;
 
   font-family: $ff-secondary;
@@ -16,8 +43,12 @@
 
   opacity: 0.6;
 
-  @include vp-1023 {
+  @include vp-1279 {
     // font-size: 12px;
+  }
+
+  @include vp-767 {
+    margin: 0;
   }
 }
 
@@ -30,7 +61,7 @@
   line-height: 125%;
   letter-spacing: -0.03em;
 
-  @include vp-1023 {
+  @include vp-1279 {
     font-size: 15px;
   }
 
@@ -41,9 +72,9 @@
 
 .projects-slide__description {
   margin: 0;
-  padding: 0;
+  padding: 0 50px 0 0;
 
-  font-family: $ff-primary;
+  font-family: $ff-secondary;
   font-weight: 400;
   font-size: 16px;
   line-height: 140%;
@@ -51,11 +82,80 @@
 
   opacity: 0.6;
 
-  @include vp-1023 {
+  @include vp-1279 {
     font-size: 15px;
   }
 
   @include vp-767 {
-    // font-size: 15px;
+    padding: 0;
+  }
+}
+
+.projects-slide__image-list {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+
+  display: flex;
+  margin: 0;
+  padding: 0;
+  column-gap: 5px;
+
+  list-style: none;
+
+
+  @include vp-1279 {
+    top: 20px;
+    left: 20px;
+  }
+
+  @include vp-767 {
+    top: 19px;
+    left: 20px;
+  }
+}
+
+.projects-slide__image-list-item {
+  overflow: hidden;
+  border-radius: 12px;
+
+
+  @include vp-767 {
+    border-radius: 10px;
+  }
+}
+
+.projects-slide__image-list-item:first-child {
+  outline: 2.5px solid rgba(255, 255, 255, 0.7);
+}
+
+.projects-slide__image-list-item:last-child {
+  position: relative;
+  color: $color-default-white;
+
+  &::before {
+    content: "+"attr(data-images-count);
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 120%;
+    letter-spacing: -0.03em;
+    text-transform: lowercase;
+
+    background-color: rgba(14, 14, 14, 0.6);
+
+    @include vp-1279 {
+      font-size: 14px;
+    }
+
+    @include vp-767 {
+      font-size: 13px;
+    }
   }
 }

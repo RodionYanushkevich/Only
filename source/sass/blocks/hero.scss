@@ -1,38 +1,42 @@
-.hero__title {
-  margin: 0;
-  padding: 0;
+.hero .container {
+  padding: 61px 30px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 751px;
 
-  font-weight: 600;
-  font-size: 64px;
-  line-height: 125%;
-  letter-spacing: -0.03em;
-
-  @include vp-1919 {
-    font-size: 50px;
+  @include vp-1279 {
+    padding: 50px 20px 0;
+    min-height: 970px;
   }
 
-  @include vp-1023 {
-    font-size: 38px;
-    letter-spacing: -0.01em;
-  }
-
-  @include vp-374 {
-    font-size: 32px;
+  @include vp-767 {
+    padding: 32px 15px 0;
+    min-height: 648px;
   }
 }
 
-.hero__years-count {
+
+.hero__title-awards-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.hero__title {
+  margin: 0;
+  padding: 0;
+  max-width: 607px;
+
   font-weight: 600;
-  font-size: 70px;
-  line-height: 90%;
+  font-size: 50px;
+  line-height: 125%;
   letter-spacing: -0.03em;
 
-  @include vp-1919 {
-    font-size: 56px;
-  }
 
-  @include vp-1023 {
+  @include vp-1279 {
     font-size: 38px;
+    letter-spacing: -0.01em;
+    max-width: 368px;
   }
 
   @include vp-767 {
@@ -40,23 +44,118 @@
   }
 }
 
+.hero__info-container {
+  display: grid;
+  padding-bottom: 39px;
+  border-bottom: 1px solid $color-light-gray;
+  width: 100%;
+  grid-template-columns: minmax(409px, max-content) 1fr 1fr min-content;
+
+  @include vp-1279 {
+    column-gap: 20px;
+    padding-bottom: 19px;
+
+    display: grid;
+    grid-template-columns: 50% 1fr;
+    grid-template-rows: repeat(2, min-content) minmax(64px, min-content);
+  }
+
+  @include vp-767 {
+    padding-bottom: 15px;
+    row-gap: 34px;
+    grid-template-columns: 50% 1fr;
+    grid-template-rows: repeat(2, min-content)
+    // grid-template-rows: repeat(2, 1fr);
+  }
+}
+
+.hero__years {
+  position: relative;
+  grid-column: 1/2;
+  grid-row: 1/3;
+
+  align-self: flex-end;
+  display: flex;
+  column-gap: 16px;
+  margin-bottom: 24px;
+
+  @include vp-1279 {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    margin-bottom: 0;
+    align-self: flex-start;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 77px;
+  }
+
+  @include vp-767 {
+    grid-row: 1/2;
+    padding: 20px 0;
+    row-gap: 12px;
+  }
+}
+
+.hero__years-wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+}
+
+.hero__years-count {
+  margin: 0;
+  padding: 0;
+  align-self: flex-end;
+
+  font-weight: 600;
+  font-size: 56px;
+  line-height: 90%;
+  letter-spacing: -0.03em;
+
+  @include vp-1279 {
+    align-self: flex-start;
+    font-size: 38px;
+
+
+    @include vp-767 {
+      position: relative;
+      top: 3px;
+      font-size: 32px;
+    }
+  }
+}
+
 .hero__years-text {
+  margin: 0;
+  padding: 0;
+
   font-family: $ff-secondary;
   font-weight: 500;
   font-size: 18px;
   line-height: 125%;
   letter-spacing: -0.01em;
 
-  @include vp-1023 {
+  @include vp-1279 {
+    position: absolute;
+    left: 65px;
+    top: 13px;
+
     font-size: 15px;
   }
 
   @include vp-767 {
+    left: 53px;
+    top: 31px;
+
     font-size: 16px;
   }
 }
 
 .hero__years-description {
+  margin: 0;
+  padding: 0;
+  max-width: 193px;
+
   font-weight: 500;
   font-size: 13px;
   line-height: 110%;
@@ -65,7 +164,7 @@
 
   opacity: 0.6;
 
-  @include vp-1023 {
+  @include vp-1279 {
     font-size: 13px;
   }
 
@@ -74,21 +173,130 @@
   }
 }
 
+.hero__contacts {
+  grid-column: 2/3;
+  grid-row: 1/3;
+
+  .contacts__item {
+    height: min-content;
+  }
+
+  .contacts__item--telegram {
+    margin: 30px 0 0;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+  }
+
+  @include vp-1279 {
+    grid-column: 2/3;
+    grid-row: 1/2;
+
+    .contacts__list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, min-content);
+      row-gap: 4px;
+    }
+
+    .contacts__item--telegram {
+      margin: 0;
+      grid-column: 2/3;
+      grid-row: 1/-1;
+    }
+
+    // .contacts__item--telegram p {
+    //   margin: 0 0 8px;
+    // }
+  }
+
+  @include vp-767 {
+    padding: 20px 0 17px;
+
+    .contacts__list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .contacts__item--telegram {
+      margin-top: 13px;
+    }
+  }
+}
+
+
+.hero__presentation {
+  grid-column: 3/4;
+  padding-top: 17px;
+
+  @include vp-1279 {
+    padding-top: unset;
+
+    // align-items: flex-start;
+    grid-column: 1/2;
+    grid-row: 3/4;
+  }
+
+  @include vp-767 {
+    display: none;
+  }
+}
+
+.hero__presentation-title-container {
+  grid-column: 3/4;
+
+  margin: 0;
+
+  min-width: 342px;
+
+  @include vp-1279 {
+    grid-column: 2/3;
+    grid-row: 2/3;
+    min-height: 103px;
+  }
+
+  @include vp-767 {
+    display: none;
+  }
+}
+
 .hero__presentation-title {
   margin: 0;
   padding: 0;
 
+  font-size: 16px;
   font-family: $ff-secondary;
   font-weight: 400;
   line-height: 140%;
   letter-spacing: -0.02em;
 
-  @include vp-1023 {
+  @include vp-1279 {
+    position: relative;
+    top: -5px;
     font-size: 15px;
+  }
+}
+
+.hero__start-link {
+  grid-column: 4/5;
+  align-self: flex-end;
+
+  margin-left: 60px;
+  width: 250px;
+  min-height: 61px;
+
+  @include vp-1279 {
+    grid-column: 2/3;
+    grid-row: 3/4;
+    margin-left: 0;
+    width: 217px;
+    min-height: 48px;
   }
 
   @include vp-767 {
-    display: none;
+    width: 100%;
+    grid-column: 1/-1;
+    grid-row: 2/3;
   }
 }
 
@@ -97,7 +305,11 @@
   padding: 0;
   list-style: none;
 
-  @include vp-767 {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+
+  @include vp-1279 {
     display: none;
   }
 }
@@ -107,8 +319,27 @@
   font-size: 12px;
   line-height: 110%;
   letter-spacing: -0.04em;
+}
 
-  @include vp-1919 {
-    opacity: 0.8;
-  }
+.hero__awards-link {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  column-gap: 10px;
+}
+
+.hero__awards__icon-container {
+  display: flex;
+  border-radius: 12px;
+  align-items: center;
+  justify-content: center;
+
+  width: 48px;
+  height: 48px;
+
+  background-color: $color-default-white;
+}
+
+.hero__video-container {
+  display: none;
 }

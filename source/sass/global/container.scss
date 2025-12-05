@@ -2,17 +2,14 @@
   width: 100%;
   max-width: 1920px;
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 12px 30px;
 
-  @include vp-1439 {
-    padding: 0 32px;
-  }
-
-  @include vp-1023 {
-    padding: 0 24px;
+  @include vp-1279 {
+    padding: 10px 20px;
+    // min-width: 1024px;
   }
 
   @include vp-767 {
-    min-width: 767px;
+    min-width: 375px;
   }
 }

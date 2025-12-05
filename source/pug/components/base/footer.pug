@@ -4,7 +4,7 @@ mixin footer(footerMods)
   footer.footer(class=footerMods)
     .container
       .footer__container
-        a.footer__link.main-link(href="#") Начать проект
+        a.footer__link.main-link.btn-fill(href="#") Начать проект
         ul.footer__social-list
           each social in socials
             li.footer__social-list-item
@@ -19,8 +19,8 @@ mixin footer(footerMods)
         p.footer__contacts-description Создаем качественный digital-продукт на&nbsp;базе стратегии, креатива и&nbsp;технологий
         +contacts("footer__contacts")
         +presentation("footer__presentation")
-      a.footer__logo(href="#", title="на главную", aria-label="на главную")
-        img(src="img/svg/footer-logo.svg", alt="Логотип Only-digital" width=188 ,height=30)
+        a.footer__logo(href="#", title="на главную", aria-label="на главную")
+          img(src="img/svg/footer-logo.svg", alt="Логотип Only-digital" width=188 ,height=30)
       .footer__title-container
         h2.footer__title Creative digital production
         a.footer__privacy-link(href="#") Политика конфиденциальности

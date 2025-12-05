@@ -1,8 +1,9 @@
 .btn {
+  padding: 0;
   color: $color-default-black;
-
-  background-color: $color-default-white;
+  background-color: $color-transparent;
   border: none;
+
   cursor: pointer;
 
   transition: opacity $trans-default;

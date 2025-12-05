@@ -4,7 +4,7 @@ mixin awards()
       {
         id: "1",
         awardPlace: "2",
-        awardDescription: "в рейтинге креативности для крупного B2B-бизнеса",
+        awardDescription: "в рейтинге креативности <br>для  крупного B2B-бизнеса",
         tournamentName: "Рейтинг Рунета 2024",
       },
       {
@@ -16,19 +16,19 @@ mixin awards()
       {
         id: "3",
         awardPlace: "5",
-        awardDescription: "в разработке сайтов для промышленности",
+        awardDescription: "в разработке сайтов<br> для промышленности",
         tournamentName: "Рейтинг Рунета 2024",
       },
       {
         id: "4",
         awardPlace: "13",
-        awardDescription: "в рейтинге веб-дизайна",
+        awardDescription: "в&nbsp;рейтинге веб&#8209;дизайна",
         tournamentName: "Tagline 2024",
       },
       {
         id: "5",
         awardPlace: "8",
-        awardDescription: "в рейтинге Digital Design & Creative",
+        awardDescription: "в рейтинге Digital<br> Design & Creative",
         tournamentName: "Ruward 2022",
       },
     ]
@@ -88,25 +88,31 @@ mixin awards()
       .awards__title-container
         p.awards__section-description.section-description награды
         .awards__title-wrapper
-          h2.awards__title.title За&nbsp;10&nbsp;лет активной работы мы&nbsp;завоевали более 150 призовых мест
+          h2.awards__title.title
+            | За&nbsp;10&nbsp;лет активной работы мы завоевали более
+            br
+            |  150 призовых мест
           p.awards__description Каждый год подтверждаем высокие позиции в&nbsp;Рейтинге Рунета в&nbsp;сегменте крупного B2B-бизнеса. Побеждаем на&nbsp;международных и&nbsp;российских конкурсах в&nbsp;номинациях digital-дизайна и&nbsp;разработки сайтов.
-      ul.awards__cards-list
-        each award in awards
-          li.awards__cards-list-item
-            .awards__card.awards-card
-              p.awards-card__place!= award.awardPlace
-              p.awards-card__description!= award.awardDescription
-              p.awards-card__tournament!= award.tournamentName
-      ul.awards__tournaments-list
-        each tournament, i in tournaments
-          li.awards__tournaments-list-item
-            button.awards__tournaments-button.btn(
-              type="button"
-              aria-pressed= i === 3 ? 'true' : 'false'
-              class=i === 3 ? 'is-active' : ''
-            )
-              each word in tournament.words
-                svg(width=90 ,height=90)
-                  use(href=`img/svg/awards/${tournament.icon}.svg`)
-                span.awards__tournaments-button-word!=word
-            span.awards__tournaments-prize-count!=tournament.prizeCount
+      .awards__container
+        ul.awards__cards-list
+          each award in awards
+            li.awards__cards-list-item
+              .awards__card.awards-card
+                p.awards-card__place!= award.awardPlace
+                p.awards-card__description!=award.awardDescription
+                p.awards-card__tournament!= award.tournamentName
+        ul.awards__tournaments-list
+          each tournament, i in tournaments
+            li.awards__tournaments-list-item(class= i === tournaments.length-1 ? 'awards__tournaments-list-item--font' : '')
+              button.awards__tournaments-button.btn(
+                type="button"
+                aria-pressed= i === 3 ? 'true' : 'false'
+                class=i === 3 ? 'is-active' : ''
+              )
+                each word, index in tournament.words
+                  if index === tournament.words.length - 1
+                    .awards__tournaments-button-icon-wrapper
+                      svg(width=70, height=70)
+                        use(href=`img/svg/awards/${tournament.icon}.svg`)
+                  span.awards__tournaments-button-word!= word
+                span.awards__tournaments-prize-count!=tournament.prizeCount
