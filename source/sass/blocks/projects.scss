@@ -64,6 +64,8 @@
   list-style: none;
 
   @include vp-1279 {
+    max-width: 357px;
+
     margin: 54px 0 0;
     column-gap: 15px;
   }

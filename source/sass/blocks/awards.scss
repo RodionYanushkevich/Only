@@ -7,7 +7,6 @@
 
   @include vp-767 {
     overflow: hidden;
-
     padding: 31px 15px;
   }
 }
@@ -19,12 +18,6 @@
     width: 344px;
 
     br {
-      display: none;
-    }
-  }
-
-  @include vp-767 {
-    span {
       display: none;
     }
   }
@@ -128,9 +121,10 @@
 
   @include vp-767 {
     padding: 0;
-    gap: 10px;
+    column-gap: 10px;
     display: flex;
     flex-wrap: nowrap;
+    max-width: 190px;
   }
 }
 
@@ -169,6 +163,14 @@
 
 .awards__tournaments-list-item {
   height: min-content;
+
+  &--font {
+    @include vp-767 {
+      .awards__tournaments-button-word {
+        font-size: 32px;
+      }
+    }
+  }
 }
 
 .awards__tournaments-button {

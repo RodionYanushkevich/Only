@@ -24,7 +24,7 @@
     // font-size: 20px;
     border-radius: 15px;
     padding: 20px;
-    min-width: 190px;
+    max-width: 190px;
     min-height: 190px;
 
     width: 100%;
@@ -38,14 +38,13 @@
   line-height: 120%;
   letter-spacing: -0.03em;
 
-
   @include vp-1279 {
     font-size: 20px;
   }
 
-  @include vp-767 {
-    font-size: 15px;
-  }
+  // @include vp-767 {
+  //   font-size: 15px;
+  // }
 }
 
 .awards-card__tournament {
@@ -68,7 +67,7 @@
   }
 
   @include vp-767 {
-    // font-size: 15px;
+    top: 49px;
   }
 }
 

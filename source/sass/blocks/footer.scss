@@ -14,7 +14,7 @@
   @include vp-767 {
     flex-direction: column;
     margin-top: 40px;
-    padding: 24px 15px;
+    padding: 24px 15px 0;
     row-gap: 39px;
   }
 }
@@ -208,6 +208,17 @@
   }
 }
 
+.footer__title-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex-grow: 1;
+
+  @include vp-767 {
+    margin-top: -38px;
+    gap: 10px;
+  }
+}
 
 .footer__title {
   margin: 0;
@@ -224,7 +235,9 @@
   }
 
   @include vp-767 {
-    // font-size: 32px;
+    font-size: 47px;
+    letter-spacing: 0.03em;
+    line-height: 130%;
   }
 }
 
@@ -265,17 +278,6 @@
   }
 }
 
-.footer__title-container {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  flex-grow: 1;
-
-  @include vp-767 {
-    margin-top: -32px;
-    gap: 21px;
-  }
-}
 
 .footer__logo {
   position: absolute;

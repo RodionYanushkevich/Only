@@ -24,16 +24,16 @@
 
 
   @include vp-1279 {
+
     font-size: 15px;
     letter-spacing: -0.01em;
     text-decoration: underline;
-    text-decoration-skip-ink: none;
   }
 }
 
 .contacts__description {
   padding: 0;
-  margin: 0 0 0;
+  margin: 0;
 
   font-family: $ff-primary;
   font-weight: 500;

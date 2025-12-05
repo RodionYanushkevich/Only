@@ -162,9 +162,14 @@
 
   @include vp-767 {
     display: block;
+
+    &:last-child {
+      .portfolio__swiper-title {
+        margin: 0 0 39px;
+      }
+    }
   }
 }
-
 
 .portfolio__swiper-title {
   display: none;
@@ -253,7 +258,7 @@
   }
 
   @include vp-767 {
-    margin-top: 41px;
+    margin-top: 40px;
     min-width: unset;
     width: 100%;
   }

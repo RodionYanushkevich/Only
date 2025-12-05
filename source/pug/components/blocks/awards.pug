@@ -89,9 +89,7 @@ mixin awards()
         p.awards__section-description.section-description награды
         .awards__title-wrapper
           h2.awards__title.title
-            | За&nbsp;10&nbsp;лет
-            span  активной
-            |  работы мы завоевали более
+            | За&nbsp;10&nbsp;лет активной работы мы завоевали более
             br
             |  150 призовых мест
           p.awards__description Каждый год подтверждаем высокие позиции в&nbsp;Рейтинге Рунета в&nbsp;сегменте крупного B2B-бизнеса. Побеждаем на&nbsp;международных и&nbsp;российских конкурсах в&nbsp;номинациях digital-дизайна и&nbsp;разработки сайтов.
@@ -105,7 +103,7 @@ mixin awards()
                 p.awards-card__tournament!= award.tournamentName
         ul.awards__tournaments-list
           each tournament, i in tournaments
-            li.awards__tournaments-list-item
+            li.awards__tournaments-list-item(class= i === tournaments.length-1 ? 'awards__tournaments-list-item--font' : '')
               button.awards__tournaments-button.btn(
                 type="button"
                 aria-pressed= i === 3 ? 'true' : 'false'
