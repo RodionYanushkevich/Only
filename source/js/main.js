@@ -6,6 +6,7 @@ import {initProjectsSwiper} from './modules/projects/projects-swiper';
 import {initPortfolioSwiper} from './modules/portfolio/portfolio-swiper';
 import {inintAwardsBtnEvents} from './modules/awards/awards-buttons-evt';
 import {initAwardsSwiper} from './modules/awards/awards-swiper';
+import {initBannerBulletPagination} from './modules/banner/banner-pagination';
 import {initBannerScrollAnimation} from './modules/banner/banner-scroll-animation';
 import {initFooterAnimation} from './modules/footer/footer-scroll-animation';
 
@@ -15,6 +16,7 @@ window.addEventListener('DOMContentLoaded', () => {
   initPortfolioSwiper();
   initProjectsSwiper();
   initBannerScrollAnimation();
+  initBannerBulletPagination();
   inintAwardsBtnEvents();
   initAwardsSwiper();
   initFooterAnimation();

@@ -61,8 +61,8 @@ mixin banner()
             height1920:"645",
             width1440:"227",
             height1440:"479",
-            tabletWidth:"112",
-            tabletHeight:"302"
+            tabletWidth:"119",
+            tabletHeight:"252"
           },
           {
             alt: "изображения проекта",
@@ -70,8 +70,8 @@ mixin banner()
             height1920:"645",
             width1440:"227",
             height1440:"479",
-            tabletWidth:"112",
-            tabletHeight:"302"
+            tabletWidth:"119",
+            tabletHeight:"252"
           },
           {
             alt: "изображения проекта",
@@ -86,7 +86,6 @@ mixin banner()
 
   section.banner
     .container
-      //- .banner__title-container
       ul.banner__cards-list
         each card, i in bannerCards
           li.banner__cards-list-item
@@ -115,12 +114,13 @@ mixin banner()
                         +icon("banner-phone", 22, 27)(aria-hidden="true")
                       span мобильные
                     span приложения
-                p.banner-card__description!=card.description
+                p.banner-card__description(class=`banner-card__description--${card.id}`)!=card.description
                 a.banner-card__title-link.btn-fill(href="#") Подробнее
 
               ul.banner-card__images-list(class=`banner-card__images-list--${card.id}`)
                 each image, index in card.images
-                  li.banner-card__images-list-item(class=`banner-card__images-list-item--image-${index + 1}`)
+                  li.banner-card__images-list-item(
+                    class=`banner-card__images-list-item--image-${index + 1}`)
                     +adaptivePicture({
                       imageBaseName: `card-image-${index + 1}`,
                       path: `content/banner/${card.id}`,
@@ -132,13 +132,17 @@ mixin banner()
                       tabletWidth: image.tabletWidth,
                       tabletHeight: image.tabletHeight,
                     })
+                    if i === 0 && index === 2
+                      span.banner-card__notebook-image
+                        +icon('notebook-icon', 38, 31)
+
                 if i === 1
                   li.banner-card__images-list-item.banner-card__images-list-item--image-5
                     +icon("catalog-icon", 15, 12)(aria-hidden="true")
                     | каталог
                   li.banner-card__images-list-item.banner-card__images-list-item--image-6 Оформить заказ
 
-            ul.banner__pagination-buttons.pagination-buttons
-              each button, i in card.images
-                li.pagination-buttons__item
-                  button.pagination-buttons__button.btn(type="button", aria-label=`Перейти к слайду ${i + 1}`)
+      ul.banner__pagination-bullets
+        - for (let i = 0; i < 4; i++)
+          li.banner__pagination-bullets-item
+            button.banner__pagination-bullet.btn(type="button", aria-label=`Перейти к слайду ${i + 1}`)

@@ -1,5 +1,7 @@
 .banner .container {
+  position: relative;
   padding: 80px 30px;
+  min-height: 810px;
 
   @include vp-1279 {
     padding: 60px 20px;
@@ -11,6 +13,7 @@
 }
 
 .banner__cards-list {
+  position: relative;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -18,32 +21,60 @@
   @include vp-1279 {
     // font-size: 12px;
   }
-
-  // .banner__cards-list-item {
-  //   &:first-child {
-  //     display: none;
-  //   }
-  // }
 }
 
-.banner__pagination-buttons {
+.banner__cards-list-item {
+  position: absolute;
+  width: 100%;
+}
+
+.banner__pagination-bullets {
+  position: absolute;
+  left: 70px;
+  bottom: 113px;
+
+  display: flex;
+  // gap: 10px;
   margin: 0;
   padding: 0;
+
   list-style: none;
 
-  // !!!!
-  display: none;
-
   @include vp-1279 {
-    // font-size: 12px;
+    left: 50%;
+    bottom: 79px;
   }
 }
 
-section:not(.banner) {
-  display: none;
+.banner__pagination-bullet {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  transition: opacity $trans-default;
+  opacity: 0.3;
+
+  @include vp-1279 {
+    padding: 2.5px;
+  }
+
+  &::after {
+    content: "";
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    flex-shrink: 0;
+    background-color: $color-default-black;
+
+    @include vp-1279 {
+      width: 6px;
+      height: 6px;
+    }
+  }
 }
 
-header,
-footer {
-  display: none;
+.banner__pagination-bullet.is-active {
+  opacity: 1;
+  pointer-events: none;
 }
