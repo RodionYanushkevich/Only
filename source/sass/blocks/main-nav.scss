@@ -16,7 +16,12 @@
 
     .main-nav__link {
       opacity: 1;
-      transition-delay: 500ms;
+      transition-delay: 0ms, 0ms, 500ms;
+
+      &:active {
+        transition-delay: 0ms, 0ms, 0ms;
+        opacity: 0.3;
+      }
     }
   }
 }
@@ -27,7 +32,7 @@
   display: flex;
   align-items: center;
   column-gap: 1px;
-
+  flex-wrap: wrap;
   color: $color-black;
   list-style: none;
 
@@ -48,6 +53,7 @@
 
     background-color: $color-default-white;
     z-index: -2;
+
     transition: transform 0.3s $tf-default;
     transition-delay: 300ms;
     transform: translateY(-100%);
@@ -67,7 +73,26 @@
   letter-spacing: -0.03em;
   text-transform: lowercase;
 
+  text-decoration: underline;
+  text-underline-offset: 0;
+  text-decoration-skip-ink: all;
+  text-decoration-color: $color-transparent;
+
+  transition:
+    text-underline-offset $trans-default,
+    text-decoration-color $trans-default,
+    opacity $trans-default;
+
   color: inherit;
+
+  &:hover {
+    text-underline-offset: 4px;
+    text-decoration-color: $color-black;
+  }
+
+  &:active {
+    opacity: 0.3;
+  }
 
   @include vp-1279 {
     padding: 5px 0;
@@ -78,9 +103,17 @@
     letter-spacing: -0.03em;
     text-transform: none;
 
-    transition: opacity $trans-default;
+    transition:
+      text-underline-offset $trans-default,
+      text-decoration-color $trans-default,
+      opacity $trans-default;
+
     transition-delay: 0ms;
     opacity: 0;
+
+    &:hover {
+      text-underline-offset: 2px;
+    }
   }
 
   @include vp-767 {

@@ -1,6 +1,7 @@
 
 
-import {initMenuToggle} from './modules/burger-menu/burger-menu';
+import {initMenuToggle} from './modules/header/burger-menu';
+import {initFavoriteButton} from './modules/header/favorite-btn';
 import {initProjectsSwiper} from './modules/projects/projects-swiper';
 import {initPortfolioSwiper} from './modules/portfolio/portfolio-swiper';
 import {initAwardsSwiper} from './modules/awards/awards-swiper';
@@ -9,6 +10,7 @@ import {initFooterAnimation} from './modules/footer/footer-scroll-animation';
 
 window.addEventListener('DOMContentLoaded', () => {
   initMenuToggle();
+  initFavoriteButton();
   initPortfolioSwiper();
   initProjectsSwiper();
   initBannerScrollAnimation();
