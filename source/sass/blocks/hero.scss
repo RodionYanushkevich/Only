@@ -372,6 +372,18 @@
   align-items: center;
   justify-content: flex-end;
   column-gap: 10px;
+  transition: opacity $trans-default;
+
+  &:hover,
+  &:focus-visible {
+    .hero__awards__icon-container {
+      background-color: $color-green-background;
+    }
+  }
+
+  &:active {
+    opacity: 0.3;
+  }
 }
 
 .hero__awards__icon-container {
@@ -382,6 +394,7 @@
 
   width: 48px;
   height: 48px;
+  transition: background-color $trans-default;
 
   background-color: $color-default-white;
 }

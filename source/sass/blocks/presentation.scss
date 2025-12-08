@@ -47,6 +47,22 @@
     min-height: 44px;
     column-gap: 3px;
   }
+  transition: background-color $trans-default;
+
+  &:hover,
+  &:focus-visible {
+    background-color: $color-green-background;
+  }
+
+  &:active {
+    opacity: 0.3;
+  }
+
+  &--disabled {
+
+    pointer-events: none;
+    opacity: 0.3;
+  }
 }
 
 .presentation__description {

@@ -24,10 +24,29 @@
 
 
   @include vp-1279 {
-
     font-size: 15px;
     letter-spacing: -0.01em;
     text-decoration: underline;
+  }
+
+  transition:
+    opacity $trans-default,
+    text-underline-offset  $trans-default;
+
+  &:hover,
+  &:focus-visible {
+    opacity: 0.6;
+    text-underline-offset: 2px;
+  }
+
+  &:active {
+    opacity: 0.3;
+  }
+
+  &--disabled {
+
+    pointer-events: none;
+    opacity: 0.3;
   }
 }
 

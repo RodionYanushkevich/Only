@@ -17,14 +17,47 @@
   color: $color-default-white;
   background-color: $color-black;
 
+  transition:
+    background-color $trans-default,
+    border-radius $trans-default,
+    color $trans-default;
+
+  &:hover,
+  &:focus-visible {
+    background-color: $color-default-white;
+    border-radius: 40px;
+    color: $color-black;
+  }
+
+  @include vp-1439 {
+    &:hover,
+    &:focus-visible {
+      border-radius: 30px;
+    }
+  }
 
   @include vp-1279 {
     border-radius: 12px;
     font-size: 13px;
     line-height: 120%;
+
+    &:hover,
+    &:focus-visible {
+      border-radius: 12px;
+    }
   }
 
   @include vp-767 {
     border-radius: 10px;
+  }
+
+
+  &:active {
+    background-color: $color-light-gray;
+
+    &:disabled {
+      pointer-events: none;
+      opacity: 0.3;
+    }
   }
 }
