@@ -16,24 +16,10 @@ mixin clients()
         link: "#",
       },
       {
-        title: "ТЭК-Торг",
-        width: "157",
-        height:"37",
-        image: "tek-torg",
-        link: "#",
-      },
-      {
-        title: "РосАтом",
-        width: "125",
-        height:"56",
-        image: "rosatom",
-        link: "#",
-      },
-      {
-        title: "НЛМК",
-        width: "108",
-        height:"60",
-        image: "nlmk",
+        title: "УралХим",
+        width: "186",
+        height:"24",
+        image: "uralchem",
         link: "#",
       },
       {
@@ -44,10 +30,31 @@ mixin clients()
         link: "#",
       },
       {
-        title: "УралХим",
-        width: "186",
-        height:"24",
-        image: "uralchem",
+        title: "НЛМК",
+        width: "108",
+        height:"60",
+        image: "nlmk",
+        link: "#",
+      },
+      {
+        title: "РосАтом",
+        width: "125",
+        height:"56",
+        image: "rosatom",
+        link: "#",
+      },
+      {
+        title: "ТЭК-Торг",
+        width: "157",
+        height:"37",
+        image: "tek-torg",
+        link: "#",
+      },
+      {
+        title: "Фармстандарт",
+        width: "160",
+        height:"37",
+        image: "pharmstandard",
         link: "#",
       },
       {
@@ -55,6 +62,27 @@ mixin clients()
         width: "154",
         height:"35",
         image: "schlumberger",
+        link: "#",
+      },
+      {
+        title: "Сбер",
+        width: "134",
+        height:"37",
+        image: "sber",
+        link: "#",
+      },
+      {
+        title: "Вконтакте",
+        width: "63",
+        height:"63",
+        image: "vkontakte",
+        link: "#",
+      },
+      {
+        title: "Открытие",
+        width: "184",
+        height:"36",
+        image: "otkrytie",
         link: "#",
       },
       {
@@ -78,34 +106,6 @@ mixin clients()
         image: "glavstroy",
         link: "#",
       },
-      {
-        title: "Вконтакте",
-        width: "63",
-        height:"63",
-        image: "vkontakte",
-        link: "#",
-      },
-      {
-        title: "Сбер",
-        width: "134",
-        height:"37",
-        image: "sber",
-        link: "#",
-      },
-      {
-        title: "Открытие",
-        width: "184",
-        height:"36",
-        image: "otkrytie",
-        link: "#",
-      },
-      {
-        title: "Фармстандарт",
-        width: "160",
-        height:"37",
-        image: "pharmstandard",
-        link: "#",
-      },
     ]
   section.clients
     .container
@@ -114,6 +114,6 @@ mixin clients()
       ul.clients__list
         each card in clientsLinks
           li.clients__list-item
-            a.clients__link(href=card.link , aria-label=card.title, title=card.title)
+            a.clients__link(href=card.link , aria-label=card.title, title=card.title, class=`clients__link--${card.image}`)
               svg(width=card.width, height=card.height , aria-hidden="true")
                 use(href=`img/svg/clients/${card.image}.svg`)

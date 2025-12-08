@@ -1,11 +1,11 @@
 .projects .container {
-  padding: 173px 30px 0;
+  padding: 174px 30px 0;
 
   overflow: hidden;
 
   @include vp-1279 {
 
-    padding: 107px 20px 0;
+    padding: 106px 20px 0;
   }
 
   @include vp-767 {
@@ -18,8 +18,10 @@
   display: flex;
   justify-content: space-between;
 
+  border-top: $border;
+
   @include vp-767 {
-    row-gap: 24px;
+    row-gap: 22px;
     flex-direction: column;
   }
 }
@@ -34,14 +36,16 @@
 }
 
 .projects__title-wrapper {
-  padding: 40px 0 0 40px;
+  padding: 40px 0 0 39px;
   display: flex;
   row-gap: 24px;
   min-width: 690px;
   width: min-content;
 
+  border-left: $border;
+
   @include vp-1279 {
-    padding: 21px 0 0 20px;
+    padding: 20px 0 0 19px;
     row-gap: 19px;
     min-width: 364px;
     font-size: 15px;
@@ -51,12 +55,13 @@
     row-gap: 8px;
     min-width: 100%;
     padding: 0;
+    border-left: none;
   }
 }
 
 
 .projects__slides {
-  margin: 80px 0 0;
+  margin: 78px 0 0;
   padding: 0;
   display: flex;
   column-gap: 20px;
