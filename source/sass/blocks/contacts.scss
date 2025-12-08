@@ -29,14 +29,12 @@
     text-decoration: underline;
   }
 
-  transition:
-    opacity $trans-default,
-    text-underline-offset  $trans-default;
+  transition: opacity $trans-default;
 
   &:hover,
   &:focus-visible {
+    outline: none;
     opacity: 0.6;
-    text-underline-offset: 2px;
   }
 
   &:active {

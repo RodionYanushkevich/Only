@@ -5,7 +5,7 @@
   row-gap: 123px;
 
 
-  @include vp-1023 {
+  @include vp-1279 {
     padding: 0 20px;
     row-gap: 88px;
   }
@@ -18,7 +18,7 @@
 .clients__title-container {
   padding: 0 354px;
 
-  @include vp-1023 {
+  @include vp-1279 {
     padding: 0 127.5px;
   }
 
@@ -40,7 +40,7 @@
   padding: 0 65px;
   row-gap: 91px;
 
-  @include vp-1023 {
+  @include vp-1279 {
     padding: 0 43.5px 0 50px;
     grid-template-columns: repeat(3, 1fr);
     gap: 61px 7px;
@@ -53,7 +53,7 @@
 }
 
 .clients__list-item {
-  @include vp-1023 {
+  @include vp-1279 {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -61,12 +61,18 @@
 }
 
 .clients__link {
+  position: relative;
+
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 90px;
 
-  @include vp-1023 {
+  color: $color-dark-gray;
+
+  transition: color $trans-default;
+
+  @include vp-1279 {
     max-width: 190px;
     max-height: 50px;
 
@@ -78,10 +84,54 @@
     max-width: 85px;
     min-height: 100px;
   }
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 306px;
+    height: 306px;
+    background-color: $color-default-white;
+    border-radius: 50%;
+
+    transform: translateX(-50%) translateY(-50%);
+    transition: all $trans-default;
+
+    z-index: -1;
+
+    @include vp-1439 {
+      width: 242px;
+      height: 242px;
+    }
+
+    @include vp-1279 {
+      display: none;
+    }
+  }
+
+  &:hover,
+  &:focus-visible {
+    outline: none;
+
+    color: $color-black;
+  }
+
+  &:active {
+    color: $color-dark-gray;
+  }
+
+  &:not(:hover):not(:active) {
+    &::before {
+      width: 0;
+      height: 0;
+    }
+  }
 }
 
+
 .clients__link--vkontakte {
-  @include vp-1023 {
+  @include vp-1279 {
     padding-top: 10px;
     padding-right: 25px;
 
@@ -98,7 +148,7 @@
 }
 
 .clients__link--nlmk {
-  @include vp-1023 {
+  @include vp-1279 {
     svg {
       transform: scale(1, 0.8);
     }
@@ -110,7 +160,7 @@
 }
 
 .clients__link--rostec {
-  @include vp-1023 {
+  @include vp-1279 {
     padding: 28px;
   }
 
@@ -120,7 +170,7 @@
 }
 
 .clients__link--schlumberger {
-  @include vp-1023 {
+  @include vp-1279 {
     padding: 0 2px 3px;
 
     svg {

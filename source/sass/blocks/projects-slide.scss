@@ -1,4 +1,8 @@
 .projects-slide {
+
+  --image-1x: initial;
+  --image-2x: initial;
+
   position: relative;
 
   min-width: 330px;
@@ -15,6 +19,10 @@
 
   background-size: 100% 100%;
   background-image: var(--image-1x);
+
+  transition:
+    border-radius $trans-default,
+    transform $trans-default;
 
   @media (min-resolution: $retina-dppx) {
     background-image: var(--image-2x, var(--image-1x));
@@ -33,6 +41,21 @@
     min-height: 240px;
     padding: 21px 20px;
     border-radius: 15px;
+  }
+
+  &:hover,
+  &:focus-visible {
+    outline: none;
+    border-radius: 50px;
+    transform: scale(1.02);
+
+    @include vp-767 {
+      border-radius: 30px;
+    }
+  }
+
+  &:active {
+    background-color: $color-light-gray;
   }
 }
 

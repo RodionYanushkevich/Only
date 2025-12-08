@@ -58,9 +58,9 @@ mixin projects()
         .projects__title-wrapper
           h2.projects__title.title Поддерживаем и развиваем долгосрочное сотрудничество
           .projects__pagination-buttons-container
-            button.projects__pagination-button.btn(type="button", aria-label="предидущий слайд")
+            button.projects__pagination-button.btn(type="button", aria-label="предидущий слайд", title="предидущий слайд")
               +icon("arrow", 20, 20)
-            button.projects__pagination-button.btn(type="button", aria-label="следующий слайд")
+            button.projects__pagination-button.projects__pagination-button--next-btn.btn(type="button", aria-label="следующий слайд", title="следующий слайд")
               +icon("arrow", 20, 20)
       .projects__slider-wrapper
         ul.projects__slides

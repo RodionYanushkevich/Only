@@ -90,6 +90,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
+  justify-content: space-between;
 
 
   @include vp-1279 {
@@ -109,6 +110,7 @@
   margin: 0;
   padding: 0;
   list-style: none;
+  min-width: 680px;
   gap: 20px;
 
   // overflow: hidden;
@@ -119,6 +121,7 @@
   flex-grow: 0;
 
   @include vp-1279 {
+    min-width: unset;
     padding: 0 0 0 8px;
     gap: 15px;
   }
@@ -180,8 +183,11 @@
 .awards__tournaments-button {
   display: flex;
   align-items: center;
+
   min-height: 70px;
+
   color: $color-black;
+
   user-select: none;
 
 
@@ -189,7 +195,10 @@
     min-height: 29px;
   }
 
-  &:hover {
+  &:hover,
+  &:focus-visible {
+    outline: none;
+
     .awards__tournaments-button-icon-wrapper {
       margin-right: 20px;
       width: 70px;
@@ -203,6 +212,8 @@
 }
 
 .awards__tournaments-button.is-active {
+  pointer-events: none;
+
   .awards__tournaments-button-word {
     opacity: 1;
   }
@@ -219,12 +230,16 @@
 }
 
 .awards__tournaments-button-word {
+  opacity: 0.4;
+
+
   font-family: $ff-primary;
   font-weight: 600;
   font-size: 56px;
   line-height: 90%;
   letter-spacing: -0.03em;
-  opacity: 0.4;
+
+  transition: opacity $trans-default;
 
   transform: opacity $tf-default;
 

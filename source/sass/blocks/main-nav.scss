@@ -85,7 +85,10 @@
 
   color: inherit;
 
-  &:hover {
+  &:hover,
+  &:focus-visible {
+    outline: none;
+
     text-underline-offset: 4px;
     text-decoration-color: $color-black;
   }

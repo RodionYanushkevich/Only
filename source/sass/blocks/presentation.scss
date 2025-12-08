@@ -14,7 +14,10 @@
   margin: 0;
   padding: 0;
   display: flex;
-  column-gap: 5px;
+  flex-wrap: wrap;
+  max-width: 400px;
+
+  gap: 5px;
 
   @include vp-1279 {
     column-gap: 3px;
@@ -51,6 +54,7 @@
 
   &:hover,
   &:focus-visible {
+    outline: none;
     background-color: $color-green-background;
   }
 

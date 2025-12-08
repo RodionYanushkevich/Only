@@ -24,6 +24,7 @@
 
   &:hover,
   &:focus-visible {
+    outline: none;
     background-color: $color-default-white;
     border-radius: 40px;
     color: $color-black;

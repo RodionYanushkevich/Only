@@ -9,10 +9,10 @@ mixin clients()
         link: "#",
       },
       {
-        title: "Сибгур",
+        title: "Сибур",
         width: "123",
         height:"24",
-        image: "sibgur",
+        image: "sibur",
         link: "#",
       },
       {
@@ -114,6 +114,6 @@ mixin clients()
       ul.clients__list
         each card in clientsLinks
           li.clients__list-item
-            a.clients__link(href=card.link , aria-label=card.title, title=card.title, class=`clients__link--${card.image}`)
+            a.clients__link(href=card.link , aria-label=`ссылка на проект ${card.title}`, title=card.title, class=`clients__link--${card.image}`)
               svg(width=card.width, height=card.height , aria-hidden="true")
                 use(href=`img/svg/clients/${card.image}.svg`)

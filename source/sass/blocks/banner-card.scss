@@ -212,6 +212,9 @@
   opacity: 0;
 
   transition:
+    background-color $trans-default,
+    border-radius $trans-default,
+    color $trans-default,
     opacity 0.7s ease-out,
     transform  0.5s ease-out;
 

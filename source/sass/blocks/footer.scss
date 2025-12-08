@@ -69,6 +69,7 @@
   display: flex;
   flex-wrap: wrap;
   min-height: 48px;
+  max-width: 400px;
   gap: 5px;
 }
 
@@ -82,8 +83,23 @@
   height: 48px;
   background-color: $color-default-white;
 
+  transition:
+    background-color $trans-default,
+    opacity $trans-default;
+
   @include vp-1279 {
     padding: 16px 14px;
+  }
+
+  &:hover,
+  &:focus-visible {
+    outline: none;
+
+    background-color: $color-green-background;
+  }
+
+  &:active {
+    opacity: 0.3;
   }
 }
 
@@ -297,12 +313,25 @@
 
   opacity: 0.4;
 
+  transition: opacity $trans-default;
+
   @include vp-1279 {
     font-size: 15px;
   }
 
   @include vp-767 {
     // font-size: 32px;
+  }
+
+
+  &:hover,
+  &:focus-visible {
+    outline: none;
+    opacity: 0.8;
+  }
+
+  &:active {
+    opacity: 0.3;
   }
 }
 
@@ -311,6 +340,9 @@
   position: absolute;
   right: 30px;
   top: 131px;
+
+
+  transition: opacity $trans-default;
 
   @include vp-1279 {
     width: 154px;
@@ -322,5 +354,15 @@
 
   @include vp-767 {
     display: none;
+  }
+
+  &:hover,
+  &:focus-visible {
+    outline: none;
+    opacity: 0.8;
+  }
+
+  &:active {
+    opacity: 0.3;
   }
 }
