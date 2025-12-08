@@ -152,6 +152,22 @@
   @include vp-767 {
     row-gap: 6px;
   }
+
+
+  &:hover,
+  &:focus-visible {
+    .portfolio__card-image-wrapper {
+      border-radius: 40px;
+
+      img {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  &:active {
+    background-color: $color-light-gray;
+  }
 }
 
 .portfolio__swiper-list {
@@ -243,12 +259,21 @@
   border-radius: 30px;
   overflow: hidden;
 
+  background-color: $color-light-gray;
+
+  transition: border-radius $trans-default;
+
   @include vp-1023 {
     border-radius: 20px;
   }
 
   @include vp-767 {
     border-radius: 15px;
+  }
+
+  img {
+
+    transition: transform $trans-default;
   }
 }
 
