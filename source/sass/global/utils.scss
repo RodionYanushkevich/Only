@@ -1,4 +1,4 @@
-.wrapper {
+.body {
   position: relative;
 
   display: flex;
@@ -14,6 +14,34 @@
 
   main {
     flex-grow: 1;
+  }
+
+
+  &::after {
+    content: "";
+    position: absolute;
+    // z-index: 20;
+
+    top: 0;
+    left: 0;
+    display: block;
+    height: 100%;
+    width: 100%;
+    background-color: #0d1d33;
+    opacity: 0;
+    transition: opacity $trans-default;
+    transition-delay: 0ms;
+    pointer-events: none;
+  }
+
+  &--modal-is-open {
+    &::after {
+      cursor: pointer;
+      opacity: 0.4;
+      z-index: 2;
+      transition-delay: 500ms;
+      pointer-events: auto;
+    }
   }
 }
 
@@ -38,3 +66,8 @@
   /* stylelint-disable-next-line */
   transition: none !important;
 }
+
+.scroll-lock {
+  overflow: hidden;
+}
+

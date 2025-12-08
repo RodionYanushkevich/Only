@@ -1,5 +1,6 @@
 const MIN_SWIPE_DISTANCE = 50;
 const BOUNCE_DISTANCE = 100;
+const TRANS_DEFAULT = 200;
 
 const swiper = (container, paginationContainer = null) => {
   const wrapper = container;
@@ -82,7 +83,7 @@ const swiper = (container, paginationContainer = null) => {
 
       setTimeout(() => {
         wrapper.style.transform = `translateX(${move}px)`;
-      }, 200);
+      }, TRANS_DEFAULT);
       return currentIndex;
     }
 
@@ -97,7 +98,7 @@ const swiper = (container, paginationContainer = null) => {
       wrapper.style.transform = `translateX(${move + BOUNCE_DISTANCE}px)`;
       setTimeout(() => {
         wrapper.style.transform = `translateX(${move}px)`;
-      }, 200);
+      }, TRANS_DEFAULT);
       return currentIndex;
     }
 

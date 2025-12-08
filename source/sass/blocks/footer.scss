@@ -1,6 +1,6 @@
 .footer .container {
   position: relative;
-  padding: 80px 30px 30px;
+  padding: 81px 30px 30px;
   display: flex;
   flex-wrap: wrap;
   row-gap: 20px;
@@ -8,13 +8,13 @@
 
   @include vp-1279 {
     gap: 15px 20px;
-    padding: 60px 20px 20px;
+    padding: 59px 20px 20px;
   }
 
   @include vp-767 {
     flex-direction: column;
     margin-top: 40px;
-    padding: 24px 15px 0;
+    padding: 24px 15px 19px;
     row-gap: 39px;
   }
 }
@@ -22,9 +22,11 @@
 .footer__container {
   display: flex;
   flex-direction: column;
-  padding: 51px 0 0;
+  padding: 50px 0 0;
 
   row-gap: 90px;
+
+  border-top: $border;
 
   width: 730px;
 
@@ -32,7 +34,7 @@
   @include vp-1279 {
     width: 363px;
     flex-grow: 1;
-    padding: 95px 0 0;
+    padding: 94px 0 0;
     row-gap: 32px;
   }
 
@@ -88,13 +90,15 @@
 .footer__contacts-container {
   display: flex;
   flex-direction: column;
-  padding: 51px 0 0;
+  padding: 50px 0 0;
   row-gap: 30px;
   flex-grow: 1;
 
+  border-top: $border;
+
   @include vp-1279 {
     row-gap: 22px;
-    padding: 32px 0 0;
+    padding: 30px 0 0;
     // align-items: flex-end;
     // flex-grow: 1;
   }
@@ -223,6 +227,10 @@
 .footer__title {
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+
+  column-gap: 23px;
 
   font-weight: 700;
   font-size: 87px;
@@ -230,7 +238,10 @@
   letter-spacing: -0.01em;
   text-transform: lowercase;
 
+  overflow: hidden;
+
   @include vp-1279 {
+    column-gap: 12px;
     font-size: 46px;
   }
 
@@ -239,13 +250,30 @@
     letter-spacing: 0.03em;
     line-height: 130%;
   }
+
+  span {
+    display: inline-block;
+    transform: translateY(87px);
+    opacity: 0;
+    transition:
+      opacity 0.5s ease-out,
+      transform 0.5s ease-out;
+
+    @include vp-1279 {
+      transform: translateY(40px);
+    }
+
+    @include vp-767 {
+      transform: translateY(46px);
+    }
+  }
 }
 
 .footer__presentation.presentation {
   margin-top: 48px;
 
   @include vp-1279 {
-    margin-top: 34px;
+    margin-top: 37px;
 
     .presentation__link {
       min-height: 45px;

@@ -11,9 +11,14 @@
   justify-content: flex-end;
   row-gap: 5px;
 
-  background-color: $color-default-white;
   border-radius: 30px;
 
+  background-size: 100% 100%;
+  background-image: var(--image-1x);
+
+  @media (min-resolution: $retina-dppx) {
+    background-image: var(--image-2x, var(--image-1x));
+  }
 
   @include vp-1279 {
     min-width: 357px;
@@ -30,6 +35,7 @@
     border-radius: 15px;
   }
 }
+
 
 .projects-slide__subtitle {
   margin: 0 0 5px;

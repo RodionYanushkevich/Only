@@ -1,23 +1,58 @@
 .header {
+  position: relative;
+
   width: 100%;
+  transition: background-color $trans-default;
 
   .container {
-    position: relative;
-
+    padding: 12px 30px 11px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     column-gap: 16px;
 
+    border-bottom: $border;
+
     @include vp-1279 {
+      position: relative;
+      padding: 9px 20px 10px;
       min-height: 52px;
+      z-index: 10;
+
+      border-bottom: none;
     }
 
     @include vp-767 {
       padding: 10px 15px;
     }
   }
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background-color: $color-light-gray;
+  }
 }
+
+
+.header.is-active {
+  position: relative;
+
+  @include vp-1279 {
+    background-color: $color-default-white;
+
+    &::before {
+      content: "";
+      background-color: $color-light-gray;
+      z-index: 99;
+    }
+  }
+}
+
 
 .header__logo {
   margin-right: auto;

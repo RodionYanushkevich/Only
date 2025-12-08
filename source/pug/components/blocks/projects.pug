@@ -66,7 +66,10 @@ mixin projects()
         ul.projects__slides
           each slide in slides
             li.projects-slides__item
-              a.projects-slides__slide.projects-slide(href="#")
+              a.projects-slides__slide.projects-slide(
+                href="#",
+                style=`--image-1x: url("/img/content/projects/${slide.name}/background.webp");
+                --image-2x: url("/img/content/projects/${slide.name}/background@2x.webp");`)
                 p.projects-slide__subtitle!= slide.subtitle
                 h3.projects-slide__title!= slide.title
                 p.projects-slide__description!= slide.description
