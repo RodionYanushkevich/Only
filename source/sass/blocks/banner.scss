@@ -19,11 +19,11 @@
     // font-size: 12px;
   }
 
-  .banner__cards-list-item {
-    &:not(:first-child) {
-      display: none;
-    }
-  }
+  // .banner__cards-list-item {
+  //   &:first-child {
+  //     display: none;
+  //   }
+  // }
 }
 
 .banner__pagination-buttons {
@@ -39,3 +39,11 @@
   }
 }
 
+section:not(.banner) {
+  display: none;
+}
+
+header,
+footer {
+  display: none;
+}

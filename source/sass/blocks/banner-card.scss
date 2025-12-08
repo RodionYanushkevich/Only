@@ -6,6 +6,29 @@
 
   &--card-1 {
     background-color: $color-default-white;
+
+    .banner-card__subtitle,
+    .banner-card__title,
+    .banner-card__description,
+    .banner-card__title-link {
+      opacity: 0;
+    }
+
+    .banner-card__title-link {
+      transform: translateY(50px);
+    }
+
+    .banner-card__images-list-item {
+      opacity: 0;
+      transform: translateY(50px) scale(0);
+      transition:
+        opacity 0.7s ease-out,
+        transform  0.5s ease-out;
+    }
+  }
+
+  &--card-2 {
+    background-color: $color-banner-background;
   }
 
   @include vp-1279 {
@@ -31,7 +54,6 @@
   letter-spacing: -0.03em;
   text-transform: lowercase;
 
-  opacity: 0;
   transition:
     opacity 0.7s ease-out,
     transform  0.5s ease-out;
@@ -55,12 +77,19 @@
   letter-spacing: -0.03em;
 
   color: $color-dark-green;
-  opacity: 0;
   transition: opacity 0.7s ease-out;
 
   @include vp-1279 {
     font-size: 28px;
     margin: 24px 0 25px;
+  }
+
+  &--card-2 {
+    div {
+      display: flex;
+      gap: 10px;
+      margin-bottom: -4px;
+    }
   }
 }
 
@@ -74,13 +103,10 @@
   font-size: 16px;
   line-height: 140%;
   letter-spacing: -0.03em;
-  opacity: 0;
 
   transition:
     opacity 0.7s ease-out,
     transform  0.5s ease-out;
-
-  // transform: translateY(100px);
 
   @include vp-1279 {
     margin: 0 0 20px;
@@ -145,11 +171,9 @@
     margin-left: 10px;
     background-image: var(--image-after);
 
-
     @media (min-resolution: $retina-dppx) {
       background-image: var(--image-after-2x, var(--image-after));
     }
-
 
     @include vp-1279 {
       margin-left: 5px;
@@ -158,7 +182,6 @@
 
   &::before {
     background-image: var(--image-before);
-    // background-size: 40px;
     margin-left: 1px;
 
     @media (min-resolution: $retina-dppx) {
@@ -190,6 +213,14 @@
   align-items: center;
   width: min-content;
 
+  &--card-2 {
+    padding: 0;
+    margin: 2px 3px;
+    width: 50px;
+    height: 40px;
+    border-radius: 11.25px;
+  }
+
   @include vp-1279 {
     padding: 8px 14px;
     width: 50px;
@@ -209,8 +240,6 @@
   width: 224px;
   min-height: 61px;
 
-  opacity: 0;
-
   transition:
     background-color $trans-default,
     border-radius $trans-default,
@@ -218,24 +247,13 @@
     opacity 0.7s ease-out,
     transform  0.5s ease-out;
 
-  transform: translateY(50px);
-
   @include vp-1279 {
     width: 193px;
     min-height: 48px;
   }
 }
 
-
-.banner-card__images-list-item {
-  position: absolute;
-  overflow: hidden;
-  transform: translateY(50px) scale(0);
-  opacity: 0;
-  transition:
-    opacity 0.7s ease-out,
-    transform  0.5s ease-out;
-
+.banner-card__images-list--card-1 .banner-card__images-list-item {
   &--image-1 {
     border-radius: 6px;
     box-shadow: 0 20px 37px 0 rgba(0, 0, 0, 0.16);
@@ -246,7 +264,6 @@
   &--image-2 {
     border-radius: 21.61px;
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.04), 0 2px 2px 0 rgba(0, 0, 0, 0.06), 0 3px 3px 0 rgba(0, 0, 0, 0.07), 0 47px 34px 0 rgba(0, 0, 0, 0.14);
-
     left: 771.44px;
     top: 71px;
   }
@@ -254,7 +271,6 @@
   &--image-3 {
     box-shadow: 0 33px 34px 0 rgba(0, 0, 0, 0.12), inset 5px -5px 12px 4px rgba(255, 255, 255, 0.2);
     border-radius: 24px;
-
     left: 891.1px;
     top: 295.58px;
   }
@@ -287,4 +303,91 @@
       top: 111px;
     }
   }
+}
+
+.banner-card__images-list--card-2 .banner-card__images-list-item {
+  &--image-1 {
+    border-radius: 15px;
+    box-shadow: 0 7px 15px 0 rgba(0, 0, 0, 0.05);
+    left: 502.45px;
+    top: 352px;
+    z-index: 1;
+  }
+
+  &--image-2 {
+    border-radius: 28.52px;
+    box-shadow: 0 7px 15px 0 rgba(0, 0, 0, 0.05);
+    left: 675px;
+    top: 50.68px;
+  }
+
+  &--image-3 {
+    border-radius: 28.52px;
+    left: 938px;
+    top: 122px;
+  }
+
+  &--image-4 {
+    border-radius: 14.86px;
+    box-shadow: 0 7px 15px 0 rgba(0, 0, 0, 0.05);
+    left: 1051.53px;
+    top: 424px;
+  }
+
+  &--image-5 {
+    left: 598px;
+    top: 253px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+
+    font-weight: 400;
+    font-size: 7px;
+    line-height: 240%;
+    text-align: center;
+    color: #777777;
+
+    border-radius: 22px;
+    box-shadow: 0 7px 15px 0 rgba(0, 0, 0, 0.05);
+
+    width: 59px;
+    height: 59px;
+  }
+
+  &--image-6 {
+    left: 1131px;
+    top: 512px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 7px 15px 0 rgba(0, 0, 0, 0.05);
+
+    font-weight: 700;
+    font-size: 8px;
+    line-height: 200%;
+    color: #202020;
+
+    border-radius: 45px;
+    background-color: $color-banner-background;
+    width: 104px;
+    height: 29px;
+  }
+
+
+  @include vp-1279 {
+    // Мобильные стили для карточки 2
+    &--image-1 {
+      // Ваши мобильные стили
+    }
+    // и т.д.
+  }
+}
+
+.banner-card__images-list-item {
+  position: absolute;
+  overflow: hidden;
 }
