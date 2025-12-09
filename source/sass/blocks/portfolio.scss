@@ -1,6 +1,6 @@
 
 .portfolio .container {
-  padding: 130px 30px;
+  padding: size(130px) size(30px);
 
   display: flex;
   flex-direction: column;
@@ -17,10 +17,31 @@
 }
 
 .portfolio__title-container {
+  position: relative;
   display: flex;
   justify-content: space-between;
 
   border-top: $border;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0;
+
+    width: size(1px);
+    height: size(130px);
+    transform: translateX(size(-1px));
+    background-color: $color-light-gray;
+
+    @include vp-1279 {
+      transform: translateX(0);
+    }
+
+    @include vp-767 {
+      display: none;
+    }
+  }
 
   @include vp-767 {
     flex-direction: column;
@@ -29,14 +50,12 @@
 }
 
 .portfolio__title-wrapper {
-  padding: 40px 120px 0 39px;
+  padding: size(40px) size(120px) 0 size(39px);
   display: flex;
   flex-direction: column;
-  row-gap: 24px;
-  min-width: 690px;
+  row-gap: size(24px);
+  min-width: size(690px);
   width: min-content;
-
-  border-left: $border;
 
   @include vp-1279 {
     padding: 20px 20px 0;
@@ -62,7 +81,7 @@
 
 .portfolio__section-description {
   flex-grow: 1;
-  padding-top: 41px;
+  padding-top: size(41px);
 
   @include vp-1279 {
     padding-top: 20px;
@@ -79,7 +98,7 @@
 
   font-family: $ff-secondary;
   font-weight: 400;
-  font-size: 16px;
+  font-size: size(16px);
   line-height: 140%;
   letter-spacing: -0.02em;
 
@@ -103,25 +122,28 @@
 }
 
 .portfolio__list {
-  margin: 79px 0 0;
+  margin: size(79px) 0 0;
   padding: 0;
 
   list-style: none;
 
   display: grid;
-  grid-template-columns: repeat(3, 447px);
+  grid-template-columns: repeat(3, size(447px));
   grid-template-rows: auto-fill;
-  justify-content: space-between;
-  row-gap: 79px;
-
+  justify-content: center;
+  row-gap: size(79px);
+  column-gap: size(19.5px);
 
   @include vp-1279 {
+
     margin: 60px 0 0;
     row-gap: 57px;
+    column-gap: 15px;
     grid-template-columns: repeat(2, 357px);
   }
 
   @include vp-767 {
+    justify-content: flex-start;
     margin: 0;
     gap: 57px 10px;
     display: flex;
@@ -133,13 +155,13 @@
 
   @include vp-767 {
     display: flex;
+    margin-right: 30px;
     width: 315px;
   }
 }
 
 .portfolio__list-item {
   @include vp-767 {
-
     min-width: max-content;
   }
 }
@@ -147,12 +169,47 @@
 .portfolio__link {
   display: flex;
   flex-direction: column-reverse;
-  row-gap: 10px;
+  row-gap: size(10px);
+  transition: opacity $trans-default;
 
   @include vp-767 {
     row-gap: 6px;
   }
+
+  img {
+    width: size(447.47px);
+    height: size(450.74px);
+
+    @include vp-1279 {
+      width: 356.49px;
+      height: 349.58px;
+    }
+
+    @include vp-767 {
+      width: unset;
+      height: unset;
+    }
+  }
+
+  &:hover,
+  &:focus-visible {
+    outline: none;
+
+    .portfolio__card-image-wrapper {
+      border-radius: size(40px);
+    }
+
+    img {
+      transform: scale(1.02);
+    }
+  }
+
+
+  &:active {
+    opacity: 0.3;
+  }
 }
+
 
 .portfolio__swiper-list {
   @include vp-767 {
@@ -169,12 +226,16 @@
   display: contents;
 
   @include vp-767 {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
 
-    &:last-child {
-      .portfolio__swiper-title {
-        margin: 0 0 39px;
-      }
+.portfolio__swiper-item:last-child {
+  @include vp-767 {
+    .portfolio__swiper-title {
+      margin: 0 0 39px;
     }
   }
 }
@@ -187,6 +248,7 @@
     margin: 0 0 38px;
     padding: 0;
 
+    align-self: flex-start;
     font-weight: 600;
     font-size: 20px;
     line-height: 120%;
@@ -196,11 +258,11 @@
 
 
 .portfolio__card-title {
-  margin: 13px 20px 0;
+  margin: size(13px) size(20px) 0;
   padding: 0;
 
   font-weight: 600;
-  font-size: 18px;
+  font-size: size(18px);
   line-height: 125%;
   letter-spacing: -0.03em;
 
@@ -215,13 +277,13 @@
 }
 
 .portfolio__card-description {
-  margin: 0 20px;
+  margin: 0 size(20px);
   padding: 0;
 
 
   font-family: $ff-secondary;
   font-weight: 500;
-  font-size: 15px;
+  font-size: size(15px);
   line-height: 130%;
   letter-spacing: -0.02em;
 
@@ -240,8 +302,12 @@
 
 .portfolio__card-image-wrapper {
   display: block;
-  border-radius: 30px;
+  border-radius: size(30px);
   overflow: hidden;
+
+  background-color: $color-light-gray;
+
+  transition: border-radius $trans-default;
 
   @include vp-1023 {
     border-radius: 20px;
@@ -250,13 +316,17 @@
   @include vp-767 {
     border-radius: 15px;
   }
+
+  img {
+    transition: transform $trans-default;
+  }
 }
 
 .portfolio__button {
-  margin-top: 81px;
+  margin-top: size(81px);
   align-self: center;
-  min-width: 234px;
-  min-height: 61px;
+  min-width: size(234px);
+  min-height: size(61px);
 
 
   @include vp-1023 {

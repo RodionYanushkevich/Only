@@ -1,11 +1,11 @@
 .projects .container {
-  padding: 174px 30px 0;
+  padding: size(174px) size(30px) 0;
 
   overflow: hidden;
 
   @include vp-1279 {
 
-    padding: 106px 20px 0;
+    padding: 107px 20px 0;
   }
 
   @include vp-767 {
@@ -15,6 +15,7 @@
 }
 
 .projects__title-container {
+  position: relative;
   display: flex;
   justify-content: space-between;
 
@@ -24,11 +25,36 @@
     row-gap: 22px;
     flex-direction: column;
   }
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0;
+
+    width: size(1px);
+    height: 100%;
+    transform: translateX(size(-1px));
+    background-color: $color-light-gray;
+
+    @include vp-1279 {
+      transform: translateX(0);
+    }
+
+    @include vp-767 {
+      display: none;
+    }
+  }
+
+  @include vp-767 {
+    flex-direction: column;
+    border-top: none;
+  }
 }
 
 .projects__section-description {
   flex-grow: 1;
-  padding-top: 41px;
+  padding-top: size(41px);
 
   @include vp-1279 {
     padding-top: 21px;
@@ -36,13 +62,11 @@
 }
 
 .projects__title-wrapper {
-  padding: 40px 0 0 39px;
+  padding: size(40px) 0 0 size(39px);
   display: flex;
   row-gap: 24px;
   min-width: 690px;
   width: min-content;
-
-  border-left: $border;
 
   @include vp-1279 {
     padding: 20px 0 0 19px;
@@ -61,13 +85,13 @@
 
 
 .projects__slides {
-  margin: 78px 0 0;
+  margin: size(78px) 0 0;
   padding: 0;
   display: flex;
-  column-gap: 20px;
+  column-gap: size(20px);
 
   list-style: none;
-  max-width: 330px;
+  max-width: size(330px);
 
   @include vp-1279 {
     max-width: 357px;
@@ -85,7 +109,7 @@
 
 .projects__pagination-buttons-container {
   display: flex;
-  column-gap: 15px;
+  column-gap: size(15px);
   align-items: flex-start;
 
   @include vp-1279 {
@@ -101,18 +125,33 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
-  width: 61px;
-  height: 61px;
+  padding: size(20px);
+  width: size(61px);
+  height: size(61px);
 
   flex-shrink: 0;
 
+  transition:
+    opacity $trans-default,
+    background-color $trans-default;
+
   background-color: $color-default-white;
-  border-radius: 15px;
+  border-radius: size(15px);
 
-
-  &[aria-label="следующий слайд"] {
+  &--next-btn {
     transform: rotate(180deg);
+  }
+
+  svg {
+    transition: transform 0.1s ease;
+
+    width: size(20px);
+    height: size(20px);
+
+    @include vp-1279 {
+      width: unset;
+      height: unset;
+    }
   }
 
   @include vp-1279 {
@@ -121,15 +160,17 @@
     height: 48px;
     border-radius: 12px;
   }
+
+
+  &:hover,
+  &:focus-visible {
+    outline: none;
+    background-color: $color-green-background;
+  }
+
+  &:active {
+    svg {
+      transform: translateX(size(-2px));
+    }
+  }
 }
-
-// .projects__pagination-button svg {
-
-//   width: 20px;
-//   height: 20px;
-
-//   @include vp-1279 {
-//     width: 16px;
-//     height: 16px;
-//   }
-// }

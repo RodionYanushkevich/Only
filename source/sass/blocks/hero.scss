@@ -7,27 +7,27 @@
     left: 50%;
     top: 0;
 
-    width: 1px;
-    height: 130px;
-    transform: translateX(-1px);
+    width: size(1px);
+    height: size(130px);
+    transform: translateX(size(-1px));
     background-color: $color-light-gray;
 
     @include vp-1279 {
       transform: translateX(0);
     }
 
-    @include vp-1279 {
+    @include vp-767 {
       display: none;
     }
   }
 }
 
 .hero .container {
-  padding: 61px 30px 0;
+  padding: size(61px) size(30px) 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 751px;
+  min-height: size(751px);
 
   @include vp-1279 {
     padding: 50px 20px 0;
@@ -49,10 +49,10 @@
 .hero__title {
   margin: 0;
   padding: 0;
-  max-width: 607px;
+  max-width: size(607px);
 
   font-weight: 600;
-  font-size: 50px;
+  font-size: size(50px);
   line-height: 125%;
   letter-spacing: -0.03em;
 
@@ -71,10 +71,10 @@
 .hero__info-container {
   position: relative;
   display: grid;
-  padding-bottom: 39px;
-  border-bottom: 1px solid $color-light-gray;
+  padding-bottom: size(39px);
+  border-bottom: size(1px) solid $color-light-gray;
   width: 100%;
-  grid-template-columns: minmax(409px, max-content) 1fr 1fr min-content;
+  grid-template-columns: minmax(size(409px), max-content) 1fr 1fr min-content;
 
   &::before {
     content: "";
@@ -82,7 +82,7 @@
     left: 50%;
     top: 0;
 
-    width: 1px;
+    width: size(1px);
     height: 100%;
     background-color: $color-light-gray;
 
@@ -116,8 +116,8 @@
 
   align-self: flex-end;
   display: flex;
-  column-gap: 16px;
-  margin-bottom: 24px;
+  column-gap: size(16px);
+  margin-bottom: size(24px);
 
   @include vp-1279 {
     grid-column: 1/2;
@@ -140,7 +140,7 @@
 .hero__years-wrapper {
   display: flex;
   flex-direction: column;
-  row-gap: 5px;
+  row-gap: size(5px);
 }
 
 .hero__years-count {
@@ -149,7 +149,7 @@
   align-self: flex-end;
 
   font-weight: 600;
-  font-size: 56px;
+  font-size: size(56px);
   line-height: 90%;
   letter-spacing: -0.03em;
 
@@ -172,7 +172,7 @@
 
   font-family: $ff-secondary;
   font-weight: 500;
-  font-size: 18px;
+  font-size: size(18px);
   line-height: 125%;
   letter-spacing: -0.01em;
 
@@ -195,10 +195,10 @@
 .hero__years-description {
   margin: 0;
   padding: 0;
-  max-width: 193px;
+  max-width: size(193px);
 
   font-weight: 500;
-  font-size: 13px;
+  font-size: size(13px);
   line-height: 110%;
   letter-spacing: -0.04em;
   text-transform: lowercase;
@@ -218,20 +218,15 @@
   grid-column: 2/3;
   grid-row: 1/3;
 
-  // margin-right: 38px;
-
-  // border-right: $border;
-
-
   .contacts__item {
     height: min-content;
   }
 
   .contacts__item--telegram {
-    margin: 30px 0 0;
+    margin: size(30px) 0 0;
     display: flex;
     flex-direction: column;
-    row-gap: 10px;
+    row-gap: size(10px);
   }
 
   @include vp-1279 {
@@ -250,10 +245,6 @@
       grid-column: 2/3;
       grid-row: 1/-1;
     }
-
-    // .contacts__item--telegram p {
-    //   margin: 0 0 8px;
-    // }
   }
 
   @include vp-767 {
@@ -273,12 +264,11 @@
 
 .hero__presentation {
   grid-column: 3/4;
-  padding-top: 17px;
+  padding-top: size(17px);
 
   @include vp-1279 {
     padding-top: unset;
 
-    // align-items: flex-start;
     grid-column: 1/2;
     grid-row: 3/4;
   }
@@ -289,11 +279,14 @@
 }
 
 .hero__presentation-title-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: size(5px);
   grid-column: 3/4;
 
   margin: 0;
 
-  min-width: 342px;
+  min-width: size(342px);
 
   @include vp-1279 {
     grid-column: 2/3;
@@ -310,7 +303,7 @@
   margin: 0;
   padding: 0;
 
-  font-size: 16px;
+  font-size: size(16px);
   font-family: $ff-secondary;
   font-weight: 400;
   line-height: 140%;
@@ -327,9 +320,9 @@
   grid-column: 4/5;
   align-self: flex-end;
 
-  margin-left: 60px;
-  width: 250px;
-  min-height: 61px;
+  margin-left: size(60px);
+  width: size(250px);
+  min-height: size(61px);
 
   @include vp-1279 {
     grid-column: 2/3;
@@ -352,8 +345,9 @@
   list-style: none;
 
   display: flex;
-  flex-direction: column;
-  row-gap: 10px;
+  flex-flow: column wrap;
+  max-height: size(400px);
+  gap: size(10px);
 
   @include vp-1279 {
     display: none;
@@ -362,7 +356,7 @@
 
 .hero__awards-count {
   font-weight: 500;
-  font-size: 12px;
+  font-size: size(12px);
   line-height: 110%;
   letter-spacing: -0.04em;
 }
@@ -371,23 +365,61 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  column-gap: 10px;
+  column-gap: size(10px);
+  transition: opacity $trans-default;
+
+  &:hover,
+  &:focus-visible {
+    outline: none;
+
+    .hero__awards__icon-container {
+      background-color: $color-green-background;
+    }
+  }
+
+  &:active {
+    opacity: 0.3;
+  }
 }
 
 .hero__awards__icon-container {
   display: flex;
-  border-radius: 12px;
+  border-radius: size(12px);
   align-items: center;
   justify-content: center;
 
-  width: 48px;
-  height: 48px;
+  width: size(48px);
+  height: size(48px);
+  transition: background-color $trans-default;
 
   background-color: $color-default-white;
+
+  svg {
+    width: size(28px);
+    height: size(28px);
+  }
 }
 
 .hero__video-container {
-  // position: absolute;
-  // top: 237px
-  display: none;
+  position: absolute;
+  top: size(215px);
+  left: 50%;
+  width: size(456px);
+  border-radius: size(20px);
+
+
+  overflow: hidden;
+  transform: translateX(-50%);
+
+  @include vp-1279 {
+    border-radius: 20px;
+    width: unset;
+    top: 290px;
+    min-width: 404px;
+  }
+
+  @include vp-767 {
+    top: 210px;
+    min-width: 240px;
+  }
 }

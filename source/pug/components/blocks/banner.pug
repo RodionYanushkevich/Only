@@ -4,7 +4,7 @@ mixin banner()
       {
         id: "card-1",
         title: "Формируем ценность бренда в digital - среде",
-        description: "Создаем digital-пространство для девелоперов и&nbsp;проектов&nbsp;ЖК, находя баланс идентичности бренда и&nbsp;сервисности.",
+        description: "Создаем digital-пространство для девелоперов и проектов&nbsp;ЖК, находя баланс идентичности бренда и&nbsp;сервисности.",
         images: [
           {
             alt: "изображения проекта",
@@ -46,8 +46,7 @@ mixin banner()
       },
       {
         id: "card-2",
-        title: "Проектируем мобильные приложения",
-        description: "Разрабатываем приложения для мобильных устройств, решая реальные запросы пользователей.",
+        description: "Разрабатываем приложения для мобильных устройств,<br> решая реальные запросы пользователей.",
         images: [
           {
             alt: "изображения проекта",
@@ -62,8 +61,8 @@ mixin banner()
             height1920:"645",
             width1440:"227",
             height1440:"479",
-            tabletWidth:"112",
-            tabletHeight:"302"
+            tabletWidth:"119",
+            tabletHeight:"252"
           },
           {
             alt: "изображения проекта",
@@ -71,8 +70,8 @@ mixin banner()
             height1920:"645",
             width1440:"227",
             height1440:"479",
-            tabletWidth:"112",
-            tabletHeight:"302"
+            tabletWidth:"119",
+            tabletHeight:"252"
           },
           {
             alt: "изображения проекта",
@@ -87,47 +86,64 @@ mixin banner()
 
   section.banner
     .container
-      //- h2.vissually-hidden *******
-      .banner__title-container
       ul.banner__cards-list
-        each card in bannerCards
+        each card, i in bannerCards
           li.banner__cards-list-item
+            h2.visually-hidden Баннеры проектов
             article.banner__card.banner-card(class=`banner-card--${card.id}`)
-
               .banner-card__title-container
-                p.banner-card__subtitle недвижимость
-                h3.banner-card__title
-                  span Формируем
-                    +icon("banner-icon", 40, 31)(aria-hidden="true")
-                  span.banner-card__title-images(
-                    style="--image-before: url('/img/content/banner/card-1/heart.webp');--image-before-2x: url('/img/content/banner/card-1/heart@2x.webp'); --image-after: url('/img/content/banner/card-1/city.webp'); --image-after-2x: url('/img/content/banner/card-1/city@2x.webp');"
-                  ) ценность бренда
-                  span ЖК
-                  span.banner-card__title-wrapper
-                    span.banner-card__title-icon-wrapper
-                      +icon("planet-icon", 29, 29)(aria-hidden="true")
-                    span.banner-card__title-green-bg в digital - среде
-
-                p.banner-card__description Создаем digital-пространство для девелоперов и&nbsp;проектов&nbsp;ЖК, находя баланс идентичности бренда и&nbsp;сервисности.
+                if i === 0
+                  p.banner-card__subtitle недвижимость
+                  h3.banner-card__title
+                    span Формируем
+                      +icon("banner-arrow", 40, 31)(aria-hidden="true")
+                    span.banner-card__title-images(
+                      style="--image-before: url('/img/content/banner/card-1/heart.webp');--image-before-2x: url('/img/content/banner/card-1/heart@2x.webp'); --image-after: url('/img/content/banner/card-1/city.webp'); --image-after-2x: url('/img/content/banner/card-1/city@2x.webp');"
+                    ) ценность бренда
+                    span ЖК
+                    span.banner-card__title-wrapper
+                      span.banner-card__title-icon-wrapper
+                        +icon("planet-icon", 29, 29)(aria-hidden="true")
+                      span.banner-card__title-green-bg в digital - среде
+                if i === 1
+                  p.banner-card__subtitle Mobile App
+                  h3.banner-card__title.banner-card__title--card-2
+                    span Проектируем
+                    span.banner-card__wrapper
+                      span.banner-card__title-icon-wrapper.banner-card__title-icon-wrapper--card-2
+                        +icon("banner-phone", 22, 27)(aria-hidden="true")
+                      span мобильные
+                    span приложения
+                p.banner-card__description(class=`banner-card__description--${card.id}`)!=card.description
                 a.banner-card__title-link.btn-fill(href="#") Подробнее
 
-              ul.banner-card__images-list
+              ul.banner-card__images-list(class=`banner-card__images-list--${card.id}`)
                 each image, index in card.images
-                  li.banner-card__images-list-item(class=`banner-card__images-list-item--image-${index + 1}`)
-                    +adaptivePicture({
-                      imageBaseName: `card-image-${index + 1}`,
-                      path: `content/banner/${card.id}`,
-                      width: image.width1920,
-                      height: image.height1920,
-                      alt: image.alt,
-                      desktop1440Width: image.width1440,
-                      desktop1440Height: image.height1440,
-                      tabletWidth: image.tabletWidth,
-                      tabletHeight: image.tabletHeight,
-                    })
+                  li.banner-card__images-list-item(
+                    class=`banner-card__images-list-item--image-${index + 1}`)
+                    .banner-card__image-container
+                      +adaptivePicture({
+                        imageBaseName: `card-image-${index + 1}`,
+                        path: `content/banner/${card.id}`,
+                        width: image.width1920,
+                        height: image.height1920,
+                        alt: image.alt,
+                        desktop1440Width: image.width1440,
+                        desktop1440Height: image.height1440,
+                        tabletWidth: image.tabletWidth,
+                        tabletHeight: image.tabletHeight,
+                      })
+                    if i === 0 && index === 2
+                      span.banner-card__notebook-image
+                        +icon('notebook-icon', 38, 31)
 
+                if i === 1
+                  li.banner-card__images-list-item.banner-card__images-list-item--image-5
+                    +icon("catalog-icon", 15, 12)(aria-hidden="true")
+                    | каталог
+                  li.banner-card__images-list-item.banner-card__images-list-item--image-6 Оформить заказ
 
-            ul.banner__pagination-buttons.pagination-buttons
-              each button, i in card.images
-                li.pagination-buttons__item
-                  button.pagination-buttons__button.btn(type="button", aria-label=`Перейти к слайду ${i + 1}`)
+      ul.banner__pagination-bullets
+        - for (let i = 0; i < 4; i++)
+          li.banner__pagination-bullets-item
+            button.banner__pagination-bullet.btn(type="button", aria-label=`Перейти к слайду ${i + 1}`)

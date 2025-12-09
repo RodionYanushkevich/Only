@@ -1,8 +1,11 @@
 .banner .container {
-  padding: 80px 30px;
+  position: relative;
+  padding: size(80px) size(30px);
+  min-height: size(810px);
 
   @include vp-1279 {
     padding: 60px 20px;
+    min-height: 570px;
   }
 
   @include vp-767 {
@@ -11,31 +14,75 @@
 }
 
 .banner__cards-list {
+  position: relative;
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.banner__cards-list-item {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.banner__pagination-bullets {
+  position: absolute;
+  left: size(70px);
+  bottom: size(113px);
+
+  display: flex;
+
   margin: 0;
   padding: 0;
   list-style: none;
 
   @include vp-1279 {
-    // font-size: 12px;
+    left: calc(50% - 23px);
+    bottom: 82px;
+  }
+}
+
+.banner__pagination-bullet {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: size(5px);
+  transition: opacity $trans-default;
+  opacity: 0.3;
+
+  @include vp-1279 {
+    padding: 2.5px;
   }
 
-  .banner__cards-list-item {
-    &:not(:first-child) {
-      display: none;
+  &:hover,
+  &:focus-visible {
+    opacity: 0.8;
+  }
+
+  &:active {
+    opacity: 1;
+  }
+
+  &::after {
+    content: "";
+    border-radius: 50%;
+    width: size(10px);
+    height: size(10px);
+    flex-shrink: 0;
+    background-color: $color-default-black;
+
+    @include vp-1279 {
+      width: 6px;
+      height: 6px;
     }
   }
 }
 
-.banner__pagination-buttons {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-
-  // !!!!
-  display: none;
-
-  @include vp-1279 {
-    // font-size: 12px;
-  }
+.banner__pagination-bullet.is-active {
+  opacity: 1;
+  pointer-events: none;
 }
-

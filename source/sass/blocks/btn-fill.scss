@@ -4,12 +4,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 15px;
+  border-radius: size(15px);
 
   font-family: $ff-primary;
   font-weight: 600;
-  font-size: 14px;
-  line-height: 17px;
+  font-size: size(14px);
+  line-height: size(17px);
   letter-spacing: -0.03em;
   text-transform: lowercase;
   white-space: nowrap;
@@ -17,11 +17,44 @@
   color: $color-default-white;
   background-color: $color-black;
 
+  transition:
+    background-color $trans-default,
+    border-radius $trans-default,
+    color $trans-default;
+
+  &:hover,
+  &:focus-visible {
+    outline: none;
+    background-color: $color-default-white;
+    border-radius: 40px;
+    color: $color-black;
+  }
+
+  &:active {
+    background-color: $color-light-gray;
+  }
+
+  &:disabled {
+    pointer-events: none;
+    opacity: 0.3;
+  }
+
+  @include vp-1439 {
+    &:hover,
+    &:focus-visible {
+      border-radius: 30px;
+    }
+  }
 
   @include vp-1279 {
     border-radius: 12px;
     font-size: 13px;
     line-height: 120%;
+
+    &:hover,
+    &:focus-visible {
+      border-radius: 12px;
+    }
   }
 
   @include vp-767 {

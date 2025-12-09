@@ -2,30 +2,35 @@ mixin hero()
   -
     const heroAwards = [
       {
+        title: "AWWARDS",
         count: "25",
         img: "award-icon-1",
         width: "28",
         height: "28"
       },
       {
+        title: "FWA",
         count: "1",
         img: "award-icon-2",
         width: "41",
         height: "12"
       },
       {
+        title: "CSSDA",
         count: "26",
         img: "award-icon-3",
         width: "25",
         height: "25"
       },
       {
+        title: "Рейтинг Рунета",
         count: "22",
         img: "award-icon-4",
         width: "27",
         height: "27"
       },
       {
+        title: "Золотой Сайт",
         count: "40",
         img: "award-icon-5",
         width: "27",
@@ -39,7 +44,7 @@ mixin hero()
         ul.hero__awards-list
           each award in heroAwards
             li.hero__awards-list-item
-              a.hero__awards-link(href="#")
+              a.hero__awards-link(href="#" title=award.title)
                 span.hero__awards-count!=award.count
                 .hero__awards__icon-container
                   +icon(award.img, award.width, award.height)

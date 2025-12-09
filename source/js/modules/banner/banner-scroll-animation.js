@@ -12,7 +12,8 @@ const ANIMATION_PARAMS = {
 };
 
 const bannerList = document.querySelector('.banner__cards-list');
-const firstBanner = bannerList.querySelector('.banner-card--card-1');
+const banners = bannerList.querySelectorAll('.banner-card');
+const firstBanner = banners[0];
 const imagesList = firstBanner.querySelector('.banner-card__images-list');
 const titleEl = firstBanner.querySelector('.banner-card__title-container');
 
@@ -60,7 +61,7 @@ const initBannerScrollAnimation = () => {
   };
   const debouncedHandleScroll = debounce(handleScroll, 10);
 
-
+  handleScroll();
   window.addEventListener('scroll', debouncedHandleScroll);
 };
 

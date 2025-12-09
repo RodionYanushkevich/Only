@@ -12,6 +12,8 @@
 @import "global/utils";
 @import "global/container";
 @import "swiper/swiper";
+@import "blocks/title";
+@import "blocks/section-description";
 
 // Blocks
 
@@ -25,11 +27,9 @@
 @import "blocks/presentation";
 @import "blocks/hero";
 @import "blocks/contacts";
-@import "blocks/title";
 @import "blocks/portfolio";
 @import "blocks/clients";
 @import "blocks/projects";
-// @import "blocks/projects-slides";
 @import "blocks/projects-slide";
 @import "blocks/banner";
 @import "blocks/banner-card";
