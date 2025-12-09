@@ -405,13 +405,14 @@
   top: size(215px);
   left: 50%;
   width: size(456px);
-  border-radius: 15px;
+  border-radius: size(20px);
 
 
   overflow: hidden;
   transform: translateX(-50%);
 
   @include vp-1279 {
+    border-radius: 20px;
     width: unset;
     top: 290px;
     min-width: 404px;

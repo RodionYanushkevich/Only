@@ -1,5 +1,5 @@
 .awards .container {
-  padding: 50px 30px;
+  padding: size(50px) size(30px);
 
   @include vp-1279 {
     padding: 20px;
@@ -12,7 +12,7 @@
 }
 
 .awards__title {
-  width: 418px;
+  width: size(418px);
 
   @include vp-1279 {
     width: 344px;
@@ -29,7 +29,7 @@
 
   font-family: $ff-secondary;
   font-weight: 400;
-  font-size: 16px;
+  font-size: size(16px);
   line-height: 140%;
   letter-spacing: -0.03em;
 
@@ -57,9 +57,9 @@
     left: 50%;
     top: 0;
 
-    width: 1px;
+    width: size(1px);
     height: 100%;
-    transform: translateX(-1px);
+    transform: translateX(size(-1px));
     background-color: $color-light-gray;
 
     @include vp-1279 {
@@ -75,7 +75,7 @@
 
 .awards__section-description {
   flex-grow: 1;
-  padding-top: 41px;
+  padding-top: size(41px);
 
   @include vp-1279 {
     padding-top: 21px;
@@ -83,14 +83,12 @@
 }
 
 .awards__title-wrapper {
-  padding: 40px 80px 0 39px;
+  padding: size(40px) size(90px) 0 size(39px);
   display: flex;
   flex-direction: column;
-  row-gap: 22px;
-  min-width: 690px;
+  row-gap: size(22px);
+  min-width: size(690px);
   width: min-content;
-
-  // border-left: $border;
 
   @include vp-1279 {
     padding: 21px 0 0 20px;
@@ -108,10 +106,10 @@
 }
 
 .awards__container {
-  margin-top: 78px;
+  margin-top: size(78px);
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: size(20px);
   justify-content: space-between;
 
 
@@ -132,10 +130,8 @@
   margin: 0;
   padding: 0;
   list-style: none;
-  min-width: 680px;
-  gap: 20px;
-
-  // overflow: hidden;
+  min-width: size(680px);
+  gap: size(20px);
 
   display: flex;
   flex-wrap: wrap;
@@ -170,13 +166,13 @@
 .awards__tournaments-list {
   position: relative;
 
-  top: -10px;
+  top: size(-10px);
   margin: 0;
   padding: 0;
   display: flex;
   flex-direction: column;
 
-  gap: 7px;
+  gap: size(7px);
   order: -1;
   list-style: none;
 
@@ -206,7 +202,7 @@
 .awards__tournaments-button {
   display: flex;
   align-items: center;
-  min-height: 70px;
+  min-height: size(70px);
 
   color: $color-black;
 
@@ -223,7 +219,7 @@
 
   .awards__tournaments-button-icon-wrapper {
     margin-right: 20px;
-    width: 70px;
+    width: size(70px);
 
     @include vp-1279 {
       margin-right: 10px;
@@ -240,8 +236,8 @@
   }
 
   .awards__tournaments-button-icon-wrapper {
-    margin-right: 20px;
-    width: 70px;
+    margin-right: size(20px);
+    width: size(70px);
 
     @include vp-1279 {
       width: 29px;
@@ -256,7 +252,7 @@
 
   font-family: $ff-primary;
   font-weight: 600;
-  font-size: 56px;
+  font-size: size(56px);
   line-height: 90%;
   letter-spacing: -0.03em;
 
@@ -280,7 +276,7 @@
   width: 0;
   transition: all $trans-default;
   overflow: hidden;
-  height: 70px;
+  height: size(70px);
   border-radius: 15px;
 
 
@@ -294,8 +290,8 @@
 .awards__tournaments-button-icon-wrapper svg {
   position: absolute;
   right: 0;
-  width: 70px;
-  height: 70px;
+  width: size(70px);
+  height: size(70px);
 
   @include vp-1279 {
     width: 29px;
@@ -304,7 +300,7 @@
 }
 
 .awards__tournaments-button-word + .awards__tournaments-button-icon-wrapper {
-  margin-left: 20px;
+  margin-left: size(20px);
 
   @include vp-1279 {
     margin-left: 10px;
@@ -316,7 +312,7 @@
 }
 
 .awards__tournaments-prize-count {
-  margin: 12px 22px;
+  margin: size(12px) size(22px);
   align-self: flex-start;
 
   font-family: $ff-secondary;

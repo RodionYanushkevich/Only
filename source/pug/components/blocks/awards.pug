@@ -93,7 +93,7 @@ mixin awards()
             | За&nbsp;10&nbsp;лет активной работы мы завоевали более
             br
             |  150 призовых мест
-          p.awards__description Каждый год подтверждаем высокие позиции в&nbsp;Рейтинге Рунета в&nbsp;сегменте крупного B2B-бизнеса. Побеждаем на&nbsp;международных и&nbsp;российских конкурсах в&nbsp;номинациях digital-дизайна и&nbsp;разработки сайтов.
+          p.awards__description Каждый год подтверждаем высокие позиции в Рейтинге Рунета в&nbsp;сегменте крупного B2B-бизнеса. Побеждаем на&nbsp;международных и&nbsp;российских конкурсах в&nbsp;номинациях digital-дизайна и&nbsp;разработки сайтов.
       .awards__container
         ul.awards__cards-list
           each award in awards
@@ -112,7 +112,7 @@ mixin awards()
               )
                 each word, index in tournament.words
                   if index === tournament.words.length - 1
-                    .awards__tournaments-button-icon-wrapper
+                    span.awards__tournaments-button-icon-wrapper
                       svg(width=70, height=70)
                         use(href=`img/svg/awards/${tournament.icon}.svg`)
                   span.awards__tournaments-button-word!= word

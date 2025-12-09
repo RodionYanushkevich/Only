@@ -1,7 +1,7 @@
 .banner .container {
   position: relative;
-  padding: 80px 30px;
-  min-height: 810px;
+  padding: size(80px) size(30px);
+  min-height: size(810px);
 
   @include vp-1279 {
     padding: 60px 20px;
@@ -17,11 +17,8 @@
   position: relative;
   margin: 0;
   padding: 0;
-  list-style: none;
 
-  @include vp-1279 {
-    // font-size: 12px;
-  }
+  list-style: none;
 }
 
 .banner__cards-list-item {
@@ -33,12 +30,11 @@
 
 .banner__pagination-bullets {
   position: absolute;
-  left: 70px;
-  bottom: 113px;
+  left: size(70px);
+  bottom: size(113px);
 
   display: flex;
 
-  // gap: 10px;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -54,7 +50,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 5px;
+  padding: size(5px);
   transition: opacity $trans-default;
   opacity: 0.3;
 
@@ -74,8 +70,8 @@
   &::after {
     content: "";
     border-radius: 50%;
-    width: 10px;
-    height: 10px;
+    width: size(10px);
+    height: size(10px);
     flex-shrink: 0;
     background-color: $color-default-black;
 

@@ -1,9 +1,8 @@
 .clients .container {
-  padding: 0 30px;
+  padding: 0 size(30px);
   display: flex;
   flex-direction: column;
-  row-gap: 123px;
-
+  row-gap: size(123px);
 
   @include vp-1279 {
     padding: 0 20px;
@@ -16,7 +15,7 @@
 }
 
 .clients__title-container {
-  padding: 0 354px;
+  padding: 0 size(354px);
 
   @include vp-1279 {
     padding: 0 127.5px;
@@ -33,12 +32,11 @@
 
 .clients__list {
   margin: 0;
-
   list-style: none;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  padding: 0 65px;
-  row-gap: 91px;
+  padding: 0 size(65px);
+  row-gap: size(91px);
 
   @include vp-1279 {
     padding: 0 43.5px 0 50px;
@@ -53,36 +51,48 @@
 }
 
 .clients__list-item {
-  @include vp-1279 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .clients__link {
   position: relative;
-
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 90px;
-
+  width: 100%;
+  height: 100%;
+  min-height: size(90px);
   color: $color-dark-gray;
-
   transition: color $trans-default;
+
+  svg {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
+    display: block;
+  }
 
   @include vp-1279 {
     max-width: 190px;
     max-height: 50px;
-
     padding: 18px;
+
+    svg {
+      max-height: 100%;
+    }
   }
 
   @include vp-767 {
     padding: 0;
     max-width: 85px;
     min-height: 100px;
+
+    svg {
+      max-height: 100%;
+    }
   }
 
   &::before {
@@ -90,14 +100,12 @@
     position: absolute;
     left: 50%;
     top: 50%;
-    width: 306px;
-    height: 306px;
+    width: size(306px);
+    height: size(306px);
     background-color: $color-default-white;
     border-radius: 50%;
-
     transform: translateX(-50%) translateY(-50%);
     transition: all $trans-default;
-
     z-index: -1;
 
     @include vp-1279 {
@@ -113,7 +121,6 @@
   &:hover,
   &:focus-visible {
     outline: none;
-
     color: $color-black;
   }
 
@@ -129,14 +136,211 @@
   }
 }
 
+.clients__link--severstal {
+  svg {
+    max-height: 57px;
+  }
+
+  @include vp-1279 {
+    svg {
+      max-height: 40px;
+    }
+  }
+
+  @include vp-767 {
+    svg {
+      max-height: 30px;
+    }
+  }
+}
+
+.clients__link--sibur {
+  svg {
+    max-height: 24px;
+  }
+
+  @include vp-1279 {
+    svg {
+      max-height: 18px;
+    }
+  }
+
+  @include vp-767 {
+    svg {
+      max-height: 15px;
+    }
+  }
+}
+
+.clients__link--uralchem {
+  svg {
+    max-height: 24px;
+  }
+
+  @include vp-1279 {
+    svg {
+      max-height: 18px;
+    }
+  }
+
+  @include vp-767 {
+    max-width: 93px;
+
+    svg {
+      max-height: 15px;
+    }
+  }
+}
+
+.clients__link--rostec {
+  svg {
+    max-height: 46px;
+  }
+
+  @include vp-1279 {
+    padding: 28px;
+
+    svg {
+      max-height: 35px;
+    }
+  }
+
+  @include vp-767 {
+    padding: 0;
+
+    svg {
+      max-height: 25px;
+    }
+  }
+}
+
+.clients__link--nlmk {
+  svg {
+    max-height: 60px;
+  }
+
+  @include vp-1279 {
+    svg {
+      max-height: 45px;
+      transform: scale(1, 0.8);
+    }
+  }
+
+  @include vp-767 {
+    max-width: 70px;
+
+    svg {
+      max-height: 35px;
+    }
+  }
+}
+
+.clients__link--rosatom {
+  svg {
+    max-height: 56px;
+  }
+
+  @include vp-1279 {
+    svg {
+      max-height: 40px;
+    }
+  }
+
+  @include vp-767 {
+    svg {
+      max-height: 30px;
+    }
+  }
+}
+
+.clients__link--tek-torg {
+  svg {
+    max-height: 37px;
+  }
+
+  @include vp-1279 {
+    svg {
+      max-height: 28px;
+    }
+  }
+
+  @include vp-767 {
+    svg {
+      max-height: 20px;
+    }
+  }
+}
+
+.clients__link--pharmstandard {
+  svg {
+    max-height: 37px;
+  }
+
+  @include vp-1279 {
+    svg {
+      max-height: 28px;
+    }
+  }
+
+  @include vp-767 {
+    svg {
+      max-height: 20px;
+    }
+  }
+}
+
+.clients__link--schlumberger {
+  svg {
+    max-height: 35px;
+  }
+
+  @include vp-1279 {
+    padding: 0 2px 3px;
+
+    svg {
+      max-height: 25px;
+      transform: scale(0.9, 1);
+    }
+  }
+
+  @include vp-767 {
+    padding: 0;
+
+    svg {
+      max-height: 18px;
+    }
+  }
+}
+
+.clients__link--sber {
+  svg {
+    max-height: 37px;
+  }
+
+  @include vp-1279 {
+    svg {
+      max-height: 28px;
+    }
+  }
+
+  @include vp-767 {
+    svg {
+      max-height: 20px;
+    }
+  }
+}
 
 .clients__link--vkontakte {
+  svg {
+    max-height: 63px;
+  }
+
   @include vp-1279 {
     padding-top: 10px;
     padding-right: 25px;
 
     svg {
-      transform: scale(1);
+      max-height: 40px;
       width: 80%;
       height: 80%;
     }
@@ -144,54 +348,81 @@
 
   @include vp-767 {
     padding: 22px;
+
+    svg {
+      max-height: 30px;
+    }
   }
 }
 
-.clients__link--nlmk {
+.clients__link--otkrytie {
+  svg {
+    max-height: 36px;
+  }
+
   @include vp-1279 {
     svg {
-      transform: scale(1, 0.8);
+      max-height: 27px;
     }
   }
 
   @include vp-767 {
-    max-width: 70px;
-  }
-}
-
-.clients__link--rostec {
-  @include vp-1279 {
-    padding: 28px;
-  }
-
-  @include vp-767 {
-    padding: 0;
-  }
-}
-
-.clients__link--schlumberger {
-  @include vp-1279 {
-    padding: 0 2px 3px;
-
     svg {
-      transform: scale(0.9, 1);
+      max-height: 18px;
+    }
+  }
+}
+
+.clients__link--mr-group {
+  svg {
+    max-height: 32px;
+  }
+
+  @include vp-1279 {
+    svg {
+      max-height: 24px;
     }
   }
 
   @include vp-767 {
-    padding: 0;
+    svg {
+      max-height: 16px;
+    }
   }
 }
 
-.clients__link--sibgur {
+.clients__link--coldy {
+  svg {
+    max-height: 20px;
+  }
+
+  @include vp-1279 {
+    svg {
+      max-height: 15px;
+    }
+  }
+
   @include vp-767 {
-    max-width: 69px;
+    svg {
+      max-height: 12px;
+    }
   }
 }
 
-.clients__link--uralchem {
+.clients__link--glavstroy {
+  svg {
+    max-height: 24px;
+  }
+
+  @include vp-1279 {
+    svg {
+      max-height: 18px;
+    }
+  }
+
   @include vp-767 {
-    max-width: 93px;
+    svg {
+      max-height: 15px;
+    }
   }
 }
-

@@ -2,6 +2,10 @@ const MIN_SWIPE_DISTANCE = 50;
 const BOUNCE_DISTANCE = 100;
 const TRANS_DEFAULT = 200;
 
+const sizeInRem = (sizeInPx, baseFontSize = 16) => {
+  return `${sizeInPx / baseFontSize}rem`;
+};
+
 const swiper = (container, paginationContainer = null) => {
   const wrapper = container;
   let startX = 0;
@@ -17,8 +21,10 @@ const swiper = (container, paginationContainer = null) => {
   let prevButton = null;
   let nextButton = null;
 
-
   const updateButtons = () => {
+    if (!prevButton || !nextButton) {
+      return;
+    }
 
     if (currentIndex === 0) {
       prevButton.disabled = true;
@@ -41,6 +47,10 @@ const swiper = (container, paginationContainer = null) => {
   };
 
   const initPagination = () => {
+    if (!paginationContainer) {
+      return;
+    }
+
     const buttons = Array.from(paginationContainer.children);
     [prevButton, nextButton] = buttons;
 
@@ -48,17 +58,17 @@ const swiper = (container, paginationContainer = null) => {
 
     prevButton.addEventListener('click', () => {
       prevSlide();
-
     });
     nextButton.addEventListener('click', () => {
       nextSlide();
-
     });
   };
 
   const updateView = () => {
-    const move = -currentIndex * (containerWidth + gapPixels);
-    wrapper.style.transform = `translateX(${move}px)`;
+    const moveValue = -currentIndex * (containerWidth + gapPixels);
+    const moveRem = sizeInRem(moveValue);
+    wrapper.style.transform = `translateX(${moveRem})`;
+
     if (paginationContainer) {
       updateButtons();
     }
@@ -78,11 +88,13 @@ const swiper = (container, paginationContainer = null) => {
 
   const nextSlide = () => {
     if (currentIndex === totalSlides - 1) {
-      const move = -currentIndex * (containerWidth + gapPixels);
-      wrapper.style.transform = `translateX(${move - BOUNCE_DISTANCE}px)`;
+      const moveValue = -currentIndex * (containerWidth + gapPixels);
+      const moveRem = sizeInRem(moveValue);
+      const bounceRem = sizeInRem(BOUNCE_DISTANCE);
+      wrapper.style.transform = `translateX(calc(${moveRem} - ${bounceRem}))`;
 
       setTimeout(() => {
-        wrapper.style.transform = `translateX(${move}px)`;
+        wrapper.style.transform = `translateX(${moveRem})`;
       }, TRANS_DEFAULT);
       return currentIndex;
     }
@@ -94,10 +106,13 @@ const swiper = (container, paginationContainer = null) => {
 
   const prevSlide = () => {
     if (currentIndex === 0) {
-      const move = -currentIndex * (containerWidth + gapPixels);
-      wrapper.style.transform = `translateX(${move + BOUNCE_DISTANCE}px)`;
+      const moveValue = -currentIndex * (containerWidth + gapPixels);
+      const moveRem = sizeInRem(moveValue);
+      const bounceRem = sizeInRem(BOUNCE_DISTANCE);
+      wrapper.style.transform = `translateX(calc(${moveRem} + ${bounceRem}))`;
+
       setTimeout(() => {
-        wrapper.style.transform = `translateX(${move}px)`;
+        wrapper.style.transform = `translateX(${moveRem})`;
       }, TRANS_DEFAULT);
       return currentIndex;
     }
@@ -136,13 +151,19 @@ const swiper = (container, paginationContainer = null) => {
     destroy: () => {
       container.removeEventListener('touchstart', handleTouchStart);
       container.removeEventListener('touchend', handleTouchEnd);
+      window.removeEventListener('resize', updateSizes);
+
+      if (prevButton && nextButton) {
+        prevButton.removeEventListener('click', prevSlide);
+        nextButton.removeEventListener('click', nextSlide);
+      }
+
       wrapper.classList.remove('swiper-wrapper');
+      wrapper.style.transform = '';
 
       slides.forEach((slide) => {
         slide.classList.remove('swiper-slide');
       });
-
-      wrapper.style.transform = '';
     },
   };
 };

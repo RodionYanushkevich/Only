@@ -1,5 +1,5 @@
 .projects .container {
-  padding: 174px 30px 0;
+  padding: size(174px) size(30px) 0;
 
   overflow: hidden;
 
@@ -32,9 +32,9 @@
     left: 50%;
     top: 0;
 
-    width: 1px;
+    width: size(1px);
     height: 100%;
-    transform: translateX(-1px);
+    transform: translateX(size(-1px));
     background-color: $color-light-gray;
 
     @include vp-1279 {
@@ -54,7 +54,7 @@
 
 .projects__section-description {
   flex-grow: 1;
-  padding-top: 41px;
+  padding-top: size(41px);
 
   @include vp-1279 {
     padding-top: 21px;
@@ -62,7 +62,7 @@
 }
 
 .projects__title-wrapper {
-  padding: 40px 0 0 39px;
+  padding: size(40px) 0 0 size(39px);
   display: flex;
   row-gap: 24px;
   min-width: 690px;
@@ -85,13 +85,13 @@
 
 
 .projects__slides {
-  margin: 78px 0 0;
+  margin: size(78px) 0 0;
   padding: 0;
   display: flex;
-  column-gap: 20px;
+  column-gap: size(20px);
 
   list-style: none;
-  max-width: 330px;
+  max-width: size(330px);
 
   @include vp-1279 {
     max-width: 357px;
@@ -109,7 +109,7 @@
 
 .projects__pagination-buttons-container {
   display: flex;
-  column-gap: 15px;
+  column-gap: size(15px);
   align-items: flex-start;
 
   @include vp-1279 {
@@ -125,9 +125,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
-  width: 61px;
-  height: 61px;
+  padding: size(20px);
+  width: size(61px);
+  height: size(61px);
 
   flex-shrink: 0;
 
@@ -136,10 +136,22 @@
     background-color $trans-default;
 
   background-color: $color-default-white;
-  border-radius: 15px;
+  border-radius: size(15px);
 
   &--next-btn {
     transform: rotate(180deg);
+  }
+
+  svg {
+    transition: transform 0.1s ease;
+
+    width: size(20px);
+    height: size(20px);
+
+    @include vp-1279 {
+      width: unset;
+      height: unset;
+    }
   }
 
   @include vp-1279 {
@@ -158,11 +170,7 @@
 
   &:active {
     svg {
-      transform: translateX(-2px);
+      transform: translateX(size(-2px));
     }
-  }
-
-  svg {
-    transition: transform 0.1s ease;
   }
 }

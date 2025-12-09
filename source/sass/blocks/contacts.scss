@@ -5,19 +5,19 @@
 
   display: flex;
   flex-direction: column;
-  row-gap: 4px;
+  row-gap: size(4px);
 }
 
 .contacts__link {
   font-family: $ff-secondary;
 
   font-weight: 500;
-  font-size: 18px;
+  font-size: size(18px);
   line-height: 125%;
   letter-spacing: -0.01em;
 
   text-decoration: underline;
-  text-underline-offset: 4px;
+  text-underline-offset: size(4px);
   text-decoration-skip-ink: none;
 
   color: $color-black;
@@ -54,7 +54,7 @@
 
   font-family: $ff-primary;
   font-weight: 500;
-  font-size: 13px;
+  font-size: size(13px);
   line-height: 110%;
   letter-spacing: -0.04em;
   text-transform: lowercase;

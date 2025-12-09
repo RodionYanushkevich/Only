@@ -1,8 +1,10 @@
 .banner-card {
   position: relative;
-  border-radius: 30px;
-  padding: 101px 0 0 30px;
-  min-height: 650px;
+
+  border-radius: size(30px);
+  padding: size(101px) 0 0 size(30px);
+  min-height: size(650px);
+  width: size(1382px);
 
   transition: opacity $trans-default;
 
@@ -29,7 +31,7 @@
 
     .banner-card__images-list-item {
       opacity: 0;
-      transform: translateY(50px) scale(0);
+      transform: translateY(size(50px)) scale(0);
       transition:
         opacity 0.7s ease-out,
         transform  0.5s ease-out;
@@ -44,7 +46,7 @@
 .banner-card__title-container {
   display: flex;
   flex-direction: column;
-  max-width: 540px;
+  max-width: size(540px);
 }
 
 .banner-card__subtitle {
@@ -69,13 +71,13 @@
 
 .banner-card__title {
   padding: 0;
-  margin: 32px 0;
+  margin: size(32px) 0;
 
   display: flex;
   flex-wrap: wrap;
 
   font-weight: 600;
-  font-size: 36px;
+  font-size: size(36px);
   line-height: 115%;
   letter-spacing: -0.03em;
 
@@ -89,9 +91,9 @@
 }
 
 .banner-card__title--card-2 {
-  div {
+  .banner-card__wrapper {
     display: flex;
-    gap: 10px;
+    gap: size(10px);
     margin-bottom: -4px;
 
     @include vp-1279 {
@@ -106,13 +108,13 @@
 }
 
 .banner-card__description {
-  margin: 0 0 23px;
+  margin: 0 0 size(23px);
   padding: 0;
-  width: 440px;
+  width: size(440px);
 
   font-family: $ff-secondary;
   font-weight: 400;
-  font-size: 16px;
+  font-size: size(16px);
   line-height: 140%;
   letter-spacing: -0.03em;
 
@@ -159,7 +161,7 @@
 
   position: relative;
   display: flex;
-  gap: 5px;
+  gap: size(5px);
 
   @include vp-1279 {
     gap: 3px;
@@ -172,9 +174,9 @@
     align-items: center;
     justify-content: center;
     background-repeat: no-repeat;
-    width: 40px;
-    height: 40px;
-    background-size: 40px;
+    width: size(40px);
+    height: size(40px);
+    background-size: size(40px);
 
     @include vp-1279 {
       width: 32px;
@@ -184,7 +186,7 @@
   }
 
   &::after {
-    margin-left: 10px;
+    margin-left: size(10px);
     background-image: var(--image-after);
 
     @media (min-resolution: $retina-dppx) {
@@ -198,7 +200,7 @@
 
   &::before {
     background-image: var(--image-before);
-    margin-left: 1px;
+    margin-left: size(1px);
 
     @media (min-resolution: $retina-dppx) {
       background-image: var(--image-before-2x, var(--image-before));
@@ -209,12 +211,12 @@
 
 .banner-card__title-wrapper {
   display: flex;
-  margin-top: 6px;
+  margin-top: size(6px);
 }
 
 .banner-card__title-icon-wrapper,
 .banner-card__title-green-bg {
-  border-radius: 154.23px;
+  border-radius: size(154.23px);
   background-color: $color-green-background;
 
   @include vp-1279 {
@@ -223,7 +225,7 @@
 }
 
 .banner-card__title-icon-wrapper {
-  padding: 10.22px 17.99px;
+  padding: size(10.22px) size(17.99px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -237,10 +239,10 @@
 
   &--card-2 {
     padding: 0;
-    margin: 2px 3px;
-    width: 50px;
-    height: 40px;
-    border-radius: 11.25px;
+    margin: size(2px) size(3px);
+    width: size(50px);
+    height: size(40px);
+    border-radius: size(11.25px);
 
     @include vp-1279 {
       padding: 8px 11px;
@@ -252,7 +254,7 @@
 }
 
 .banner-card__title-green-bg {
-  padding: 2.57px 23.13px 5px;
+  padding: size(2.57px) size(23.13px) size(5px);
 
   @include vp-1279 {
     padding: 2px 18px 4px;
@@ -260,8 +262,8 @@
 }
 
 .banner-card__title-link {
-  width: 224px;
-  min-height: 61px;
+  width: size(224px);
+  min-height: size(61px);
 
   transition:
     background-color $trans-default,
@@ -278,29 +280,43 @@
 
 .banner-card__images-list--card-1 .banner-card__images-list-item {
   &--image-1 {
-    border-radius: 6px;
-    box-shadow: 0 20px 37px 0 rgba(0, 0, 0, 0.16);
-    left: 531px;
-    top: 327px;
+    left: size(531px);
+    top: size(327px);
+
+    img {
+      width: size(280px);
+      height: size(194.84px);
+    }
   }
 
   &--image-2 {
-    border-radius: 21.61px;
-    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.04), 0 2px 2px 0 rgba(0, 0, 0, 0.06), 0 3px 3px 0 rgba(0, 0, 0, 0.07), 0 47px 34px 0 rgba(0, 0, 0, 0.14);
-    left: 771.44px;
-    top: 71px;
+    left: size(771.44px);
+    top: size(71px);
+
+    img {
+      width: size(180px);
+      height: size(388.91px);
+    }
   }
 
   &--image-3 {
-    box-shadow: 0 33px 34px 0 rgba(0, 0, 0, 0.12), inset 5px -5px 12px 4px rgba(255, 255, 255, 0.2);
-    border-radius: 24px;
-    left: 891.1px;
-    top: 295.58px;
+    left: size(891.1px);
+    top: size(295.58px);
+
+    img {
+      width: size(277px);
+      height: size(277px);
+    }
   }
 
   &--image-4 {
-    left: 1053.1px;
-    top: 84.58px;
+    left: size(1053.1px);
+    top: size(84.58px);
+
+    img {
+      width: size(282px);
+      height: size(258px);
+    }
   }
 
   @include vp-1279 {
@@ -310,13 +326,11 @@
     }
 
     &--image-2 {
-      border-radius: 12px;
       left: 470.5px;
       top: 66px;
     }
 
     &--image-3 {
-      border-radius: 12.09px;
       left: 528px;
       top: 229px;
     }
@@ -325,41 +339,59 @@
       left: 555px;
       top: 111px;
     }
+
+    img {
+      width: auto;
+      height: auto;
+    }
   }
 }
 
 .banner-card__images-list--card-2 .banner-card__images-list-item {
   &--image-1 {
-    border-radius: 15px;
-    box-shadow: 0 7px 15px 0 rgba(0, 0, 0, 0.05);
-    left: 502.45px;
-    top: 352px;
+    left: size(502.45px);
+    top: size(352px);
     z-index: 1;
+
+    img {
+      width: size(235px);
+      height: size(124.75px);
+    }
   }
 
   &--image-2 {
-    border-radius: 28.52px;
-    box-shadow: 0 7px 15px 0 rgba(0, 0, 0, 0.05);
-    left: 675px;
-    top: 50.68px;
+    left: size(675px);
+    top: size(50.68px);
+
+    img {
+      width: size(227px);
+      height: size(479.5px);
+    }
   }
 
   &--image-3 {
-    border-radius: 28.52px;
-    left: 938px;
-    top: 122px;
+    left: size(938px);
+    top: size(122px);
+
+    img {
+      width: size(227px);
+      height: size(479.5px);
+    }
   }
 
   &--image-4 {
-    border-radius: 14.86px;
-    box-shadow: 0 7px 15px 0 rgba(0, 0, 0, 0.05);
-    left: 1051.53px;
-    top: 424px;
+    left: size(1051.53px);
+    top: size(424px);
+
+    img {
+      width: size(235px);
+      height: size(74.66px);
+    }
   }
 
   &--image-5 {
-    left: 598px;
-    top: 253px;
+    left: size(598px);
+    top: size(253px);
 
     display: flex;
     flex-direction: column;
@@ -368,36 +400,41 @@
 
 
     font-weight: 400;
-    font-size: 7px;
+    font-size: size(7px);
     line-height: 240%;
     text-align: center;
     color: #777777;
 
-    border-radius: 22px;
-    box-shadow: 0 7px 15px 0 rgba(0, 0, 0, 0.05);
+    border-radius: size(22px);
+    box-shadow: 0 size(7px) size(15px) 0 rgba(0, 0, 0, 0.05);
 
-    width: 59px;
-    height: 59px;
+    width: size(59px);
+    height: size(59px);
   }
 
   &--image-6 {
-    left: 1131px;
-    top: 512px;
+    left: size(1131px);
+    top: size(512px);
 
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 7px 15px 0 rgba(0, 0, 0, 0.05);
+    box-shadow: 0 size(7px) size(15px) 0 rgba(0, 0, 0, 0.05);
 
     font-weight: 700;
-    font-size: 8px;
+    font-size: size(8px);
     line-height: 200%;
     color: #202020;
 
-    border-radius: 45px;
+    border-radius: size(45px);
     background-color: $color-banner-background;
-    width: 104px;
-    height: 29px;
+    width: size(104px);
+    height: size(29px);
+
+    svg {
+      width: size(15px);
+      height: size(12px);
+    }
   }
 
 
@@ -407,15 +444,13 @@
     }
 
     &--image-2 {
-      border-radius: 15.02px;
-      top: 79px;
-      left: 426px;
+      top: size(79px);
+      left: size(426px);
     }
 
     &--image-3 {
-      border-radius: 15.02px;
-      top: 119.2px;
-      left: 563px;
+      top: size(119.2px);
+      left: size(563px);
     }
 
     &--image-4 {
@@ -429,20 +464,97 @@
     &--image-6 {
       display: none;
     }
+
+    img {
+      width: auto;
+      height: auto;
+    }
   }
 }
 
 .banner-card__images-list-item {
   position: absolute;
-  overflow: hidden;
 }
 
+.banner-card__image-container {
+  overflow: hidden;
+
+  .banner-card__images-list--card-1 .banner-card__images-list-item--image-1 & {
+    border-radius: size(6px);
+    box-shadow: 0 size(20px) size(37px) 0 rgba(0, 0, 0, 0.16);
+  }
+
+  .banner-card__images-list--card-1 .banner-card__images-list-item--image-2 & {
+    border-radius: size(21.61px);
+    box-shadow: 0 size(1px) size(1px) 0 rgba(0, 0, 0, 0.04),
+      0 2px 2px 0 rgba(0, 0, 0, 0.06),
+      0 3px 3px 0 rgba(0, 0, 0, 0.07),
+      0 47px 34px 0 rgba(0, 0, 0, 0.14);
+  }
+
+  .banner-card__images-list--card-1 .banner-card__images-list-item--image-3 & {
+    border-radius: size(24px);
+    box-shadow: 0 size(33px) size(34px) 0 rgba(0, 0, 0, 0.12),
+      inset 5px -5px 12px 4px rgba(255, 255, 255, 0.2);
+  }
+
+  .banner-card__images-list--card-2 .banner-card__images-list-item--image-1 & {
+    border-radius: size(15px);
+    box-shadow: 0 size(7px) size(15px) 0 rgba(0, 0, 0, 0.05);
+  }
+
+  .banner-card__images-list--card-2 .banner-card__images-list-item--image-2 & {
+    border-radius: size(28.52px);
+    box-shadow: 0 size(7px) size(15px) 0 rgba(0, 0, 0, 0.05);
+  }
+
+  .banner-card__images-list--card-2 .banner-card__images-list-item--image-3 & {
+    border-radius: size(28.52px);
+  }
+
+  .banner-card__images-list--card-2 .banner-card__images-list-item--image-4 & {
+    border-radius: size(14.86px);
+    box-shadow: 0 size(7px) size(15px) 0 rgba(0, 0, 0, 0.05);
+  }
+
+  .banner-card__images-list--card-2 .banner-card__images-list-item--image-5 & {
+    border-radius: size(22px);
+    box-shadow: 0 size(7px) size(15px) 0 rgba(0, 0, 0, 0.05);
+  }
+
+  .banner-card__images-list--card-2 .banner-card__images-list-item--image-6 & {
+    border-radius: size(45px);
+    box-shadow: 0 size(7px) size(15px) 0 rgba(0, 0, 0, 0.05);
+  }
+
+  @include vp-1279 {
+    .banner-card__images-list--card-1 .banner-card__images-list-item--image-2 & {
+      border-radius: 12px;
+    }
+
+    .banner-card__images-list--card-1 .banner-card__images-list-item--image-3 & {
+      border-radius: 12.09px;
+    }
+  }
+}
 
 .banner-card__notebook-image {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: size(188px);
+  right: size(-33px);
   z-index: 1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: size(62.5px);
+  height: size(50px);
+
+
+  background-color: $color-green-background;
+  border-radius: 15px;
+
 
   @include vp-1279 {
     display: none;

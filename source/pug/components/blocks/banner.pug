@@ -4,7 +4,7 @@ mixin banner()
       {
         id: "card-1",
         title: "Формируем ценность бренда в digital - среде",
-        description: "Создаем digital-пространство для девелоперов и&nbsp;проектов&nbsp;ЖК, находя баланс идентичности бренда и&nbsp;сервисности.",
+        description: "Создаем digital-пространство для девелоперов и проектов&nbsp;ЖК, находя баланс идентичности бренда и&nbsp;сервисности.",
         images: [
           {
             alt: "изображения проекта",
@@ -89,7 +89,7 @@ mixin banner()
       ul.banner__cards-list
         each card, i in bannerCards
           li.banner__cards-list-item
-
+            h2.visually-hidden Баннеры проектов
             article.banner__card.banner-card(class=`banner-card--${card.id}`)
               .banner-card__title-container
                 if i === 0
@@ -109,7 +109,7 @@ mixin banner()
                   p.banner-card__subtitle Mobile App
                   h3.banner-card__title.banner-card__title--card-2
                     span Проектируем
-                    div
+                    span.banner-card__wrapper
                       span.banner-card__title-icon-wrapper.banner-card__title-icon-wrapper--card-2
                         +icon("banner-phone", 22, 27)(aria-hidden="true")
                       span мобильные
@@ -121,17 +121,18 @@ mixin banner()
                 each image, index in card.images
                   li.banner-card__images-list-item(
                     class=`banner-card__images-list-item--image-${index + 1}`)
-                    +adaptivePicture({
-                      imageBaseName: `card-image-${index + 1}`,
-                      path: `content/banner/${card.id}`,
-                      width: image.width1920,
-                      height: image.height1920,
-                      alt: image.alt,
-                      desktop1440Width: image.width1440,
-                      desktop1440Height: image.height1440,
-                      tabletWidth: image.tabletWidth,
-                      tabletHeight: image.tabletHeight,
-                    })
+                    .banner-card__image-container
+                      +adaptivePicture({
+                        imageBaseName: `card-image-${index + 1}`,
+                        path: `content/banner/${card.id}`,
+                        width: image.width1920,
+                        height: image.height1920,
+                        alt: image.alt,
+                        desktop1440Width: image.width1440,
+                        desktop1440Height: image.height1440,
+                        tabletWidth: image.tabletWidth,
+                        tabletHeight: image.tabletHeight,
+                      })
                     if i === 0 && index === 2
                       span.banner-card__notebook-image
                         +icon('notebook-icon', 38, 31)

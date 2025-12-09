@@ -4,12 +4,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 15px;
+  border-radius: size(15px);
 
   font-family: $ff-primary;
   font-weight: 600;
-  font-size: 14px;
-  line-height: 17px;
+  font-size: size(14px);
+  line-height: size(17px);
   letter-spacing: -0.03em;
   text-transform: lowercase;
   white-space: nowrap;
