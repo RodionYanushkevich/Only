@@ -41,6 +41,7 @@
 }
 
 .awards__title-container {
+  position: relative;
   display: flex;
   justify-content: space-between;
   border-top: $border;
@@ -49,7 +50,28 @@
     row-gap: 23px;
     flex-direction: column;
   }
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0;
+
+    width: 1px;
+    height: 100%;
+    transform: translateX(-1px);
+    background-color: $color-light-gray;
+
+    @include vp-1279 {
+      transform: translateX(0);
+    }
+
+    @include vp-767 {
+      display: none;
+    }
+  }
 }
+
 
 .awards__section-description {
   flex-grow: 1;
@@ -68,7 +90,7 @@
   min-width: 690px;
   width: min-content;
 
-  border-left: $border;
+  // border-left: $border;
 
   @include vp-1279 {
     padding: 21px 0 0 20px;
@@ -170,43 +192,42 @@
 
 .awards__tournaments-list-item {
   height: min-content;
+}
 
-  &--font {
-    @include vp-767 {
-      .awards__tournaments-button-word {
-        font-size: 32px;
-      }
+.awards__tournaments-list-item--font {
+  @include vp-767 {
+    .awards__tournaments-button-word {
+      font-size: 32px;
     }
   }
 }
 
+
 .awards__tournaments-button {
   display: flex;
   align-items: center;
-
   min-height: 70px;
 
   color: $color-black;
 
   user-select: none;
 
-
   @include vp-1279 {
     min-height: 29px;
   }
+}
 
-  &:hover,
-  &:focus-visible {
-    outline: none;
+.awards__tournaments-button:hover,
+.awards__tournaments-button:focus-visible {
+  outline: none;
 
-    .awards__tournaments-button-icon-wrapper {
-      margin-right: 20px;
-      width: 70px;
+  .awards__tournaments-button-icon-wrapper {
+    margin-right: 20px;
+    width: 70px;
 
-      @include vp-1279 {
-        margin-right: 10px;
-        width: 29px;
-      }
+    @include vp-1279 {
+      margin-right: 10px;
+      width: 29px;
     }
   }
 }

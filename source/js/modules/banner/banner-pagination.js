@@ -4,7 +4,7 @@ const bannersListItem = document.querySelectorAll('.banner__cards-list-item');
 
 
 const bullets = document.querySelectorAll('.banner__pagination-bullet');
-const TRANSITION_DURATION = 200;
+const TRANSITION_DURATION = 300;
 
 let currentIndex = 0;
 
@@ -29,9 +29,12 @@ const initBannerBulletPagination = () => {
 
   banners.forEach((el)=>{
     el.style.display = 'none';
+    el.style.opacity = '0';
   });
 
   banners[0].style.display = 'block';
+  banners[0].style.opacity = '1';
+
 
   const switchBanner = (newIndex) => {
 
@@ -41,12 +44,14 @@ const initBannerBulletPagination = () => {
     currentBanner.style.opacity = '0';
 
     setTimeout(() => {
-      newBanner.style.display = 'block';
       currentBanner.style.display = 'none';
+
+
+      newBanner.style.display = 'block';
 
       setTimeout(() => {
         newBanner.style.opacity = '1';
-      }, 300);
+      }, TRANSITION_DURATION);
 
       bullets[currentIndex].classList.remove('is-active');
       bullets[newIndex].classList.add('is-active');

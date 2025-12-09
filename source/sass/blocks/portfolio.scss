@@ -17,10 +17,31 @@
 }
 
 .portfolio__title-container {
+  position: relative;
   display: flex;
   justify-content: space-between;
 
   border-top: $border;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0;
+
+    width: 1px;
+    height: 130px;
+    transform: translateX(-1px);
+    background-color: $color-light-gray;
+
+    @include vp-1279 {
+      transform: translateX(0);
+    }
+
+    @include vp-767 {
+      display: none;
+    }
+  }
 
   @include vp-767 {
     flex-direction: column;
@@ -36,7 +57,7 @@
   min-width: 690px;
   width: min-content;
 
-  border-left: $border;
+  // border-left: $border;
 
   @include vp-1279 {
     padding: 20px 20px 0;
@@ -111,13 +132,14 @@
   display: grid;
   grid-template-columns: repeat(3, 447px);
   grid-template-rows: auto-fill;
-  justify-content: space-between;
+  justify-content: center;
   row-gap: 79px;
 
 
   @include vp-1279 {
     margin: 60px 0 0;
     row-gap: 57px;
+    column-gap: 15px;
     grid-template-columns: repeat(2, 357px);
   }
 
@@ -133,7 +155,9 @@
 
   @include vp-767 {
     display: flex;
+    margin-right: 30px;
     width: 315px;
+    align-self: center;
   }
 }
 
@@ -148,6 +172,7 @@
   display: flex;
   flex-direction: column-reverse;
   row-gap: 10px;
+  transition: opacity $trans-default;
 
   @include vp-767 {
     row-gap: 6px;
@@ -160,17 +185,18 @@
 
     .portfolio__card-image-wrapper {
       border-radius: 40px;
-
-      img {
-        transform: scale(1.02);
-      }
     }
   }
 
+  img {
+    transform: scale(1.02);
+  }
+
   &:active {
-    background-color: $color-light-gray;
+    opacity: 0.3;
   }
 }
+
 
 .portfolio__swiper-list {
   @include vp-767 {
@@ -187,12 +213,16 @@
   display: contents;
 
   @include vp-767 {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
 
-    &:last-child {
-      .portfolio__swiper-title {
-        margin: 0 0 39px;
-      }
+.portfolio__swiper-item:last-child {
+  @include vp-767 {
+    .portfolio__swiper-title {
+      margin: 0 0 39px;
     }
   }
 }
@@ -205,6 +235,7 @@
     margin: 0 0 38px;
     padding: 0;
 
+    align-self: flex-start;
     font-weight: 600;
     font-size: 20px;
     line-height: 120%;

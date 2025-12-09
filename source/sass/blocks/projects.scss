@@ -5,7 +5,7 @@
 
   @include vp-1279 {
 
-    padding: 106px 20px 0;
+    padding: 107px 20px 0;
   }
 
   @include vp-767 {
@@ -15,6 +15,7 @@
 }
 
 .projects__title-container {
+  position: relative;
   display: flex;
   justify-content: space-between;
 
@@ -23,6 +24,31 @@
   @include vp-767 {
     row-gap: 22px;
     flex-direction: column;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0;
+
+    width: 1px;
+    height: 100%;
+    transform: translateX(-1px);
+    background-color: $color-light-gray;
+
+    @include vp-1279 {
+      transform: translateX(0);
+    }
+
+    @include vp-767 {
+      display: none;
+    }
+  }
+
+  @include vp-767 {
+    flex-direction: column;
+    border-top: none;
   }
 }
 
@@ -41,8 +67,6 @@
   row-gap: 24px;
   min-width: 690px;
   width: min-content;
-
-  border-left: $border;
 
   @include vp-1279 {
     padding: 20px 0 0 19px;
