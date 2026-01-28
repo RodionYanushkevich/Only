@@ -1,21 +1,41 @@
 name: Build
 
-on: workflow_dispatch
+on:
+  workflow_dispatch:
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
-        uses: actions/checkout@v2.3.1
-      - uses: actions/setup-node@v2
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: '16'
-      # Build
+          node-version: '22'
+
       - name: Install dependencies
-        run: npm i
+        run: npm ci --ignore-scripts
+
+      - name: Create Gulp CJS wrapper
+        run: |
+          echo "const { createRequire } = require('module');
+          const require = createRequire(import.meta.url);
+          const esmExports = require('./gulpfile.mjs');
+          module.exports = {
+            build: esmExports.build,
+            dev: esmExports.dev,
+            start: esmExports.start,
+            nomin: esmExports.nomin,
+            optimize: esmExports.optimize,
+            webp: esmExports.webp,
+            avif: esmExports.avif,
+          };" > gulpfile.cjs
+
       - name: Build
         run: npm run build
+
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
